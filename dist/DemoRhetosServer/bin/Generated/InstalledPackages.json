@@ -1,0 +1,27 @@
+﻿{
+  "$id": "1",
+  "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces]], mscorlib",
+  "$values": [
+    {
+      "$id": "2",
+      "$type": "Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces",
+      "Id": "Rhetos",
+      "Version": "2.11.0",
+      "Dependencies": {
+        "$id": "3",
+        "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces]], mscorlib",
+        "$values": []
+      },
+      "Folder": ".",
+      "Request": {
+        "$id": "4",
+        "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+        "Id": "Rhetos",
+        "VersionsRange": "",
+        "Source": "",
+        "RequestedBy": "Rhetos framework"
+      },
+      "Source": "."
+    }
+  ]
+}

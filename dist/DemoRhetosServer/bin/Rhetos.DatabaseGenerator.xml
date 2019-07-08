@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.DatabaseGenerator</name>
+    </assembly>
+    <members>
+        <member name="F:Rhetos.DatabaseGenerator.DatabaseGenerator._conceptsLogger">
+            <summary>Special logger for keeping track of inserted/updated/deleted concept applications in database.</summary>
+        </member>
+        <member name="M:Rhetos.DatabaseGenerator.DatabaseGenerator.UpdateConceptApplicationsFromDependencyList(System.Collections.Generic.IEnumerable{Rhetos.DatabaseGenerator.Dependency})">
+            <summary>
+            Updates ConceptApplication.DependsOn property from "flat" list of dependencies.
+            </summary>
+        </member>
+        <member name="M:Rhetos.DatabaseGenerator.DatabaseGenerator.GetDependencyPairs(System.Collections.Generic.IEnumerable{Rhetos.DatabaseGenerator.NewConceptApplication})">
+            <returns>Item2 depends on item1.</returns>
+        </member>
+        <member name="M:Rhetos.DatabaseGenerator.DatabaseGenerator.GetDependencyPairs(System.Collections.Generic.IEnumerable{Rhetos.DatabaseGenerator.ConceptApplication})">
+            <returns>Item2 depends on item1.</returns>
+        </member>
+        <member name="T:Rhetos.DatabaseGenerator.NullImplementation">
+            <summary>
+            This concept implementation is used for concepts that have no database implementation.
+            This is useful for handling dependencies between concept application in situations where one concept application depends on another concept info
+            that has no implementation and which depends on a third concept application. First concept application should indirectly depend on third, even though there
+            is no second concept application.  Such scenarios are easier to handle if every concept has its implementation.
+            </summary>
+        </member>
+    </members>
+</doc>

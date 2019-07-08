@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Security.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Rhetos.Security.Claim">
+            <summary>
+            Resource and Right properties are case insensitive.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Security.IWindowsSecurity">
+            <summary>
+            A utility class for common WCF and Active directory operations.
+            </summary>
+        </member>
+    </members>
+</doc>

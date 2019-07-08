@@ -1,0 +1,27 @@
+2019-07-08 14:10:16.4013|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-08 14:10:16.5533|TRACE|DeployPackages|Getting packages.
+2019-07-08 14:10:16.5814|ERROR|DeploymentConfiguration|No packages defined in 'RhetosPackages.config'. Edit the new file to set which Rhetos packages will be deployed. Note that removing a Rhetos package from the file will uninstall the package.
+2019-07-08 14:10:16.6173|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-08 14:10:16.9611|TRACE|DeployPackages|Loading plugins.
+2019-07-08 14:10:17.9844|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-08 14:10:18.1371|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-08 14:10:18.8459|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-08 14:10:19.0259|TRACE|DeployPackages|Application model has 1 statements.
+2019-07-08 14:10:19.0379|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-08 14:10:19.0699|ERROR|DeployPackages|WARNING: Empty assembly is generated.
+2019-07-08 14:10:19.0899|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-07-08 14:10:19.1099|TRACE|DeployPackages|Cleaning old migration data.
+2019-07-08 14:10:19.2019|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
+2019-07-08 14:10:19.2139|TRACE|DeployPackages|Executing data migration scripts.
+2019-07-08 14:10:19.2539|TRACE|DeployPackages|Executed 0 of 0 scripts.
+2019-07-08 14:10:19.2620|TRACE|DeployPackages|Upgrading database.
+2019-07-08 14:10:19.4233|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-07-08 14:10:19.4353|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-07-08 14:10:19.4473|TRACE|DeployPackages|Deleting redundant migration data.
+2019-07-08 14:10:19.4713|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
+2019-07-08 14:10:19.4833|TRACE|DeployPackages|Uploading DSL scripts.
+2019-07-08 14:10:19.6317|TRACE|DeployPackages|Uploaded 0 DSL scripts to database.
+2019-07-08 14:10:19.6557|TRACE|DeployPackages|Loading generated plugins.
+2019-07-08 14:10:19.6797|TRACE|DeployPackages|No server initialization plugins.
+2019-07-08 14:10:19.7037|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-07-08 14:10:19.7117|TRACE|DeployPackages|Done.

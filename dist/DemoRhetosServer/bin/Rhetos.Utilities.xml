@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Utilities</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.Utilities.DeployArguments.Pop(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Reads and removes the option form the arguments list.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.ConfigUtility.GetAppSetting(System.String)">
+            <summary>
+            Use "Configuration.GetInt" or "Configuration.GetBool" instead.
+            Reads the web service configuration from appSettings group in web.config file.
+            When used in another application (for example, DeployPackages.exe),
+            the application's ".config" file can be used to override the default settings from the web.config.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.DatabaseTimeCache.MaxRetries">
+            <summary>
+            Retries are used to eliminate imprecision caused by initialization of the SQL connection (or a connection pool).
+            The first response from a local SQL Server may have latency around 30ms, while the consecutive responses execute in 1ms or 0ms.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.FilesUtility.EmptyDirectory(System.String)">
+            <summary>
+            Creates the directory if it doesn't exists and deletes its content.
+            This method will not delete the directory and create a new one; the existing directory is kept, in order to reduce locking issues if the folder is opened in command prompt or other application.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.FileSyncer">
+            <summary>
+            Copies the given files from source to destination and deletes all other old files from the destination folder.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.FileSyncer.AddFolderContent(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            The destinationSubfolder parameter is separated from destinationFolder because
+            all obsolete files in the destinationFolder must be deleted.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.FileSyncer.AddFile(System.String,System.String,System.String)">
+            <summary>
+            The destinationFolder parameter is separated from destinationFile because
+            all obsolete files in the destinationFolder must be deleted.
+            </summary>
+            <param name="destinationFile">If null, the original file name is used.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.GeneratedFilesCache.MoveGeneratedFilesToCache">
+            <summary>
+            Moves only the successfully generated file groups to the cache folder, otherwise keeps the old cached files.
+            Deletes all generated files.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.GeneratedFilesCache.SaveHash(System.String,System.Byte[])">
+            <param name="sampleSourceFile">Any file from the cached file group, extension will be ignored.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.GeneratedFilesCache.LoadHash(System.String)">
+            <param name="sampleSourceFile">Any file from the cached file group, extension will be ignored.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.GeneratedFilesCache.RestoreCachedFiles(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Copies the files from cache only if all of the extensions are found in the cache,
+            and if the sourceContent matches the corresponding sourceFile in the cache.
+            </summary>
+            <param name="sampleSourceFile">Any file from the cached file group, extension will be ignored.</param>
+            <returns>List of the restored files, if the files are copied from the cache, null otherwise.</returns>
+        </member>
+        <member name="M:Rhetos.Utilities.ISqlUtility.InterpretSqlException(System.Exception)">
+            <summary>
+            Checks the exception for database errors and attempts to transform it to a RhetosException.
+            It the function returns null, the original exception should be used.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.ISqlUtility.ExtractSqlException(System.Exception)">
+            <summary>
+            Simplifies ORM exception by detecting the SQL exception that caused it.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Utilities.IUserInfoAdmin.IsBuiltInAdministrator">
+            <summary>
+            User that is a BuiltInAdministrator has all claims by default, if the BuiltinAdminOverride option is set in web.config.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.SqlTransactionBatches">
+            <summary>
+            This class add additional functionality over ISqlExecuter for executing a batch SQL scripts (custom transaction handling and reporting),
+            while allowing ISqlExecuter implementations to focus on the database technology.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlTransactionBatches.SqlScript.IsBatch">
+            <summary>
+            If the script is a batch, it will be split by a batch separator ("GO") before executing each part separately.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlTransactionBatches.Execute(System.Collections.Generic.IEnumerable{Rhetos.Utilities.SqlTransactionBatches.SqlScript})">
+            <summary>
+            1. Splits the scripts by the SQL batch delimiter ("GO", for Microsoft SQL Server). See <see cref="M:Rhetos.Utilities.SqlUtility.SplitBatches(System.String)"/>.
+            2. Detects and applies the transaction usage tag. See <see cref="F:Rhetos.Utilities.SqlUtility.NoTransactionTag"/> and <see cref="M:Rhetos.Utilities.SqlUtility.ScriptSupportsTransaction(System.String)"/>.
+            3. Reports progress (Info level) after each minute.
+            4. Prefixes each SQL script with a comment containing the script's name.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlTransactionBatches.JoinScripts(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Combines multiple SQL scripts to a single one.
+            Use only for DML SQL scripts to avoid SQL syntax errors on DDL commands that need to stay in a separate scripts.
+            Scripts are joined to groups, respecting the configuration settings for the limit on total joined script size and count.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Rhetos.Utilities.NoLocalizer">
+            <summary>
+            This is the default implementation of ILocalizer.
+            It simply returns the given string, without modification.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.ILocalizer">
+            <summary>
+            Used for localization of end-user messages.
+            Use the indexer method to translate a message to the client's language.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Utilities.ILocalizer.Item(System.Object,System.Object[])">
+            <summary>
+            Use of the indexer is similar to string.Format() function.
+            Example: <code>string translatedMsg = _localizer["{0} cannot have value {1}.", somePropertyName, newValue]</code>
+            </summary>
+            <param name="message">The parameter type is object, instead of string, to enable simple localization of DateTime and other types.</param>
+        </member>
+        <member name="T:Rhetos.Utilities.MultiDictionary`2">
+            <summary>
+            May contain multiple values with the same key.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.MultiDictionary`2.Get(`0)">
+            <summary>
+            Returns empty list is the given key does not exist.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.ExceptionsUtility.InvokeEx(System.Reflection.MethodInfo,System.Object,System.Object[])">
+            <summary>
+            Same as MethodInfo.Invoke function, but in a case of exception, it will unwrap the TargetInvocationException and rethrow the original one.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.ExceptionsUtility.Rethrow(System.Exception)">
+            <summary>
+            Keeps the original stack trace when rethrowing an existing exception.
+            The simple "throw;" will not show the stack trace of the original exception.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.ExceptionsUtility.SafeFormatUserMessage(System.Exception)">
+            <summary>
+            It the exception is a UserException, this function evaluates the message parameters using string.Format, without localization.
+            Use this method in error logging to make sure every error is logger even if it's message format is not valid.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.OracleSqlUtility.SetNationalLanguageQuery">
+            <summary>
+            Returns an SQL query that is used to set the national language, for string comparison and sorting.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.OracleSqlUtility.SetSqlUserInfo(Oracle.ManagedDataAccess.Client.OracleConnection,Rhetos.Utilities.IUserInfo)">
+            <summary>
+            Provides the user information to the database, for logging and similar features.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.OracleSqlUtility.InterpretSqlException(System.Exception)">
+            <summary>
+            See ISqlUtility.InterpretSqlException.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.Paths.InitializeRhetosServer">
+            <summary>
+            Initialize Paths for the Rhetos server.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.Paths.InitializeRhetosServerRootPath(System.String)">
+            <summary>
+            Initialize Paths for any application other then Rhetos server.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Utilities.Paths.DomAssemblyFiles">
+            <summary>
+            List of the generated dll files that make the domain object model (ServerDom.*.dll).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.QuotedString(System.String)">
+            <summary>
+            Generates a C# string constant.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.TextToIdentifier(System.String)">
+            <summary>
+            Changes special characters in text to alphanumeric characters and '_'.
+            Different texts will always produce different results.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{System.String})">
+            <summary>
+            Reads a value from the dictionary, with extended error handling.
+            Parameter exceptionMessage can contain format tag {0} that will be replaced by missing key.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.String)">
+            <summary>
+            Reads a value from the dictionary, with extended error handling.
+            Parameter exceptionMessage can contain format tag {0} that will be replaced by missing key.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Reads a value from the dictionary or returns default if the dictionary does not contain the key.
+            This method helps when the TryGetValue() method cannot be called directly with anonymous value type.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetValueOrEmpty``2(System.Collections.Generic.IDictionary{``0,System.Collections.Generic.List{``1}},``0)">
+            <summary>
+            Reads a value from the dictionary or returns an empty List if the dictionary does not contain the key.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetIdentifierError(System.String)">
+            <summary>
+            Returns null if the argument is a valid identifier, error message otherwise.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetClassHierarchy(System.Type)">
+            <summary>
+            Result does not include implemented interfaces, only base classes.
+            Result includes the given type.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.Materialize``1(System.Collections.Generic.IEnumerable{``0}@)">
+            <summary>
+            If <paramref name="items"/> is not a List or an Array, converts it to a List&lt;<typeparamref name="T"/>&gt;.
+            If the parameter is null, it will remain null.
+            Use this function to make sure that the <paramref name="items"/> is not a LINQ query
+            before using it multiple times, in order to avoid the query evaluation every time
+            (sometimes it means reading data from the database on every evaluation).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GetNaturalSortString(System.String)">
+            <summary>
+            Use this method to sort strings respecting the number values in the string.
+            Example: new[] { "a10", "a11", "a9", "b3-11", "b3-2" }.OrderBy(s => GetNaturalSortString(s))
+            Returns: "a9", "a10", "a11", "b3-2", "b3-11"
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.ReportTypeLoadException(System.Reflection.ReflectionTypeLoadException,System.String)">
+            <summary>
+            Creates a detailed report message for the ReflectionTypeLoadException.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.MatchPrefixes(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Returns a subset of the given strings that match the given prefixes.
+            String comparison is ordinal, case insensitive.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.GroupItemsKeepOrdering``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Groups items to batches by their group value, keeping the order of the items.
+            This may result with two items with the same key ending in different groups, if there is an item with different key between them.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.CsUtility.Limit(System.String,System.Int32,System.String)">
+            <param name="trimMark">The suffix that will be appended if the text is trimmed (for example: "...").
+            The resulting text length with the suffix included will be maxLength.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.Graph.IncludeDependents``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Tuple{``0,``0}})">
+            <summary>
+            Return a list that contains all elements from the given list and all elements that depend on them.
+            </summary>
+            <param name="dependencies">Dependency: Item2 depends on Item1.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.Graph.IncludeDependents``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Return a list that contains all elements from the given list and all elements that depend on them.
+            </summary>
+            <param name="getDependents">A function that returns direct dependents of the given item.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.Graph.TopologicalSort``1(System.Collections.Generic.List{``0},System.Collections.Generic.IEnumerable{System.Tuple{``0,``0}})">
+            <summary>
+            Sorts a partially ordered set (directed acyclic graph).
+            </summary>
+            <param name="dependencies">Dependency: Item2 depends on Item1.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.Graph.RemovableLeaves``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Tuple{``0,``0}})">
+            <summary>
+            Returns a list of nodes (a subset of 'candidates') that can be safely removed in a way
+            that no other remaining node depends (directly or indirectly) on removed nodes.
+            </summary>
+            <param name="candidates">Nodes to be removed.</param>
+            <param name="dependencies">Dependency: Item2 depends on Item1.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.Graph.GetIndirectRelations``1(System.Collections.Generic.ICollection{System.Tuple{``0,``0}})">
+            <summary>
+            Returns given direct relations and all the indirect relations that can be achieved by combining two or more direct relations.
+            See: reachability, transitive closure.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.FastReplacer">
+            <summary>
+            FastReplacer is a utility class similar to StringBuilder, with fast Replace function.
+            FastReplacer is limited to replacing only properly formatted tokens.
+            Use ToString() function to get the final text.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.FastReplacer.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            All tokens that will be replaced must have same opening and closing delimiters, such as "{" and "}".
+            </summary>
+            <param name="tokenOpen">Opening delimiter for tokens.</param>
+            <param name="tokenClose">Closing delimiter for tokens.</param>
+            <param name="caseSensitive">Set caseSensitive to false to use case-insensitive search when replacing tokens.</param>
+        </member>
+        <member name="M:Rhetos.Utilities.FastReplacer.Replace(System.String,System.String)">
+            <returns>Returns true if the token was found, false if nothing was replaced.</returns>
+        </member>
+        <member name="M:Rhetos.Utilities.FastReplacer.InsertBefore(System.String,System.String)">
+            <returns>Returns true if the token was found, false if nothing was replaced.</returns>
+        </member>
+        <member name="M:Rhetos.Utilities.FastReplacer.InsertAfter(System.String,System.String,System.Boolean)">
+            <returns>Returns true if the token was found, false if nothing was replaced.</returns>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlExecuterExtensions.ExecuteSql(Rhetos.Utilities.ISqlExecuter,System.String[])">
+            <summary>
+            Executes the SQL queries in a transaction.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlExecuterExtensions.ExecuteSql(Rhetos.Utilities.ISqlExecuter,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Executes the SQL queries in a transaction.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.IUserInfo">
+            <summary>
+            Implementation of this interface is a security principal provider.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Utilities.IUserInfo.Workstation">
+            <summary>
+            Client host name or address.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.IUserInfo.Report">
+            <summary>
+            Specially formatted user info. Usual implementation is "Domain\UserName,WorkStation".
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Rhetos.Utilities.MsSqlUtility.SetUserContextInfoQuery(Rhetos.Utilities.IUserInfo)">
+            <summary>
+            Creates an SQL query that sets context_info connection variable to contain data about the user.
+            The context_info variable can be used in SQL server to extract user info in certain situations such as logging trigger.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.MsSqlUtility.InterpretSqlException(System.Exception)">
+            <summary>
+            See ISqlUtility.InterpretSqlException.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.SqlTransactionBatch">
+            <summary>SQL scripts are grouped into batches to handle different transaction usage.</summary>
+        </member>
+        <member name="P:Rhetos.Utilities.SqlUtility.SqlCommandTimeout">
+            <summary>
+            In seconds.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlUtility.Identifier(System.String)">
+            <summary>
+            Throws an exception if 'name' is not a valid SQL database object name.
+            Function returns given argument so it can be used as fluent interface.
+            In some cases the function may change the identifier (limit identifier length to 30 on Oracle database, e.g.).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlUtility.ReadGuid(System.Data.Common.DbDataReader,System.Int32)">
+            <summary>
+            Vendor-independent database reader.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlUtility.ReadInt(System.Data.Common.DbDataReader,System.Int32)">
+            <summary>
+            Vendor-independent database reader.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlUtility.EmptyNullString(System.Data.Common.DbDataReader,System.Int32)">
+            <summary>
+            Returns empty string if the string value is null.
+            This function is used for compatibility between MsSql and Oracle string behavior.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlUtility.ScriptSplitterTag">
+            <summary>
+            Used in DatabaseGenerator to split SQL script generated by IConceptDatabaseDefinition plugins.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlUtility.NoTransactionTag">
+            <summary>
+            Add this tag to the beginning of the DatabaseGenerator SQL script to execute it without transaction.
+            Used for special database changes that must be executed without transaction, for example
+            creating full-text search index.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SqlUtility.SplitBatches(System.String)">
+            <summary>
+            Splits the script to multiple batches, separated by the GO command.
+            It emulates the behavior of Microsoft SQL Server utilities, sqlcmd and osql,
+            but it does not work perfectly: comments near GO, strings containing GO and the repeat count are currently not supported.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.GenericDataContractResolver.#ctor(Rhetos.Dom.IDomainObjectModel)">
+            <param name="domainObjectModel">The parameter may be null is the object model is not yet generated.</param>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlVersion.Sql8">
+            <summary>
+                SQL Server 8 (2000).
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlVersion.Sql9">
+            <summary>
+                SQL Server 9 (2005).
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlVersion.Sql10">
+            <summary>
+                SQL Server 10 (2008).
+            </summary>
+        </member>
+        <member name="F:Rhetos.Utilities.SqlVersion.Sql11">
+            <summary>
+                SQL Server 11 (2012).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SystemUtility.GetRhetosVersion">
+            <summary>
+            Version of the currently running Rhetos server.
+            Note that it is not compatible with System.Version because Rhetos version may contain
+            textual pre-release information and build metadata (see Semantic Versioning 2.0.0 for example).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.SystemUtility.GetTargetFramework">
+            <summary>
+            "Environment.Version" and similar run-time functions return CLR runtime version, not the .NET Framework version that is targeted by the project.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Utilities.XmlUtility.#ctor(Rhetos.Dom.IDomainObjectModel)">
+            <param name="domainObjectModel">
+            Use of domainObjectModel.GetType(string) is needed along with Type.GetType(string) to find objects in the generate domain object model.
+            Since DOM assembly is not directly referenced from other dlls, Type.GetType will not find types in DOM
+            before the Dom.GetType is used. The problem usually manifests on the first server call after restarting the process.
+            The parameter may be null is the object model is not yet generated.
+            </param>
+        </member>
+        <member name="M:Rhetos.Utilities.XmlUtility.RemoveComments(System.String)">
+            <summary>
+            This method removes both valid XML comments and the provisional comments inside elements and attributes,
+            that were used as placeholders for generating the XML string.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.ValueOrError`1">
+            <summary>
+            Used as a replacement for exceptions in error handling. Exceptions can hinder performance
+            in debug mode (about 100 exceptions per second can be processed).
+            </summary>
+            <typeparam name="T">Type of the value.</typeparam>
+        </member>
+        <member name="M:Rhetos.Utilities.ValueOrError`1.CreateValue(`0)">
+            <summary>
+            Implicit cast can be used instead of this function.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Utilities.ValueOrError">
+            <summary>
+            This is a helper for returning an error without specifying a generic type.
+            It will be implicitly converted to the generic <see cref="T:Rhetos.Utilities.ValueOrError`1"/> class.
+            </summary>
+        </member>
+        <member name="T:Rhetos.LegacyClientException">
+            <summary>
+            Legacy exception allows backward compatible JSON response format (a string instead of an object).
+            </summary>
+        </member>
+        <member name="T:Rhetos.ClientException">
+            <summary>
+            Exception denotes a request or data format error occurred in communication between client and server. 
+            Client is not adhering to server API.
+            </summary>
+        </member>
+        <member name="P:Rhetos.RhetosException.Info">
+            <summary>
+            Additional error context. It will be sent to the client if the exception is UserException or ClientException.
+            The Info property is used instead of the existing "Data" dictionary to avoid security issue when sending data to the client,
+            since other tools might use the Data for internal debugging data.
+            </summary>
+        </member>
+        <member name="T:Rhetos.UserException">
+            <summary>
+            This exceptions denotes an error during validation of data vs business logic rules.
+            These errors result from end users' incorrect usage of the application.
+            </summary>
+        </member>
+        <member name="F:Rhetos.UserException.MessageParameters">
+            <summary>
+            The MessageParameters are used with the Message property, matching the arguments of the string.Format(Message, MessageParameters) method.
+            </summary>
+        </member>
+        <member name="T:Rhetos.FrameworkException">
+            <summary>
+            An internal error of the Rhetos platform occurred. If it is encountered a bug report should be submitted to Rhetos platform development team.
+            </summary>
+        </member>
+    </members>
+</doc>
