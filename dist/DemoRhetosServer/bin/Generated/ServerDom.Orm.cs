@@ -101,64 +101,6 @@ namespace Common
 
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<global::Bookstore.Book>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_Book>().Map(m => { m.MapInheritedProperties(); m.ToTable("Book", "Bookstore"); });
-            modelBuilder.Ignore<global::Bookstore.BooksThemes>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_BooksThemes>().Map(m => { m.MapInheritedProperties(); m.ToTable("BooksThemes", "Bookstore"); });
-            modelBuilder.Entity<Common.Queryable.Bookstore_BooksThemes>().HasRequired(t => t.Base).WithOptional(t => t.Extension_BooksThemes);
-            modelBuilder.Ignore<global::Bookstore.Person>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_Person>().Map(m => { m.MapInheritedProperties(); m.ToTable("Person", "Bookstore"); });
-            modelBuilder.Entity<Common.Queryable.Bookstore_Book>()
-                .HasOptional(t => t.Author).WithMany()
-                .HasForeignKey(t => t.AuthorID);
-            modelBuilder.Ignore<global::Bookstore.ChildBook>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_ChildBook>().Map(m => { m.MapInheritedProperties(); m.ToTable("ChildBook", "Bookstore"); });
-            modelBuilder.Entity<Common.Queryable.Bookstore_ChildBook>().HasRequired(t => t.Base).WithOptional(t => t.Extension_ChildBook);
-            modelBuilder.Ignore<global::Bookstore.ForeignBook>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>().Map(m => { m.MapInheritedProperties(); m.ToTable("ForeignBook", "Bookstore"); });
-            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>().HasRequired(t => t.Base).WithOptional(t => t.Extension_ForeignBook);
-            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>()
-                .HasOptional(t => t.Translator).WithMany()
-                .HasForeignKey(t => t.TranslatorID);
-            modelBuilder.Ignore<global::Bookstore.Theme>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_Theme>().Map(m => { m.MapInheritedProperties(); m.ToTable("Theme", "Bookstore"); });
-            modelBuilder.Ignore<global::Bookstore.BookTheme>();
-            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>().Map(m => { m.MapInheritedProperties(); m.ToTable("BookTheme", "Bookstore"); });
-            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>()
-                .HasOptional(t => t.Book).WithMany()
-                .HasForeignKey(t => t.BookID);
-            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>()
-                .HasOptional(t => t.Theme).WithMany()
-                .HasForeignKey(t => t.ThemeID);
-            modelBuilder.Ignore<global::Rezervacije.Soba>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>().Map(m => { m.MapInheritedProperties(); m.ToTable("Soba", "Rezervacije"); });
-            modelBuilder.Ignore<global::Rezervacije.TipSobe>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_TipSobe>().Map(m => { m.MapInheritedProperties(); m.ToTable("TipSobe", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>()
-                .HasOptional(t => t.TipSobeID).WithMany()
-                .HasForeignKey(t => t.TipSobeIDID);
-            modelBuilder.Entity<Common.Queryable.Rezervacije_TipSobe>().Property(t => t.Cijena).HasPrecision(28, 10);
-            modelBuilder.Ignore<global::Rezervacije.Rezervacija>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("Rezervacija", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>()
-                .HasOptional(t => t.SobaID).WithMany()
-                .HasForeignKey(t => t.SobaIDID);
-            modelBuilder.Ignore<global::Rezervacije.BrojRezervacijaPoSobi>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi>().Map(m => { m.MapInheritedProperties(); m.ToTable("BrojRezervacijaPoSobi", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi>().HasRequired(t => t.Base).WithOptional(t => t.Extension_BrojRezervacijaPoSobi);
-            modelBuilder.Ignore<global::Rezervacije.Hotel>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Hotel>().Map(m => { m.MapInheritedProperties(); m.ToTable("Hotel", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>()
-                .HasOptional(t => t.Hotel).WithMany()
-                .HasForeignKey(t => t.HotelID);
-            modelBuilder.Ignore<global::Rezervacije.Gost>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Gost>().Map(m => { m.MapInheritedProperties(); m.ToTable("Gost", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>()
-                .HasOptional(t => t.GostID).WithMany()
-                .HasForeignKey(t => t.GostIDID);
-            modelBuilder.Ignore<global::Rezervacije.StraniGost>();
-            modelBuilder.Entity<Common.Queryable.Rezervacije_StraniGost>().Map(m => { m.MapInheritedProperties(); m.ToTable("StraniGost", "Rezervacije"); });
-            modelBuilder.Entity<Common.Queryable.Rezervacije_StraniGost>().HasRequired(t => t.Base).WithOptional(t => t.Extension_StraniGost);
             modelBuilder.Ignore<global::Common.AutoCodeCache>();
             modelBuilder.Entity<Common.Queryable.Common_AutoCodeCache>().Map(m => { m.MapInheritedProperties(); m.ToTable("AutoCodeCache", "Common"); });
             modelBuilder.Ignore<global::Common.FilterId>();
@@ -221,6 +163,64 @@ namespace Common
             modelBuilder.Entity<Common.Queryable.Common_RolePermission>()
                 .HasOptional(t => t.Claim).WithMany()
                 .HasForeignKey(t => t.ClaimID);
+            modelBuilder.Ignore<global::Bookstore.Book>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_Book>().Map(m => { m.MapInheritedProperties(); m.ToTable("Book", "Bookstore"); });
+            modelBuilder.Ignore<global::Bookstore.BooksThemes>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_BooksThemes>().Map(m => { m.MapInheritedProperties(); m.ToTable("BooksThemes", "Bookstore"); });
+            modelBuilder.Entity<Common.Queryable.Bookstore_BooksThemes>().HasRequired(t => t.Base).WithOptional(t => t.Extension_BooksThemes);
+            modelBuilder.Ignore<global::Bookstore.Person>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_Person>().Map(m => { m.MapInheritedProperties(); m.ToTable("Person", "Bookstore"); });
+            modelBuilder.Entity<Common.Queryable.Bookstore_Book>()
+                .HasOptional(t => t.Author).WithMany()
+                .HasForeignKey(t => t.AuthorID);
+            modelBuilder.Ignore<global::Bookstore.ChildBook>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_ChildBook>().Map(m => { m.MapInheritedProperties(); m.ToTable("ChildBook", "Bookstore"); });
+            modelBuilder.Entity<Common.Queryable.Bookstore_ChildBook>().HasRequired(t => t.Base).WithOptional(t => t.Extension_ChildBook);
+            modelBuilder.Ignore<global::Bookstore.ForeignBook>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>().Map(m => { m.MapInheritedProperties(); m.ToTable("ForeignBook", "Bookstore"); });
+            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>().HasRequired(t => t.Base).WithOptional(t => t.Extension_ForeignBook);
+            modelBuilder.Entity<Common.Queryable.Bookstore_ForeignBook>()
+                .HasOptional(t => t.Translator).WithMany()
+                .HasForeignKey(t => t.TranslatorID);
+            modelBuilder.Ignore<global::Bookstore.Theme>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_Theme>().Map(m => { m.MapInheritedProperties(); m.ToTable("Theme", "Bookstore"); });
+            modelBuilder.Ignore<global::Bookstore.BookTheme>();
+            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>().Map(m => { m.MapInheritedProperties(); m.ToTable("BookTheme", "Bookstore"); });
+            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>()
+                .HasOptional(t => t.Book).WithMany()
+                .HasForeignKey(t => t.BookID);
+            modelBuilder.Entity<Common.Queryable.Bookstore_BookTheme>()
+                .HasOptional(t => t.Theme).WithMany()
+                .HasForeignKey(t => t.ThemeID);
+            modelBuilder.Ignore<global::Rezervacije.Soba>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>().Map(m => { m.MapInheritedProperties(); m.ToTable("Soba", "Rezervacije"); });
+            modelBuilder.Ignore<global::Rezervacije.TipSobe>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_TipSobe>().Map(m => { m.MapInheritedProperties(); m.ToTable("TipSobe", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>()
+                .HasOptional(t => t.TipSobeID).WithMany()
+                .HasForeignKey(t => t.TipSobeIDID);
+            modelBuilder.Entity<Common.Queryable.Rezervacije_TipSobe>().Property(t => t.Cijena).HasPrecision(28, 10);
+            modelBuilder.Ignore<global::Rezervacije.Rezervacija>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>().Map(m => { m.MapInheritedProperties(); m.ToTable("Rezervacija", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>()
+                .HasOptional(t => t.SobaID).WithMany()
+                .HasForeignKey(t => t.SobaIDID);
+            modelBuilder.Ignore<global::Rezervacije.BrojRezervacijaPoSobi>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi>().Map(m => { m.MapInheritedProperties(); m.ToTable("BrojRezervacijaPoSobi", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi>().HasRequired(t => t.Base).WithOptional(t => t.Extension_BrojRezervacijaPoSobi);
+            modelBuilder.Ignore<global::Rezervacije.Hotel>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Hotel>().Map(m => { m.MapInheritedProperties(); m.ToTable("Hotel", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Soba>()
+                .HasOptional(t => t.Hotel).WithMany()
+                .HasForeignKey(t => t.HotelID);
+            modelBuilder.Ignore<global::Rezervacije.Gost>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Gost>().Map(m => { m.MapInheritedProperties(); m.ToTable("Gost", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_Rezervacija>()
+                .HasOptional(t => t.GostID).WithMany()
+                .HasForeignKey(t => t.GostIDID);
+            modelBuilder.Ignore<global::Rezervacije.StraniGost>();
+            modelBuilder.Entity<Common.Queryable.Rezervacije_StraniGost>().Map(m => { m.MapInheritedProperties(); m.ToTable("StraniGost", "Rezervacije"); });
+            modelBuilder.Entity<Common.Queryable.Rezervacije_StraniGost>().HasRequired(t => t.Base).WithOptional(t => t.Extension_StraniGost);
             modelBuilder.Entity<Common.Queryable.Common_LogRelatedItemReader>()
                 .HasOptional(t => t.Log).WithMany()
                 .HasForeignKey(t => t.LogID);
@@ -230,20 +230,6 @@ namespace Common
             /*EntityFrameworkOnModelCreating*/
         }
 
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Book> Bookstore_Book { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_BooksThemes> Bookstore_BooksThemes { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Person> Bookstore_Person { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_ChildBook> Bookstore_ChildBook { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_ForeignBook> Bookstore_ForeignBook { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Theme> Bookstore_Theme { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_BookTheme> Bookstore_BookTheme { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Soba> Rezervacije_Soba { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_TipSobe> Rezervacije_TipSobe { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Rezervacija> Rezervacije_Rezervacija { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi> Rezervacije_BrojRezervacijaPoSobi { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Hotel> Rezervacije_Hotel { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Gost> Rezervacije_Gost { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_StraniGost> Rezervacije_StraniGost { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_AutoCodeCache> Common_AutoCodeCache { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_FilterId> Common_FilterId { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_KeepSynchronizedMetadata> Common_KeepSynchronizedMetadata { get; set; }
@@ -260,6 +246,20 @@ namespace Common
         public System.Data.Entity.DbSet<Common.Queryable.Common_RoleInheritsRole> Common_RoleInheritsRole { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_PrincipalPermission> Common_PrincipalPermission { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_RolePermission> Common_RolePermission { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Book> Bookstore_Book { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_BooksThemes> Bookstore_BooksThemes { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Person> Bookstore_Person { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_ChildBook> Bookstore_ChildBook { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_ForeignBook> Bookstore_ForeignBook { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_Theme> Bookstore_Theme { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Bookstore_BookTheme> Bookstore_BookTheme { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Soba> Rezervacije_Soba { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_TipSobe> Rezervacije_TipSobe { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Rezervacija> Rezervacije_Rezervacija { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi> Rezervacije_BrojRezervacijaPoSobi { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Hotel> Rezervacije_Hotel { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_Gost> Rezervacije_Gost { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.Rezervacije_StraniGost> Rezervacije_StraniGost { get; set; }
         /*EntityFrameworkContextMembers*/
     }
 

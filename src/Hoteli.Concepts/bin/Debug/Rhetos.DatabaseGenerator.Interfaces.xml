@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.DatabaseGenerator.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.DatabaseGenerator.IConceptDatabaseDefinitionExtension.ExtendDatabaseStructure(Rhetos.Dsl.IConceptInfo,Rhetos.Compiler.ICodeBuilder,System.Collections.Generic.IEnumerable{System.Tuple{Rhetos.Dsl.IConceptInfo,Rhetos.Dsl.IConceptInfo}}@)">
+            <summary>
+            Used to modify "create queries" that are produced by other concept implementations.
+            </summary>
+            <param name="conceptInfo">Concept instance for which database structure needs to be created.</param>
+            <param name="codeBuilder">Use tags to insert new code in extension points 
+            that are provided by other concept implementations.</param>
+            <param name="createdDependencies">Provide new dependencies if inserted code have created additional 
+            dependencies that are not obvious from ConceptInfo dependencies or from DepenedsOn metadata.
+            In the Tuple, Item2 depends on Item1. If no additional dependencies are created, set the output value to null.
+            In createdDependencies you can create and use a new instance of concept info to reference existing concept info with same concept info key.</param>
+        </member>
+    </members>
+</doc>

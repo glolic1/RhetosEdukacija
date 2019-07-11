@@ -466,6 +466,11 @@ namespace Bookstore._Helper
                     if(newItem.Created == null)
                         newItem.Created = now;
             }
+            { // UkloniRazmakePriSpremanju
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Title = room.Title.Replace(" ", string.Empty);
+            }
+
             /*DataStructureInfo WritableOrm Initialization Bookstore.Book*/
 
             // Using old data, including lazy loading of navigation properties:
@@ -1710,6 +1715,11 @@ namespace Rezervacije._Helper
             }
             /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Soba*/
 
+            { // UkloniRazmakePriSpremanju
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Ime = room.Ime.Replace(" ", string.Empty);
+            }
+
             /*DataStructureInfo WritableOrm Initialization Rezervacije.Soba*/
 
             // Using old data, including lazy loading of navigation properties:
@@ -1720,6 +1730,13 @@ namespace Rezervacije._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Soba*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.Soba.Ime*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.Soba", "Ime" },
+                        "DataStructure:Rezervacije.Soba,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Soba*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -1803,8 +1820,52 @@ namespace Rezervacije._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new CommonMisspelling()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_CommonMisspelling(errorIds))
+                        yield return error;
+            }
             /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Soba*/
             yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_CommonMisspelling(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Ne moĹľete unijeti krivo napisano ime sobe ""dvosbna"".";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"CommonMisspelling";
+            /*InvalidDataInfo ErrorMetadata Rezervacije.Soba.CommonMisspelling*/
+            /*InvalidDataInfo OverrideUserMessages Rezervacije.Soba.CommonMisspelling*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public global::Rezervacije.Soba[] Filter(PretrazivanjeSobe filter_Parameter)
+        {
+            Func<Common.DomRepository, PretrazivanjeSobe/*FilterByInfo AdditionalParametersType Rezervacije.Soba.PretrazivanjeSobe*/, Rezervacije.Soba[]> filter_Function =
+                (repository, parameter) =>
+        {
+            return repository.Rezervacije.Soba.Query().Where(s=>s.Ime.Contains("Pet")).ToSimple().ToArray();
+        };
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.PretrazivanjeSobe*/);
+        }
+
+        public IQueryable<Common.Queryable.Rezervacije_Soba> Filter(IQueryable<Common.Queryable.Rezervacije_Soba> localSource, Rezervacije.CommonMisspelling localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Rezervacije_Soba>, Common.DomRepository, Rezervacije.CommonMisspelling/*ComposableFilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, IQueryable<Common.Queryable.Rezervacije_Soba>> filterFunction =
+            (source, repository, parameter) => source.Where(soba => soba.Ime.Contains("dvosbna"));
+
+            /*ComposableFilterByInfo BeforeFilter Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
+        }
+
+        public global::Rezervacije.Soba[] Filter(Rezervacije.CommonMisspelling filter_Parameter)
+        {
+            Func<Common.DomRepository, Rezervacije.CommonMisspelling/*FilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, Rezervacije.Soba[]> filter_Function =
+                (repository, parameter) => repository.Rezervacije.Soba.Filter(repository.Rezervacije.Soba.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
         }
 
         /*DataStructureInfo RepositoryMembers Rezervacije.Soba*/
@@ -1971,6 +2032,20 @@ namespace Rezervacije._Helper
             yield break;
         }
 
+        public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, PretrazivanjeTipSobe localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, PretrazivanjeTipSobe/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
+            (query, repository, parameter) => 
+        {
+            if(parameter.MinimalnaCijena != null)
+                return query.Where(tipSobe => tipSobe.Cijena >= parameter.MinimalnaCijena);
+            return query;
+        };
+
+            /*ComposableFilterByInfo BeforeFilter Rezervacije.TipSobe.PretrazivanjeTipSobe*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
+        }
+
         public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, Rezervacije.Cijena_MaxValueFilter localParameter)
         {
             Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, Rezervacije.Cijena_MaxValueFilter/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
@@ -1995,6 +2070,14 @@ namespace Rezervacije._Helper
                 Metadata = metadata
             });
             // /*InvalidDataInfo OverrideUserMessages Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public global::Rezervacije.TipSobe[] Filter(PretrazivanjeTipSobe filter_Parameter)
+        {
+            Func<Common.DomRepository, PretrazivanjeTipSobe/*FilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, Rezervacije.TipSobe[]> filter_Function =
+                (repository, parameter) => repository.Rezervacije.TipSobe.Filter(repository.Rezervacije.TipSobe.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
         }
 
         public global::Rezervacije.TipSobe[] Filter(Rezervacije.Cijena_MaxValueFilter filter_Parameter)

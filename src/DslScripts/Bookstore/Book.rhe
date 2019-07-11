@@ -9,6 +9,15 @@ Module Bookstore
         Reference Author Bookstore.Person;
         DateTime Created { CreationTime; }
 
+        SaveMethod 
+        {
+            Initialization UkloniRazmakePriSpremanju 
+            '
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Title = room.Title.Replace(" ", string.Empty);
+            ';
+        }
+        
         ItemFilter ForeignBookAuthorNameStartsWithX 'item => item.Author.Name.StartsWith("X") && item.Extension_ForeignBook!= null';
 
         ItemFilter CommonMisspelling 'book => book.Title.Contains("curiousity")';

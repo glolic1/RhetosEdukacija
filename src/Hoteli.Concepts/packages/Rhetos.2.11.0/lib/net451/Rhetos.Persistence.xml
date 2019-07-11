@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Persistence</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.Persistence.MsSqlExecuter.#ctor(Rhetos.Utilities.ConnectionString,Rhetos.Logging.ILogProvider,Rhetos.Utilities.IUserInfo)">
+            <summary>
+            This constructor is typically used in deployment time, when persistence transaction does not exist.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Persistence.MsSqlExecuter.#ctor(Rhetos.Utilities.ConnectionString,Rhetos.Logging.ILogProvider,Rhetos.Utilities.IUserInfo,Rhetos.Persistence.IPersistenceTransaction)">
+            <summary>
+            This constructor is typically used in run-time, when persistence transaction is active, in order to execute
+            the SQL queries in the same transaction.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -327,6 +327,20 @@ namespace Rezervacije
         /*DataStructureInfo ClassBody Rezervacije.TipSobe*/
     }
 
+    [DataContract]/*DataStructureInfo ClassAttributes Rezervacije.PretrazivanjeTipSobe*/
+    public class PretrazivanjeTipSobe/*DataStructureInfo ClassInterace Rezervacije.PretrazivanjeTipSobe*/
+    {
+        [DataMember]/*PropertyInfo Attribute Rezervacije.PretrazivanjeTipSobe.MinimalnaCijena*/
+        public int? MinimalnaCijena { get; set; }
+        /*DataStructureInfo ClassBody Rezervacije.PretrazivanjeTipSobe*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Rezervacije.PretrazivanjeSobe*/
+    public class PretrazivanjeSobe/*DataStructureInfo ClassInterace Rezervacije.PretrazivanjeSobe*/
+    {
+        /*DataStructureInfo ClassBody Rezervacije.PretrazivanjeSobe*/
+    }
+
     [DataContract]/*DataStructureInfo ClassAttributes Rezervacije.Rezervacija*/
     public class Rezervacija : EntityBase<Rezervacije.Rezervacija>/*Next DataStructureInfo ClassInterace Rezervacije.Rezervacija*/
     {
@@ -484,6 +498,12 @@ namespace Rezervacije
     public class Cijena_MaxValueFilter/*DataStructureInfo ClassInterace Rezervacije.Cijena_MaxValueFilter*/
     {
         /*DataStructureInfo ClassBody Rezervacije.Cijena_MaxValueFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes Rezervacije.CommonMisspelling*/
+    public class CommonMisspelling/*DataStructureInfo ClassInterace Rezervacije.CommonMisspelling*/
+    {
+        /*DataStructureInfo ClassBody Rezervacije.CommonMisspelling*/
     }
 
     /*ModuleInfo Body Rezervacije*/

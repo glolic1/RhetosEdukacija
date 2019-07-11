@@ -143,9 +143,9 @@
                 <ScalarProperty Name="ContextInfo" ColumnName="ContextInfo" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -166,8 +166,8 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
                 <ScalarProperty Name="Relation" ColumnName="Relation" />
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -219,9 +219,9 @@
                 <ScalarProperty Name="ContextInfo" ColumnName="ContextInfo" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

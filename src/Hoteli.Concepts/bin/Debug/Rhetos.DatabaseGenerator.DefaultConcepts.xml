@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.DatabaseGenerator.DefaultConcepts</name>
+    </assembly>
+    <members>
+        <member name="T:Rhetos.DatabaseGenerator.DefaultConcepts.PropertyDatabaseDefinition">
+            <summary>
+            This class is a helper for implementations of different property types.
+            </summary>
+        </member>
+        <member name="F:Rhetos.DatabaseGenerator.DefaultConcepts.PropertyDatabaseDefinition.Options1Tag">
+            <summary>Ordering of options may be important.</summary>
+        </member>
+        <member name="F:Rhetos.DatabaseGenerator.DefaultConcepts.PropertyDatabaseDefinition.Options2Tag">
+            <summary>Ordering of options may be important.</summary>
+        </member>
+        <member name="F:Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition.Options1Tag">
+            <summary>
+            Options inserted between CREATE and INDEX
+            </summary>
+        </member>
+        <member name="F:Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition.Options2Tag">
+            <summary>
+            Options inserted at the end of the CREATE INDEX query.
+            </summary>
+        </member>
+        <member name="F:Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition.ColumnsTag">
+            <summary>
+            Options inserted after each column name in the CREATE INDEX query.
+            </summary>
+        </member>
+        <member name="M:Rhetos.DatabaseGenerator.DefaultConcepts.ForeignKeyUtility.GetSchemaTableForForeignKey(Rhetos.Dsl.DefaultConcepts.DataStructureInfo)">
+            <summary>
+            Note: When using this function to create a database object, always add the dependencies from GetAdditionalForeignKeyDependencies().
+            </summary>
+        </member>
+        <member name="T:Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition">
+            <summary>
+            Generator for FOREIGN KEY is separated from COLUMN generator (ReferencePropertyDatabaseDefinition)
+            so that changes in foreign key options (such as on delete cascade) can be done without regenerating the column.
+            </summary>
+        </member>
+    </members>
+</doc>

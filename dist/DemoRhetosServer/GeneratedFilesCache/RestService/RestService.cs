@@ -1052,6 +1052,10 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("Rezervacije.PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
+                Tuple.Create("PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
+                Tuple.Create("Rezervacije.CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
+                Tuple.Create("CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
                 /*DataStructureInfo FilterTypes Rezervacije.Soba*/
             }
             .GroupBy(typeName => typeName.Item1)
@@ -1163,6 +1167,8 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("Rezervacije.PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
+                Tuple.Create("PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
                 Tuple.Create("Rezervacije.Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
                 Tuple.Create("Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
                 /*DataStructureInfo FilterTypes Rezervacije.TipSobe*/

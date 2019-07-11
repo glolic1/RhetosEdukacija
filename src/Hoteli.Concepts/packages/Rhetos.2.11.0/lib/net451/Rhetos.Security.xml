@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Rhetos.Security.ProcessUserInfo">
+            <summary>
+            Used for Rhetos system utilities (DeployPackages.exe, e.g.) when web authentication is not applicable.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Security.ProcessUserInfo.UserName">
+            <summary>Format: "domain\user"</summary>
+        </member>
+        <member name="T:Rhetos.Security.WindowsSecurity">
+            <summary>
+            A utility class for common WCF and Active directory operations.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Security.WindowsSecurity.GetIdentityMembership(System.String)">
+            <summary>
+            Queries Active Directory server to retrieve the user's Windows domain groups.
+            Throws an exception if the username does not have the current domain prefix.
+            Returns null if the user is not found on Active Directory (returns empty list is the user exists, but has no membership records).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Security.WindowsSecurity.RemoveDomainPrefix(System.String)">
+            <summary>
+            Throws an exception if the username does not have the current domain prefix.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Security.WcfWindowsUserInfo">
+            <summary>
+            This is a security principal provider based on WCF and Windows authentication.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Security.WcfWindowsUserInfo._userName">
+            <summary>Format: "domain\user"</summary>
+        </member>
+    </members>
+</doc>

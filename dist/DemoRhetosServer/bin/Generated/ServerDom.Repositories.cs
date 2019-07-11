@@ -46,14 +46,14 @@ namespace Common
             _repositories = repositories;
         }
 
+        private Common._Helper._ModuleRepository _Common;
+        public Common._Helper._ModuleRepository Common { get { return _Common ?? (_Common = new Common._Helper._ModuleRepository(_repositories)); } }
+
         private Bookstore._Helper._ModuleRepository _Bookstore;
         public Bookstore._Helper._ModuleRepository Bookstore { get { return _Bookstore ?? (_Bookstore = new Bookstore._Helper._ModuleRepository(_repositories)); } }
 
         private Rezervacije._Helper._ModuleRepository _Rezervacije;
         public Rezervacije._Helper._ModuleRepository Rezervacije { get { return _Rezervacije ?? (_Rezervacije = new Rezervacije._Helper._ModuleRepository(_repositories)); } }
-
-        private Common._Helper._ModuleRepository _Common;
-        public Common._Helper._ModuleRepository Common { get { return _Common ?? (_Common = new Common._Helper._ModuleRepository(_repositories)); } }
 
         /*CommonDomRepositoryMembers*/
     }
@@ -177,22 +177,6 @@ namespace Common
             builder.RegisterInstance(Infrastructure.RegisteredInterfaceImplementationName).ExternallyOwned();
             builder.RegisterInstance(Infrastructure.ApplyFiltersOnClientRead).ExternallyOwned();
             builder.RegisterInstance(Infrastructure.CurrentKeepSynchronizedMetadata).ExternallyOwned();
-            builder.RegisterType<Bookstore._Helper.Book_Repository>().Keyed<IRepository>("Bookstore.Book").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.BookBrowse_Repository>().Keyed<IRepository>("Bookstore.BookBrowse").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.BooksThemes_Repository>().Keyed<IRepository>("Bookstore.BooksThemes").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.Person_Repository>().Keyed<IRepository>("Bookstore.Person").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.ChildBook_Repository>().Keyed<IRepository>("Bookstore.ChildBook").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.ForeignBook_Repository>().Keyed<IRepository>("Bookstore.ForeignBook").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.Theme_Repository>().Keyed<IRepository>("Bookstore.Theme").InstancePerLifetimeScope();
-            builder.RegisterType<Bookstore._Helper.BookTheme_Repository>().Keyed<IRepository>("Bookstore.BookTheme").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.Soba_Repository>().Keyed<IRepository>("Rezervacije.Soba").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.TipSobe_Repository>().Keyed<IRepository>("Rezervacije.TipSobe").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.Rezervacija_Repository>().Keyed<IRepository>("Rezervacije.Rezervacija").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.BrojRezervacijaPoSobi_Repository>().Keyed<IRepository>("Rezervacije.BrojRezervacijaPoSobi").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.BrowseSoba_Repository>().Keyed<IRepository>("Rezervacije.BrowseSoba").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.Hotel_Repository>().Keyed<IRepository>("Rezervacije.Hotel").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.Gost_Repository>().Keyed<IRepository>("Rezervacije.Gost").InstancePerLifetimeScope();
-            builder.RegisterType<Rezervacije._Helper.StraniGost_Repository>().Keyed<IRepository>("Rezervacije.StraniGost").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.AutoCodeCache_Repository>().Keyed<IRepository>("Common.AutoCodeCache").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.FilterId_Repository>().Keyed<IRepository>("Common.FilterId").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.KeepSynchronizedMetadata_Repository>().Keyed<IRepository>("Common.KeepSynchronizedMetadata").InstancePerLifetimeScope();
@@ -216,6 +200,22 @@ namespace Common
             builder.RegisterType<Common._Helper.RoleInheritsRole_Repository>().Keyed<IRepository>("Common.RoleInheritsRole").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.PrincipalPermission_Repository>().Keyed<IRepository>("Common.PrincipalPermission").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.RolePermission_Repository>().Keyed<IRepository>("Common.RolePermission").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.Book_Repository>().Keyed<IRepository>("Bookstore.Book").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.BookBrowse_Repository>().Keyed<IRepository>("Bookstore.BookBrowse").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.BooksThemes_Repository>().Keyed<IRepository>("Bookstore.BooksThemes").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.Person_Repository>().Keyed<IRepository>("Bookstore.Person").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.ChildBook_Repository>().Keyed<IRepository>("Bookstore.ChildBook").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.ForeignBook_Repository>().Keyed<IRepository>("Bookstore.ForeignBook").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.Theme_Repository>().Keyed<IRepository>("Bookstore.Theme").InstancePerLifetimeScope();
+            builder.RegisterType<Bookstore._Helper.BookTheme_Repository>().Keyed<IRepository>("Bookstore.BookTheme").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.Soba_Repository>().Keyed<IRepository>("Rezervacije.Soba").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.TipSobe_Repository>().Keyed<IRepository>("Rezervacije.TipSobe").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.Rezervacija_Repository>().Keyed<IRepository>("Rezervacije.Rezervacija").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.BrojRezervacijaPoSobi_Repository>().Keyed<IRepository>("Rezervacije.BrojRezervacijaPoSobi").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.BrowseSoba_Repository>().Keyed<IRepository>("Rezervacije.BrowseSoba").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.Hotel_Repository>().Keyed<IRepository>("Rezervacije.Hotel").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.Gost_Repository>().Keyed<IRepository>("Rezervacije.Gost").InstancePerLifetimeScope();
+            builder.RegisterType<Rezervacije._Helper.StraniGost_Repository>().Keyed<IRepository>("Rezervacije.StraniGost").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.FilterId_Repository>().As<IQueryableRepository<Rhetos.Dom.DefaultConcepts.ICommonFilterId>>().InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.KeepSynchronizedMetadata_Repository>().As<IQueryableRepository<Rhetos.Dom.DefaultConcepts.IKeepSynchronizedMetadata>>().InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.Claim_Repository>().As<IQueryableRepository<Rhetos.Dom.DefaultConcepts.ICommonClaim>>().InstancePerLifetimeScope();
@@ -329,2455 +329,6 @@ namespace Common
     {
     }
     /*CommonNamespaceMembers*/
-}
-
-namespace Bookstore._Helper
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Linq.Expressions;
-    using System.Runtime.Serialization;
-    using Rhetos.Dom.DefaultConcepts;
-    using Rhetos.Utilities;
-
-    /*ModuleInfo Using Bookstore*/
-
-    public class _ModuleRepository
-    {
-        private readonly Rhetos.Extensibility.INamedPlugins<IRepository> _repositories;
-
-        public _ModuleRepository(Rhetos.Extensibility.INamedPlugins<IRepository> repositories)
-        {
-            _repositories = repositories;
-        }
-
-        private Book_Repository _Book_Repository;
-        public Book_Repository Book { get { return _Book_Repository ?? (_Book_Repository = (Book_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Book")); } }
-
-        private BookBrowse_Repository _BookBrowse_Repository;
-        public BookBrowse_Repository BookBrowse { get { return _BookBrowse_Repository ?? (_BookBrowse_Repository = (BookBrowse_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BookBrowse")); } }
-
-        private BooksThemes_Repository _BooksThemes_Repository;
-        public BooksThemes_Repository BooksThemes { get { return _BooksThemes_Repository ?? (_BooksThemes_Repository = (BooksThemes_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BooksThemes")); } }
-
-        private Person_Repository _Person_Repository;
-        public Person_Repository Person { get { return _Person_Repository ?? (_Person_Repository = (Person_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Person")); } }
-
-        private ChildBook_Repository _ChildBook_Repository;
-        public ChildBook_Repository ChildBook { get { return _ChildBook_Repository ?? (_ChildBook_Repository = (ChildBook_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.ChildBook")); } }
-
-        private ForeignBook_Repository _ForeignBook_Repository;
-        public ForeignBook_Repository ForeignBook { get { return _ForeignBook_Repository ?? (_ForeignBook_Repository = (ForeignBook_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.ForeignBook")); } }
-
-        private Theme_Repository _Theme_Repository;
-        public Theme_Repository Theme { get { return _Theme_Repository ?? (_Theme_Repository = (Theme_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Theme")); } }
-
-        private BookTheme_Repository _BookTheme_Repository;
-        public BookTheme_Repository BookTheme { get { return _BookTheme_Repository ?? (_BookTheme_Repository = (BookTheme_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BookTheme")); } }
-
-        /*ModuleInfo RepositoryMembers Bookstore*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.Book*/
-    public class Book_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Book*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Book, Bookstore.Book> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Book, Bookstore.Book> // Common.ReadableRepositoryBase<Bookstore.Book> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.Book>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Book*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Book*/
-
-        public Book_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Book*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.Book*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.Book[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_Book> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Book*/
-            return _executionContext.EntityFrameworkContext.Bookstore_Book.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.Book> insertedNew, IEnumerable<Bookstore.Book> updatedNew, IEnumerable<Bookstore.Book> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.Book*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Code != null && newItem.Code.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Book.Code", "256" },
-                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID.ToString() + ",Property:Code",
-                        null);
-            }
-            if (checkUserPermissions)
-            {
-                var invalidItem = insertedNew.Where(newItem => newItem.Code != null).FirstOrDefault();
-
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "It is not allowed to directly enter {0} property of {1}.",
-                        new[] { "Code", "Bookstore.Book" },
-                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID + ",Property:Code",
-                        null);
-            
-            }
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Title != null && newItem.Title.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Book.Title", "256" },
-                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID.ToString() + ",Property:Title",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Book*/
-
-            
-            {
-                var defaultValueFunc_Code = Function<Bookstore.Book>.Create(item => "K+++");
-
-                foreach (var _item in insertedNew)
-                {
-                    bool setDefaultValue_Code = _item.Code == null;
-                    /*DataStructureInfo Item DefaultValuetValidation Bookstore.Book*/
-                    if (setDefaultValue_Code)
-                        _item.Code = defaultValueFunc_Code(_item);
-                }
-            }
-            { 
-                var now = SqlUtility.GetDatabaseTime(_executionContext.SqlExecuter);
-
-                foreach (var newItem in insertedNew)
-                    if(newItem.Created == null)
-                        newItem.Created = now;
-            }
-            /*DataStructureInfo WritableOrm Initialization Bookstore.Book*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_Book> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Book>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_Book> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Book>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            AutoCodeHelper.UpdateCodesWithoutCache(
-                _executionContext.SqlExecuter, "Bookstore.Book", "Code",
-                insertedNew.Select(item => AutoCodeItem.Create(item, item.Code/*AutoCodePropertyInfo Grouping Bookstore.Book.Code*/)).ToList(),
-                (item, newCode) => item.Code = newCode/*AutoCodePropertyInfo GroupColumnMetadata Bookstore.Book.Code*/);
-
-            if (checkUserPermissions)
-            {
-                var changes = updatedNew.Zip(updated, (newItem, oldItem) => new { newItem, oldItem });
-                foreach (var change in changes)
-                    if (change.newItem.Code == null && change.oldItem.Code != null)
-                        change.newItem.Code = change.oldItem.Code;
-                var invalidItem = changes
-                    .Where(change => change.newItem.Code != null && !change.newItem.Code.Equals(change.oldItem.Code) || change.newItem.Code == null && change.oldItem.Code != null)
-                    .Select(change => change.newItem)
-                    .FirstOrDefault();
-
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "It is not allowed to directly enter {0} property of {1}.",
-                        new[] { "Code", "Bookstore.Book" },
-                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID + ",Property:Code",
-                        null);
-            
-            }
-
-            if (deletedIds.Count() > 0)
-            {
-                List<Bookstore.BookTheme> childItems = deletedIds
-                    .SelectMany(parent => _executionContext.Repository.Bookstore.BookTheme.Query()
-                        .Where(child => child.BookID == parent.ID)
-                        .Select(child => child.ID)
-                        .ToList())
-                    .Select(childId => new Bookstore.BookTheme { ID = childId })
-                    .ToList();
-
-                if (childItems.Count() > 0)
-                    _domRepository.Bookstore.BookTheme.Delete(childItems);
-            }
-
-            if (deletedIds.Count() > 0)
-            {
-                List<Bookstore.ChildBook> childItems = _executionContext.Repository.Bookstore.ChildBook
-                    .Query(deletedIds.Select(parent => parent.ID))
-                    .Select(child => child.ID).ToList()
-                    .Select(childId => new Bookstore.ChildBook { ID = childId }).ToList();
-
-                if (childItems.Count() > 0)
-                    _domRepository.Bookstore.ChildBook.Delete(childItems);
-            }
-
-            if (deletedIds.Count() > 0)
-            {
-                List<Bookstore.ForeignBook> childItems = _executionContext.Repository.Bookstore.ForeignBook
-                    .Query(deletedIds.Select(parent => parent.ID))
-                    .Select(child => child.ID).ToList()
-                    .Select(childId => new Bookstore.ForeignBook { ID = childId }).ToList();
-
-                if (childItems.Count() > 0)
-                    _domRepository.Bookstore.ForeignBook.Delete(childItems);
-            }
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Book*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Book*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_Book.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Person", @"ID", @"FK_Book_Person_AuthorID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:AuthorID,Referenced:Bookstore.Person";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ChildBook", @"ID", @"FK_ChildBook_Book_ID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ChildBook,Property:ID,Referenced:Bookstore.Book";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ForeignBook", @"ID", @"FK_ForeignBook_Book_ID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:ID,Referenced:Bookstore.Book";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.BookTheme", @"BookID", @"FK_BookTheme_Book_BookID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:BookID,Referenced:Bookstore.Book";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.Book", @"IX_Book_Code"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:Code";
-                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Book*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Book");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_Book> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Book*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Book*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Book");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.Book*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new CommonMisspelling()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_CommonMisspelling(errorIds))
-                        yield return error;
-            }
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new Bookstore.NumberOfPages_MinValueFilter()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_NumberOfPages_MinValueFilter(errorIds))
-                        yield return error;
-            }
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new SystemRequiredCode()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_SystemRequiredCode(errorIds))
-                        yield return error;
-            }
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Book*/
-            yield break;
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_CommonMisspelling(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"It is not allowed to enter misspelled word ""curiousity"".";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"CommonMisspelling";
-            /*InvalidDataInfo ErrorMetadata Bookstore.Book.CommonMisspelling*/
-            /*InvalidDataInfo OverrideUserMessages Bookstore.Book.CommonMisspelling*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Pretrazivanje localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Pretrazivanje/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
-            (query, repository, parameter) => 
-        {
-            if(parameter.MinBrojStranica != null)
-                return query.Where(knjiga => knjiga.NumberOfPages >= parameter.MinBrojStranica);
-            return query;
-        };
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.Pretrazivanje*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Pretrazivanje2 filter_Parameter)
-        {
-            Func<Common.DomRepository, Pretrazivanje2/*FilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje2*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) =>
-        {
-            return repository.Bookstore.Book.Query().Where(k=>k.Title.Contains("test")).ToSimple().ToArray();
-        };
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje2*/);
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.NumberOfPages_MinValueFilter localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.NumberOfPages_MinValueFilter/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
-            (items, repository, parameter) => { int limit = 5; return items.Where(item => item.NumberOfPages != null && item.NumberOfPages < limit); };
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/);
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_NumberOfPages_MinValueFilter(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"Minimum value of {0} is {1}.";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"Bookstore.NumberOfPages_MinValueFilter";
-            metadata[@"Property"] = @"NumberOfPages";
-            /*InvalidDataInfo ErrorMetadata Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/
-            return invalidData_Ids.Select(id => new InvalidDataMessage
-            {
-                ID = id,
-                Message = invalidData_Description,
-                MessageParameters = new object[] { @"NumberOfPages", @"5" },
-                Metadata = metadata
-            });
-            // /*InvalidDataInfo OverrideUserMessages Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_SystemRequiredCode(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"System required property {0} is not set.";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"SystemRequiredCode";
-            metadata[@"Property"] = @"Code";
-            /*InvalidDataInfo ErrorMetadata Bookstore.Book.SystemRequiredCode*/
-            return invalidData_Ids.Select(id => new InvalidDataMessage
-            {
-                ID = id,
-                Message = invalidData_Description,
-                MessageParameters = new object[] { @"ShortString Bookstore.Book.Code" },
-                Metadata = metadata
-            });
-            // /*InvalidDataInfo OverrideUserMessages Bookstore.Book.SystemRequiredCode*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.ForeignBookAuthorNameStartsWithX localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.ForeignBookAuthorNameStartsWithX/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
-            (source, repository, parameter) => source.Where(item => item.Author.Name.StartsWith("X") && item.Extension_ForeignBook!= null);
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/);
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.CommonMisspelling localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.CommonMisspelling/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.CommonMisspelling'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
-            (source, repository, parameter) => source.Where(book => book.Title.Contains("curiousity"));
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.CommonMisspelling'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.CommonMisspelling'*/);
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.SystemRequiredCode localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.SystemRequiredCode/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.SystemRequiredCode'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
-            (source, repository, parameter) => source.Where(item => item.Code == null);
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.SystemRequiredCode'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.SystemRequiredCode'*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Pretrazivanje filter_Parameter)
-        {
-            Func<Common.DomRepository, Pretrazivanje/*FilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Bookstore.NumberOfPages_MinValueFilter filter_Parameter)
-        {
-            Func<Common.DomRepository, Bookstore.NumberOfPages_MinValueFilter/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Bookstore.ForeignBookAuthorNameStartsWithX filter_Parameter)
-        {
-            Func<Common.DomRepository, Bookstore.ForeignBookAuthorNameStartsWithX/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Bookstore.CommonMisspelling filter_Parameter)
-        {
-            Func<Common.DomRepository, Bookstore.CommonMisspelling/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.CommonMisspelling'*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.CommonMisspelling'*/);
-        }
-
-        public global::Bookstore.Book[] Filter(Bookstore.SystemRequiredCode filter_Parameter)
-        {
-            Func<Common.DomRepository, Bookstore.SystemRequiredCode/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.SystemRequiredCode'*/, Bookstore.Book[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.SystemRequiredCode'*/);
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.Book*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.BookBrowse*/
-    public class BookBrowse_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BookBrowse*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BookBrowse, Bookstore.BookBrowse> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BookBrowse, Bookstore.BookBrowse> // Common.ReadableRepositoryBase<Bookstore.BookBrowse> // global::Common.RepositoryBase
-        /*DataStructureInfo RepositoryInterface Bookstore.BookBrowse*/
-    {
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BookBrowse*/
-
-        public BookBrowse_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Bookstore.BookBrowse*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.BookBrowse*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.BookBrowse[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_BookBrowse> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BookBrowse*/
-            return Query(_domRepository.Bookstore.Book.Query());
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_BookBrowse> Query(IQueryable<Common.Queryable.Bookstore_Book> source)
-        {
-            return source.Select(item => new Common.Queryable.Bookstore_BookBrowse
-                {
-                    ID = item.ID,
-                    Base = item,
-                    Title = item.Title,
-                    AuthorName = item.Author.Name,
-                    Extension_ChildBookAgeFrom = item.Extension_ChildBook.AgeFrom,
-                    /*BrowseDataStructureInfo BrowseProperties Bookstore.BookBrowse*/
-                });
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.BookBrowse*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.BooksThemes*/
-    public class BooksThemes_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BooksThemes*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BooksThemes, Bookstore.BooksThemes> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BooksThemes, Bookstore.BooksThemes> // Common.ReadableRepositoryBase<Bookstore.BooksThemes> // global::Common.RepositoryBase
-        /*DataStructureInfo RepositoryInterface Bookstore.BooksThemes*/
-    {
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BooksThemes*/
-
-        public BooksThemes_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Bookstore.BooksThemes*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.BooksThemes*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.BooksThemes[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_BooksThemes> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BooksThemes*/
-            return _executionContext.EntityFrameworkContext.Bookstore_BooksThemes.AsNoTracking();
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.BooksThemes*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.Person*/
-    public class Person_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Person*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Person, Bookstore.Person> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Person, Bookstore.Person> // Common.ReadableRepositoryBase<Bookstore.Person> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.Person>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Person*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Person*/
-
-        public Person_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Person*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.Person*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.Person[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_Person> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Person*/
-            return _executionContext.EntityFrameworkContext.Bookstore_Person.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.Person> insertedNew, IEnumerable<Bookstore.Person> updatedNew, IEnumerable<Bookstore.Person> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.Person*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Name != null && newItem.Name.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Person.Name", "256" },
-                        "DataStructure:Bookstore.Person,ID:" + invalidItem.ID.ToString() + ",Property:Name",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Person*/
-
-            /*DataStructureInfo WritableOrm Initialization Bookstore.Person*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_Person> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Person>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_Person> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Person>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Person*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Person*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_Person.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.Book", @"AuthorID", @"FK_Book_Person_AuthorID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:AuthorID,Referenced:Bookstore.Person";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ForeignBook", @"TranslatorID", @"FK_ForeignBook_Person_TranslatorID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:TranslatorID,Referenced:Bookstore.Person";
-                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Person*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Person");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_Person> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Person*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Person*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Person");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.Person*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Person*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.Person*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.ChildBook*/
-    public class ChildBook_Repository : /*DataStructureInfo OverrideBaseType Bookstore.ChildBook*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_ChildBook, Bookstore.ChildBook> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_ChildBook, Bookstore.ChildBook> // Common.ReadableRepositoryBase<Bookstore.ChildBook> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.ChildBook>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.ChildBook*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.ChildBook*/
-
-        public ChildBook_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.ChildBook*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.ChildBook*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.ChildBook[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_ChildBook> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.ChildBook*/
-            return _executionContext.EntityFrameworkContext.Bookstore_ChildBook.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.ChildBook> insertedNew, IEnumerable<Bookstore.ChildBook> updatedNew, IEnumerable<Bookstore.ChildBook> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.ChildBook*/
-
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.ChildBook*/
-
-            /*DataStructureInfo WritableOrm Initialization Bookstore.ChildBook*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_ChildBook> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ChildBook>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_ChildBook> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ChildBook>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.ChildBook*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.ChildBook*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_ChildBook.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		/*DataStructureInfo WritableOrm OnDatabaseError Bookstore.ChildBook*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.ChildBook");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_ChildBook> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.ChildBook*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.ChildBook*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.ChildBook");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.ChildBook*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.ChildBook*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.ChildBook*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.ForeignBook*/
-    public class ForeignBook_Repository : /*DataStructureInfo OverrideBaseType Bookstore.ForeignBook*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_ForeignBook, Bookstore.ForeignBook> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_ForeignBook, Bookstore.ForeignBook> // Common.ReadableRepositoryBase<Bookstore.ForeignBook> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.ForeignBook>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.ForeignBook*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.ForeignBook*/
-
-        public ForeignBook_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.ForeignBook*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.ForeignBook*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.ForeignBook[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_ForeignBook> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.ForeignBook*/
-            return _executionContext.EntityFrameworkContext.Bookstore_ForeignBook.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.ForeignBook> insertedNew, IEnumerable<Bookstore.ForeignBook> updatedNew, IEnumerable<Bookstore.ForeignBook> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.ForeignBook*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.OriginalLanguage != null && newItem.OriginalLanguage.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "ForeignBook.OriginalLanguage", "256" },
-                        "DataStructure:Bookstore.ForeignBook,ID:" + invalidItem.ID.ToString() + ",Property:OriginalLanguage",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.ForeignBook*/
-
-            /*DataStructureInfo WritableOrm Initialization Bookstore.ForeignBook*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_ForeignBook> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ForeignBook>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_ForeignBook> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ForeignBook>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.ForeignBook*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.ForeignBook*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_ForeignBook.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Person", @"ID", @"FK_ForeignBook_Person_TranslatorID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:TranslatorID,Referenced:Bookstore.Person";
-                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.ForeignBook*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.ForeignBook");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_ForeignBook> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.ForeignBook*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.ForeignBook*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.ForeignBook");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.ForeignBook*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.ForeignBook*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.ForeignBook*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.Theme*/
-    public class Theme_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Theme*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Theme, Bookstore.Theme> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Theme, Bookstore.Theme> // Common.ReadableRepositoryBase<Bookstore.Theme> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.Theme>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Theme*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Theme*/
-
-        public Theme_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Theme*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.Theme*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.Theme[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_Theme> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Theme*/
-            return _executionContext.EntityFrameworkContext.Bookstore_Theme.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.Theme> insertedNew, IEnumerable<Bookstore.Theme> updatedNew, IEnumerable<Bookstore.Theme> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.Theme*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Name != null && newItem.Name.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Theme.Name", "256" },
-                        "DataStructure:Bookstore.Theme,ID:" + invalidItem.ID.ToString() + ",Property:Name",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Theme*/
-
-            /*DataStructureInfo WritableOrm Initialization Bookstore.Theme*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_Theme> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Theme>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_Theme> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Theme>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Theme*/
-
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition Bookstore.Theme.Name*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Bookstore.Theme", "Name" },
-                        "DataStructure:Bookstore.Theme,ID:" + invalid.ID.ToString() + ",Property:Name", null);
-            }
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Theme*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_Theme.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.BookTheme", @"ThemeID", @"FK_BookTheme_Theme_ThemeID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:ThemeID,Referenced:Bookstore.Theme";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.Theme", @"IX_Theme_Name"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Theme,Property:Name";
-                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Theme*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Theme");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_Theme> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Theme*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Theme*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Theme");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.Theme*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Theme*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.Theme*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Bookstore.BookTheme*/
-    public class BookTheme_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BookTheme*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BookTheme, Bookstore.BookTheme> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BookTheme, Bookstore.BookTheme> // Common.ReadableRepositoryBase<Bookstore.BookTheme> // global::Common.RepositoryBase
-        , IWritableRepository<Bookstore.BookTheme>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.BookTheme*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BookTheme*/
-
-        public BookTheme_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.BookTheme*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Bookstore.BookTheme*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Bookstore.BookTheme[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Bookstore_BookTheme> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BookTheme*/
-            return _executionContext.EntityFrameworkContext.Bookstore_BookTheme.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Bookstore.BookTheme> insertedNew, IEnumerable<Bookstore.BookTheme> updatedNew, IEnumerable<Bookstore.BookTheme> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Bookstore.BookTheme*/
-
-            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.BookTheme*/
-
-            /*DataStructureInfo WritableOrm Initialization Bookstore.BookTheme*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Bookstore_BookTheme> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_BookTheme>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Bookstore_BookTheme> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_BookTheme>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.BookTheme*/
-
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.ThemeID == null /*RequiredPropertyInfo OrCondition Bookstore.BookTheme.Theme*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Bookstore.BookTheme", "Theme" },
-                        "DataStructure:Bookstore.BookTheme,ID:" + invalid.ID.ToString() + ",Property:ThemeID", null);
-            }
-            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.BookTheme*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Bookstore_BookTheme.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Book", @"ID", @"FK_BookTheme_Book_BookID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:BookID,Referenced:Bookstore.Book";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Theme", @"ID", @"FK_BookTheme_Theme_ThemeID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:ThemeID,Referenced:Bookstore.Theme";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.BookTheme", @"IX_BookTheme_Book_Theme"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:Book Theme";
-                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.BookTheme*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.BookTheme");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Bookstore_BookTheme> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.BookTheme*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.BookTheme*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.BookTheme");
-
-                /*DataStructureInfo WritableOrm AfterSave Bookstore.BookTheme*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new SystemRequiredBook()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_SystemRequiredBook(errorIds))
-                        yield return error;
-            }
-            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.BookTheme*/
-            yield break;
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_SystemRequiredBook(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"System required property {0} is not set.";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"SystemRequiredBook";
-            metadata[@"Property"] = @"Book";
-            /*InvalidDataInfo ErrorMetadata Bookstore.BookTheme.SystemRequiredBook*/
-            return invalidData_Ids.Select(id => new InvalidDataMessage
-            {
-                ID = id,
-                Message = invalidData_Description,
-                MessageParameters = new object[] { @"Reference Bookstore.BookTheme.Book" },
-                Metadata = metadata
-            });
-            // /*InvalidDataInfo OverrideUserMessages Bookstore.BookTheme.SystemRequiredBook*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public IQueryable<Common.Queryable.Bookstore_BookTheme> Filter(IQueryable<Common.Queryable.Bookstore_BookTheme> localSource, Bookstore.SystemRequiredBook localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Bookstore_BookTheme>, Common.DomRepository, Bookstore.SystemRequiredBook/*ComposableFilterByInfo AdditionalParametersType Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/, IQueryable<Common.Queryable.Bookstore_BookTheme>> filterFunction =
-            (source, repository, parameter) => source.Where(item => item.Book == null);
-
-            /*ComposableFilterByInfo BeforeFilter Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/);
-        }
-
-        public global::Bookstore.BookTheme[] Filter(Bookstore.SystemRequiredBook filter_Parameter)
-        {
-            Func<Common.DomRepository, Bookstore.SystemRequiredBook/*FilterByInfo AdditionalParametersType Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/, Bookstore.BookTheme[]> filter_Function =
-                (repository, parameter) => repository.Bookstore.BookTheme.Filter(repository.Bookstore.BookTheme.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/);
-        }
-
-        /*DataStructureInfo RepositoryMembers Bookstore.BookTheme*/
-    }
-
-    /*ModuleInfo HelperNamespaceMembers Bookstore*/
-}
-
-namespace Rezervacije._Helper
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Linq.Expressions;
-    using System.Runtime.Serialization;
-    using Rhetos.Dom.DefaultConcepts;
-    using Rhetos.Utilities;
-
-    /*ModuleInfo Using Rezervacije*/
-
-    public class _ModuleRepository
-    {
-        private readonly Rhetos.Extensibility.INamedPlugins<IRepository> _repositories;
-
-        public _ModuleRepository(Rhetos.Extensibility.INamedPlugins<IRepository> repositories)
-        {
-            _repositories = repositories;
-        }
-
-        private Soba_Repository _Soba_Repository;
-        public Soba_Repository Soba { get { return _Soba_Repository ?? (_Soba_Repository = (Soba_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Soba")); } }
-
-        private TipSobe_Repository _TipSobe_Repository;
-        public TipSobe_Repository TipSobe { get { return _TipSobe_Repository ?? (_TipSobe_Repository = (TipSobe_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.TipSobe")); } }
-
-        private Rezervacija_Repository _Rezervacija_Repository;
-        public Rezervacija_Repository Rezervacija { get { return _Rezervacija_Repository ?? (_Rezervacija_Repository = (Rezervacija_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Rezervacija")); } }
-
-        private BrojRezervacijaPoSobi_Repository _BrojRezervacijaPoSobi_Repository;
-        public BrojRezervacijaPoSobi_Repository BrojRezervacijaPoSobi { get { return _BrojRezervacijaPoSobi_Repository ?? (_BrojRezervacijaPoSobi_Repository = (BrojRezervacijaPoSobi_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.BrojRezervacijaPoSobi")); } }
-
-        private BrowseSoba_Repository _BrowseSoba_Repository;
-        public BrowseSoba_Repository BrowseSoba { get { return _BrowseSoba_Repository ?? (_BrowseSoba_Repository = (BrowseSoba_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.BrowseSoba")); } }
-
-        private Hotel_Repository _Hotel_Repository;
-        public Hotel_Repository Hotel { get { return _Hotel_Repository ?? (_Hotel_Repository = (Hotel_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Hotel")); } }
-
-        private Gost_Repository _Gost_Repository;
-        public Gost_Repository Gost { get { return _Gost_Repository ?? (_Gost_Repository = (Gost_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Gost")); } }
-
-        private StraniGost_Repository _StraniGost_Repository;
-        public StraniGost_Repository StraniGost { get { return _StraniGost_Repository ?? (_StraniGost_Repository = (StraniGost_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.StraniGost")); } }
-
-        /*ModuleInfo RepositoryMembers Rezervacije*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.Soba*/
-    public class Soba_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Soba*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Soba, Rezervacije.Soba> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Soba, Rezervacije.Soba> // Common.ReadableRepositoryBase<Rezervacije.Soba> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.Soba>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Soba*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Soba*/
-
-        public Soba_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Soba*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Soba*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.Soba[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_Soba> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Soba*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_Soba.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.Soba> insertedNew, IEnumerable<Rezervacije.Soba> updatedNew, IEnumerable<Rezervacije.Soba> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Soba*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Soba.Ime", "256" },
-                        "DataStructure:Rezervacije.Soba,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Soba*/
-
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.Soba*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_Soba> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Soba>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_Soba> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Soba>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Soba*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Soba*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_Soba.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.TipSobe", @"ID", @"FK_Soba_TipSobe_TipSobeIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:TipSobeIDID,Referenced:Rezervacije.TipSobe";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Rezervacija", @"SobaIDID", @"FK_Rezervacija_Soba_SobaIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:SobaIDID,Referenced:Rezervacije.Soba";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Hotel", @"ID", @"FK_Soba_Hotel_HotelID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:HotelID,Referenced:Rezervacije.Hotel";
-                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Soba*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Soba");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_Soba> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Soba*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Soba*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Soba");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Soba*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new CommonMisspelling()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_CommonMisspelling(errorIds))
-                        yield return error;
-            }
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Soba*/
-            yield break;
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_CommonMisspelling(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"Ne moĹľete unijeti krivo napisano ime sobe ""dvosbna"".";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"CommonMisspelling";
-            /*InvalidDataInfo ErrorMetadata Rezervacije.Soba.CommonMisspelling*/
-            /*InvalidDataInfo OverrideUserMessages Rezervacije.Soba.CommonMisspelling*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public global::Rezervacije.Soba[] Filter(PretrazivanjeSobe filter_Parameter)
-        {
-            Func<Common.DomRepository, PretrazivanjeSobe/*FilterByInfo AdditionalParametersType Rezervacije.Soba.PretrazivanjeSobe*/, Rezervacije.Soba[]> filter_Function =
-                (repository, parameter) =>
-        {
-            return repository.Rezervacije.Soba.Query().Where(s=>s.Ime.Contains("Pet")).ToSimple().ToArray();
-        };
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.PretrazivanjeSobe*/);
-        }
-
-        public IQueryable<Common.Queryable.Rezervacije_Soba> Filter(IQueryable<Common.Queryable.Rezervacije_Soba> localSource, Rezervacije.CommonMisspelling localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Rezervacije_Soba>, Common.DomRepository, Rezervacije.CommonMisspelling/*ComposableFilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, IQueryable<Common.Queryable.Rezervacije_Soba>> filterFunction =
-            (source, repository, parameter) => source.Where(soba => soba.Ime.Contains("dvosbna"));
-
-            /*ComposableFilterByInfo BeforeFilter Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
-        }
-
-        public global::Rezervacije.Soba[] Filter(Rezervacije.CommonMisspelling filter_Parameter)
-        {
-            Func<Common.DomRepository, Rezervacije.CommonMisspelling/*FilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, Rezervacije.Soba[]> filter_Function =
-                (repository, parameter) => repository.Rezervacije.Soba.Filter(repository.Rezervacije.Soba.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.Soba*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.TipSobe*/
-    public class TipSobe_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.TipSobe*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_TipSobe, Rezervacije.TipSobe> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_TipSobe, Rezervacije.TipSobe> // Common.ReadableRepositoryBase<Rezervacije.TipSobe> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.TipSobe>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.TipSobe*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.TipSobe*/
-
-        public TipSobe_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.TipSobe*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.TipSobe*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.TipSobe[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_TipSobe> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.TipSobe*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_TipSobe.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.TipSobe> insertedNew, IEnumerable<Rezervacije.TipSobe> updatedNew, IEnumerable<Rezervacije.TipSobe> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.TipSobe*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "TipSobe.Ime", "256" },
-                        "DataStructure:Rezervacije.TipSobe,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.TipSobe*/
-
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.TipSobe*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_TipSobe> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_TipSobe>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_TipSobe> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_TipSobe>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.TipSobe*/
-
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.TipSobe.Ime*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Rezervacije.TipSobe", "Ime" },
-                        "DataStructure:Rezervacije.TipSobe,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
-            }
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Cijena == null /*RequiredPropertyInfo OrCondition Rezervacije.TipSobe.Cijena*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Rezervacije.TipSobe", "Cijena" },
-                        "DataStructure:Rezervacije.TipSobe,ID:" + invalid.ID.ToString() + ",Property:Cijena", null);
-            }
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.TipSobe*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_TipSobe.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Soba", @"TipSobeIDID", @"FK_Soba_TipSobe_TipSobeIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:TipSobeIDID,Referenced:Rezervacije.TipSobe";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Rezervacije.TipSobe", @"IX_TipSobe_Ime"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.TipSobe,Property:Ime";
-                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.TipSobe*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.TipSobe");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_TipSobe> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.TipSobe*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.TipSobe*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.TipSobe");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.TipSobe*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            if (onSave)
-            {
-                var errorIds = this.Filter(this.Query(ids), new Rezervacije.Cijena_MaxValueFilter()).Select(item => item.ID).ToArray();
-                if (errorIds.Count() > 0)
-                    foreach (var error in GetErrorMessage_Cijena_MaxValueFilter(errorIds))
-                        yield return error;
-            }
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.TipSobe*/
-            yield break;
-        }
-
-        public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, PretrazivanjeTipSobe localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, PretrazivanjeTipSobe/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
-            (query, repository, parameter) => 
-        {
-            if(parameter.MinimalnaCijena != null)
-                return query.Where(tipSobe => tipSobe.Cijena >= parameter.MinimalnaCijena);
-            return query;
-        };
-
-            /*ComposableFilterByInfo BeforeFilter Rezervacije.TipSobe.PretrazivanjeTipSobe*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
-        }
-
-        public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, Rezervacije.Cijena_MaxValueFilter localParameter)
-        {
-            Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, Rezervacije.Cijena_MaxValueFilter/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
-            (items, repository, parameter) => { decimal limit = 9999M; return items.Where(item => item.Cijena != null && item.Cijena > limit); };
-
-            /*ComposableFilterByInfo BeforeFilter Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/
-            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/);
-        }
-
-        public IEnumerable<InvalidDataMessage> GetErrorMessage_Cijena_MaxValueFilter(IEnumerable<Guid> invalidData_Ids)
-        {
-            const string invalidData_Description = @"Maximum value of {0} is {1}.";
-            IDictionary<string, object> metadata = new Dictionary<string, object>();
-            metadata["Validation"] = @"Rezervacije.Cijena_MaxValueFilter";
-            metadata[@"Property"] = @"Cijena";
-            /*InvalidDataInfo ErrorMetadata Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/
-            return invalidData_Ids.Select(id => new InvalidDataMessage
-            {
-                ID = id,
-                Message = invalidData_Description,
-                MessageParameters = new object[] { @"Cijena", @"9999" },
-                Metadata = metadata
-            });
-            // /*InvalidDataInfo OverrideUserMessages Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
-        }
-
-        public global::Rezervacije.TipSobe[] Filter(PretrazivanjeTipSobe filter_Parameter)
-        {
-            Func<Common.DomRepository, PretrazivanjeTipSobe/*FilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, Rezervacije.TipSobe[]> filter_Function =
-                (repository, parameter) => repository.Rezervacije.TipSobe.Filter(repository.Rezervacije.TipSobe.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
-        }
-
-        public global::Rezervacije.TipSobe[] Filter(Rezervacije.Cijena_MaxValueFilter filter_Parameter)
-        {
-            Func<Common.DomRepository, Rezervacije.Cijena_MaxValueFilter/*FilterByInfo AdditionalParametersType Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/, Rezervacije.TipSobe[]> filter_Function =
-                (repository, parameter) => repository.Rezervacije.TipSobe.Filter(repository.Rezervacije.TipSobe.Query(), parameter).ToArray();
-
-            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/);
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.TipSobe*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.Rezervacija*/
-    public class Rezervacija_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Rezervacija*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Rezervacija, Rezervacije.Rezervacija> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Rezervacija, Rezervacije.Rezervacija> // Common.ReadableRepositoryBase<Rezervacije.Rezervacija> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.Rezervacija>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Rezervacija*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Rezervacija*/
-
-        public Rezervacija_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Rezervacija*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Rezervacija*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.Rezervacija[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_Rezervacija> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Rezervacija*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_Rezervacija.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.Rezervacija> insertedNew, IEnumerable<Rezervacije.Rezervacija> updatedNew, IEnumerable<Rezervacije.Rezervacija> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Rezervacija*/
-
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Rezervacija*/
-
-            { 
-                var now = SqlUtility.GetDatabaseTime(_executionContext.SqlExecuter);
-
-                foreach (var newItem in insertedNew)
-                    if(newItem.Created == null)
-                        newItem.Created = now;
-            }
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.Rezervacija*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Rezervacija>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Rezervacija>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Rezervacija*/
-
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.CheckIn == null /*RequiredPropertyInfo OrCondition Rezervacije.Rezervacija.CheckIn*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Rezervacije.Rezervacija", "CheckIn" },
-                        "DataStructure:Rezervacije.Rezervacija,ID:" + invalid.ID.ToString() + ",Property:CheckIn", null);
-            }
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.CheckOut == null /*RequiredPropertyInfo OrCondition Rezervacije.Rezervacija.CheckOut*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Rezervacije.Rezervacija", "CheckOut" },
-                        "DataStructure:Rezervacije.Rezervacija,ID:" + invalid.ID.ToString() + ",Property:CheckOut", null);
-            }
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Rezervacija*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_Rezervacija.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Soba", @"ID", @"FK_Rezervacija_Soba_SobaIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:SobaIDID,Referenced:Rezervacije.Soba";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Rezervacije.Rezervacija", @"IX_Rezervacija_CheckIn_CheckOut_SobaID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:CheckIn CheckOut SobaID";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Gost", @"ID", @"FK_Rezervacija_Gost_GostIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:GostIDID,Referenced:Rezervacije.Gost";
-                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Rezervacija*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Rezervacija");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Rezervacija*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Rezervacija*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Rezervacija");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Rezervacija*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Rezervacija*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.Rezervacija*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.BrojRezervacijaPoSobi*/
-    public class BrojRezervacijaPoSobi_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.BrojRezervacijaPoSobi*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi, Rezervacije.BrojRezervacijaPoSobi> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi, Rezervacije.BrojRezervacijaPoSobi> // Common.ReadableRepositoryBase<Rezervacije.BrojRezervacijaPoSobi> // global::Common.RepositoryBase
-        /*DataStructureInfo RepositoryInterface Rezervacije.BrojRezervacijaPoSobi*/
-    {
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.BrojRezervacijaPoSobi*/
-
-        public BrojRezervacijaPoSobi_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Rezervacije.BrojRezervacijaPoSobi*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.BrojRezervacijaPoSobi*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.BrojRezervacijaPoSobi[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.BrojRezervacijaPoSobi*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_BrojRezervacijaPoSobi.AsNoTracking();
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.BrojRezervacijaPoSobi*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.BrowseSoba*/
-    public class BrowseSoba_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.BrowseSoba*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_BrowseSoba, Rezervacije.BrowseSoba> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_BrowseSoba, Rezervacije.BrowseSoba> // Common.ReadableRepositoryBase<Rezervacije.BrowseSoba> // global::Common.RepositoryBase
-        /*DataStructureInfo RepositoryInterface Rezervacije.BrowseSoba*/
-    {
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.BrowseSoba*/
-
-        public BrowseSoba_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Rezervacije.BrowseSoba*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.BrowseSoba*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.BrowseSoba[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_BrowseSoba> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.BrowseSoba*/
-            return Query(_domRepository.Rezervacije.Soba.Query());
-        }
-
-        public IQueryable<Common.Queryable.Rezervacije_BrowseSoba> Query(IQueryable<Common.Queryable.Rezervacije_Soba> source)
-        {
-            return source.Select(item => new Common.Queryable.Rezervacije_BrowseSoba
-                {
-                    ID = item.ID,
-                    Base = item,
-                    BrojSobe = item.Broj,
-                    HotelName = item.Hotel.Ime,
-                    BrojRezervacija = item.Extension_BrojRezervacijaPoSobi.BrojRezervacija,
-                    /*BrowseDataStructureInfo BrowseProperties Rezervacije.BrowseSoba*/
-                });
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.BrowseSoba*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.Hotel*/
-    public class Hotel_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Hotel*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Hotel, Rezervacije.Hotel> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Hotel, Rezervacije.Hotel> // Common.ReadableRepositoryBase<Rezervacije.Hotel> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.Hotel>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Hotel*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Hotel*/
-
-        public Hotel_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Hotel*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Hotel*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.Hotel[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_Hotel> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Hotel*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_Hotel.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.Hotel> insertedNew, IEnumerable<Rezervacije.Hotel> updatedNew, IEnumerable<Rezervacije.Hotel> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Hotel*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Hotel.Ime", "256" },
-                        "DataStructure:Rezervacije.Hotel,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
-                        null);
-            }
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Adresa != null && newItem.Adresa.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Hotel.Adresa", "256" },
-                        "DataStructure:Rezervacije.Hotel,ID:" + invalidItem.ID.ToString() + ",Property:Adresa",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Hotel*/
-
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.Hotel*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_Hotel> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Hotel>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_Hotel> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Hotel>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Hotel*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Hotel*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_Hotel.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Soba", @"HotelID", @"FK_Soba_Hotel_HotelID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:HotelID,Referenced:Rezervacije.Hotel";
-                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Hotel*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Hotel");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_Hotel> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Hotel*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Hotel*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Hotel");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Hotel*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Hotel*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.Hotel*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.Gost*/
-    public class Gost_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Gost*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Gost, Rezervacije.Gost> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Gost, Rezervacije.Gost> // Common.ReadableRepositoryBase<Rezervacije.Gost> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.Gost>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Gost*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Gost*/
-
-        public Gost_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Gost*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Gost*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.Gost[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_Gost> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Gost*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_Gost.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.Gost> insertedNew, IEnumerable<Rezervacije.Gost> updatedNew, IEnumerable<Rezervacije.Gost> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Gost*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Gost.Ime", "256" },
-                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
-                        null);
-            }
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Prezime != null && newItem.Prezime.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Gost.Prezime", "256" },
-                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Prezime",
-                        null);
-            }
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Email != null && newItem.Email.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "Gost.Email", "256" },
-                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Email",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Gost*/
-
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.Gost*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_Gost> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Gost>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_Gost> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Gost>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            if (deletedIds.Count() > 0)
-            {
-                List<Rezervacije.StraniGost> childItems = _executionContext.Repository.Rezervacije.StraniGost
-                    .Query(deletedIds.Select(parent => parent.ID))
-                    .Select(child => child.ID).ToList()
-                    .Select(childId => new Rezervacije.StraniGost { ID = childId }).ToList();
-
-                if (childItems.Count() > 0)
-                    _domRepository.Rezervacije.StraniGost.Delete(childItems);
-            }
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Gost*/
-
-            {
-                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.Gost.Ime*/);
-                if (invalid != null)
-                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
-                        new[] { "Rezervacije.Gost", "Ime" },
-                        "DataStructure:Rezervacije.Gost,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
-            }
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Gost*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_Gost.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Rezervacija", @"GostIDID", @"FK_Rezervacija_Gost_GostIDID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:GostIDID,Referenced:Rezervacije.Gost";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.StraniGost", @"ID", @"FK_StraniGost_Gost_ID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.StraniGost,Property:ID,Referenced:Rezervacije.Gost";
-                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Gost*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Gost");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_Gost> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Gost*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Gost*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Gost");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Gost*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Gost*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.Gost*/
-    }
-
-    /*DataStructureInfo RepositoryAttributes Rezervacije.StraniGost*/
-    public class StraniGost_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.StraniGost*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_StraniGost, Rezervacije.StraniGost> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_StraniGost, Rezervacije.StraniGost> // Common.ReadableRepositoryBase<Rezervacije.StraniGost> // global::Common.RepositoryBase
-        , IWritableRepository<Rezervacije.StraniGost>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.StraniGost*/
-    {
-        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.StraniGost*/
-
-        public StraniGost_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.StraniGost*/)
-        {
-            _domRepository = domRepository;
-            _executionContext = executionContext;
-            this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode Rezervacije.StraniGost*/
-        }
-
-        [Obsolete("Use Load() or Query() method.")]
-        public override global::Rezervacije.StraniGost[] All()
-        {
-            return Query().ToSimple().ToArray();
-        }
-
-        public override IQueryable<Common.Queryable.Rezervacije_StraniGost> Query()
-        {
-            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.StraniGost*/
-            return _executionContext.EntityFrameworkContext.Rezervacije_StraniGost.AsNoTracking();
-        }
-
-        public void Save(IEnumerable<Rezervacije.StraniGost> insertedNew, IEnumerable<Rezervacije.StraniGost> updatedNew, IEnumerable<Rezervacije.StraniGost> deletedIds, bool checkUserPermissions = false)
-        {
-            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
-                return;
-
-            /*DataStructureInfo WritableOrm ClearContext Rezervacije.StraniGost*/
-
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.ImePrevoditelja != null && newItem.ImePrevoditelja.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "StraniGost.ImePrevoditelja", "256" },
-                        "DataStructure:Rezervacije.StraniGost,ID:" + invalidItem.ID.ToString() + ",Property:ImePrevoditelja",
-                        null);
-            }
-            {
-                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.PrezimePrevoditelja != null && newItem.PrezimePrevoditelja.Length > 256).FirstOrDefault();
-                if (invalidItem != null)
-                    throw new Rhetos.UserException(
-                        "Maximum length of property {0} is {1}.",
-                        new[] { "StraniGost.PrezimePrevoditelja", "256" },
-                        "DataStructure:Rezervacije.StraniGost,ID:" + invalidItem.ID.ToString() + ",Property:PrezimePrevoditelja",
-                        null);
-            }
-            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.StraniGost*/
-
-            /*DataStructureInfo WritableOrm Initialization Rezervacije.StraniGost*/
-
-            // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.Rezervacije_StraniGost> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_StraniGost>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.Rezervacije_StraniGost> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_StraniGost>)updated, updatedNew.Select(item => item.ID), item => item.ID);
-
-            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.StraniGost*/
-
-            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.StraniGost*/
-
-            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
-            try
-            {
-                if (deletedIds.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Delete;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (updatedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Update;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
-                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
-                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                if (insertedNew.Count() > 0)
-                {
-                    saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.Rezervacije_StraniGost.AddRange(insertedNew.Select(item => item.ToNavigation()));
-                    _executionContext.EntityFrameworkContext.SaveChanges();
-                }
-
-                saveOperation = DomHelper.SaveOperation.None;
-                _executionContext.EntityFrameworkContext.ClearCache();
-            }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
-            {
-                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
-        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		/*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.StraniGost*/
-                if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.StraniGost");
-
-                if (interpretedException != null)
-        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
-                var sqlException = _sqlUtility.ExtractSqlException(saveException);
-                if (sqlException != null)
-                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
-                throw;
-            }
-
-            deleted = null;
-            updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.Rezervacije_StraniGost> inserted = this.Query(insertedNew.Select(item => item.ID));
-
-            bool allEffectsCompleted = false;
-            try
-            {
-                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.StraniGost*/
-
-                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.StraniGost*/
-
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.StraniGost");
-
-                /*DataStructureInfo WritableOrm AfterSave Rezervacije.StraniGost*/
-
-                allEffectsCompleted = true;
-            }
-            finally
-            {
-                if (!allEffectsCompleted)
-                    _executionContext.PersistenceTransaction.DiscardChanges();
-            }
-        }
-
-        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
-        {
-            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.StraniGost*/
-            yield break;
-        }
-
-        /*DataStructureInfo RepositoryMembers Rezervacije.StraniGost*/
-    }
-
-    /*ModuleInfo HelperNamespaceMembers Rezervacije*/
 }
 
 namespace Common._Helper
@@ -5962,6 +3513,2472 @@ namespace Common._Helper
     }
 
     /*ModuleInfo HelperNamespaceMembers Common*/
+}
+
+namespace Bookstore._Helper
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Linq.Expressions;
+    using System.Runtime.Serialization;
+    using Rhetos.Dom.DefaultConcepts;
+    using Rhetos.Utilities;
+
+    /*ModuleInfo Using Bookstore*/
+
+    public class _ModuleRepository
+    {
+        private readonly Rhetos.Extensibility.INamedPlugins<IRepository> _repositories;
+
+        public _ModuleRepository(Rhetos.Extensibility.INamedPlugins<IRepository> repositories)
+        {
+            _repositories = repositories;
+        }
+
+        private Book_Repository _Book_Repository;
+        public Book_Repository Book { get { return _Book_Repository ?? (_Book_Repository = (Book_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Book")); } }
+
+        private BookBrowse_Repository _BookBrowse_Repository;
+        public BookBrowse_Repository BookBrowse { get { return _BookBrowse_Repository ?? (_BookBrowse_Repository = (BookBrowse_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BookBrowse")); } }
+
+        private BooksThemes_Repository _BooksThemes_Repository;
+        public BooksThemes_Repository BooksThemes { get { return _BooksThemes_Repository ?? (_BooksThemes_Repository = (BooksThemes_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BooksThemes")); } }
+
+        private Person_Repository _Person_Repository;
+        public Person_Repository Person { get { return _Person_Repository ?? (_Person_Repository = (Person_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Person")); } }
+
+        private ChildBook_Repository _ChildBook_Repository;
+        public ChildBook_Repository ChildBook { get { return _ChildBook_Repository ?? (_ChildBook_Repository = (ChildBook_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.ChildBook")); } }
+
+        private ForeignBook_Repository _ForeignBook_Repository;
+        public ForeignBook_Repository ForeignBook { get { return _ForeignBook_Repository ?? (_ForeignBook_Repository = (ForeignBook_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.ForeignBook")); } }
+
+        private Theme_Repository _Theme_Repository;
+        public Theme_Repository Theme { get { return _Theme_Repository ?? (_Theme_Repository = (Theme_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.Theme")); } }
+
+        private BookTheme_Repository _BookTheme_Repository;
+        public BookTheme_Repository BookTheme { get { return _BookTheme_Repository ?? (_BookTheme_Repository = (BookTheme_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Bookstore.BookTheme")); } }
+
+        /*ModuleInfo RepositoryMembers Bookstore*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.Book*/
+    public class Book_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Book*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Book, Bookstore.Book> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Book, Bookstore.Book> // Common.ReadableRepositoryBase<Bookstore.Book> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.Book>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Book*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Book*/
+
+        public Book_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Book*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.Book*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.Book[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_Book> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Book*/
+            return _executionContext.EntityFrameworkContext.Bookstore_Book.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.Book> insertedNew, IEnumerable<Bookstore.Book> updatedNew, IEnumerable<Bookstore.Book> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.Book*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Code != null && newItem.Code.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Book.Code", "256" },
+                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID.ToString() + ",Property:Code",
+                        null);
+            }
+            if (checkUserPermissions)
+            {
+                var invalidItem = insertedNew.Where(newItem => newItem.Code != null).FirstOrDefault();
+
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "It is not allowed to directly enter {0} property of {1}.",
+                        new[] { "Code", "Bookstore.Book" },
+                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID + ",Property:Code",
+                        null);
+            
+            }
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Title != null && newItem.Title.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Book.Title", "256" },
+                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID.ToString() + ",Property:Title",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Book*/
+
+            
+            {
+                var defaultValueFunc_Code = Function<Bookstore.Book>.Create(item => "K+++");
+
+                foreach (var _item in insertedNew)
+                {
+                    bool setDefaultValue_Code = _item.Code == null;
+                    /*DataStructureInfo Item DefaultValuetValidation Bookstore.Book*/
+                    if (setDefaultValue_Code)
+                        _item.Code = defaultValueFunc_Code(_item);
+                }
+            }
+            { 
+                var now = SqlUtility.GetDatabaseTime(_executionContext.SqlExecuter);
+
+                foreach (var newItem in insertedNew)
+                    if(newItem.Created == null)
+                        newItem.Created = now;
+            }
+            { // UkloniRazmakePriSpremanju
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Title = room.Title.Replace(" ", string.Empty);
+            }
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.Book*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_Book> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Book>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_Book> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Book>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            AutoCodeHelper.UpdateCodesWithoutCache(
+                _executionContext.SqlExecuter, "Bookstore.Book", "Code",
+                insertedNew.Select(item => AutoCodeItem.Create(item, item.Code/*AutoCodePropertyInfo Grouping Bookstore.Book.Code*/)).ToList(),
+                (item, newCode) => item.Code = newCode/*AutoCodePropertyInfo GroupColumnMetadata Bookstore.Book.Code*/);
+
+            if (checkUserPermissions)
+            {
+                var changes = updatedNew.Zip(updated, (newItem, oldItem) => new { newItem, oldItem });
+                foreach (var change in changes)
+                    if (change.newItem.Code == null && change.oldItem.Code != null)
+                        change.newItem.Code = change.oldItem.Code;
+                var invalidItem = changes
+                    .Where(change => change.newItem.Code != null && !change.newItem.Code.Equals(change.oldItem.Code) || change.newItem.Code == null && change.oldItem.Code != null)
+                    .Select(change => change.newItem)
+                    .FirstOrDefault();
+
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "It is not allowed to directly enter {0} property of {1}.",
+                        new[] { "Code", "Bookstore.Book" },
+                        "DataStructure:Bookstore.Book,ID:" + invalidItem.ID + ",Property:Code",
+                        null);
+            
+            }
+
+            if (deletedIds.Count() > 0)
+            {
+                List<Bookstore.BookTheme> childItems = deletedIds
+                    .SelectMany(parent => _executionContext.Repository.Bookstore.BookTheme.Query()
+                        .Where(child => child.BookID == parent.ID)
+                        .Select(child => child.ID)
+                        .ToList())
+                    .Select(childId => new Bookstore.BookTheme { ID = childId })
+                    .ToList();
+
+                if (childItems.Count() > 0)
+                    _domRepository.Bookstore.BookTheme.Delete(childItems);
+            }
+
+            if (deletedIds.Count() > 0)
+            {
+                List<Bookstore.ChildBook> childItems = _executionContext.Repository.Bookstore.ChildBook
+                    .Query(deletedIds.Select(parent => parent.ID))
+                    .Select(child => child.ID).ToList()
+                    .Select(childId => new Bookstore.ChildBook { ID = childId }).ToList();
+
+                if (childItems.Count() > 0)
+                    _domRepository.Bookstore.ChildBook.Delete(childItems);
+            }
+
+            if (deletedIds.Count() > 0)
+            {
+                List<Bookstore.ForeignBook> childItems = _executionContext.Repository.Bookstore.ForeignBook
+                    .Query(deletedIds.Select(parent => parent.ID))
+                    .Select(child => child.ID).ToList()
+                    .Select(childId => new Bookstore.ForeignBook { ID = childId }).ToList();
+
+                if (childItems.Count() > 0)
+                    _domRepository.Bookstore.ForeignBook.Delete(childItems);
+            }
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Book*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Book*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_Book.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Person", @"ID", @"FK_Book_Person_AuthorID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:AuthorID,Referenced:Bookstore.Person";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ChildBook", @"ID", @"FK_ChildBook_Book_ID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ChildBook,Property:ID,Referenced:Bookstore.Book";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ForeignBook", @"ID", @"FK_ForeignBook_Book_ID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:ID,Referenced:Bookstore.Book";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.BookTheme", @"BookID", @"FK_BookTheme_Book_BookID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:BookID,Referenced:Bookstore.Book";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.Book", @"IX_Book_Code"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:Code";
+                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Book*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Book");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_Book> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Book*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Book*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Book");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.Book*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new CommonMisspelling()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_CommonMisspelling(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Bookstore.NumberOfPages_MinValueFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_NumberOfPages_MinValueFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new SystemRequiredCode()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_SystemRequiredCode(errorIds))
+                        yield return error;
+            }
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Book*/
+            yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_CommonMisspelling(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"It is not allowed to enter misspelled word ""curiousity"".";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"CommonMisspelling";
+            /*InvalidDataInfo ErrorMetadata Bookstore.Book.CommonMisspelling*/
+            /*InvalidDataInfo OverrideUserMessages Bookstore.Book.CommonMisspelling*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Pretrazivanje localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Pretrazivanje/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
+            (query, repository, parameter) => 
+        {
+            if(parameter.MinBrojStranica != null)
+                return query.Where(knjiga => knjiga.NumberOfPages >= parameter.MinBrojStranica);
+            return query;
+        };
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.Pretrazivanje*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Pretrazivanje2 filter_Parameter)
+        {
+            Func<Common.DomRepository, Pretrazivanje2/*FilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje2*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) =>
+        {
+            return repository.Bookstore.Book.Query().Where(k=>k.Title.Contains("test")).ToSimple().ToArray();
+        };
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje2*/);
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.NumberOfPages_MinValueFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.NumberOfPages_MinValueFilter/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
+            (items, repository, parameter) => { int limit = 5; return items.Where(item => item.NumberOfPages != null && item.NumberOfPages < limit); };
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/);
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_NumberOfPages_MinValueFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Minimum value of {0} is {1}.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Bookstore.NumberOfPages_MinValueFilter";
+            metadata[@"Property"] = @"NumberOfPages";
+            /*InvalidDataInfo ErrorMetadata Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"NumberOfPages", @"5" },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_SystemRequiredCode(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"System required property {0} is not set.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"SystemRequiredCode";
+            metadata[@"Property"] = @"Code";
+            /*InvalidDataInfo ErrorMetadata Bookstore.Book.SystemRequiredCode*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"ShortString Bookstore.Book.Code" },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages Bookstore.Book.SystemRequiredCode*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.ForeignBookAuthorNameStartsWithX localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.ForeignBookAuthorNameStartsWithX/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
+            (source, repository, parameter) => source.Where(item => item.Author.Name.StartsWith("X") && item.Extension_ForeignBook!= null);
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/);
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.CommonMisspelling localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.CommonMisspelling/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.CommonMisspelling'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
+            (source, repository, parameter) => source.Where(book => book.Title.Contains("curiousity"));
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.CommonMisspelling'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.CommonMisspelling'*/);
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_Book> Filter(IQueryable<Common.Queryable.Bookstore_Book> localSource, Bookstore.SystemRequiredCode localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_Book>, Common.DomRepository, Bookstore.SystemRequiredCode/*ComposableFilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.SystemRequiredCode'*/, IQueryable<Common.Queryable.Bookstore_Book>> filterFunction =
+            (source, repository, parameter) => source.Where(item => item.Code == null);
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.Book.'Bookstore.SystemRequiredCode'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.SystemRequiredCode'*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Pretrazivanje filter_Parameter)
+        {
+            Func<Common.DomRepository, Pretrazivanje/*FilterByInfo AdditionalParametersType Bookstore.Book.Pretrazivanje*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.Pretrazivanje*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Bookstore.NumberOfPages_MinValueFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, Bookstore.NumberOfPages_MinValueFilter/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.NumberOfPages_MinValueFilter'*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Bookstore.ForeignBookAuthorNameStartsWithX filter_Parameter)
+        {
+            Func<Common.DomRepository, Bookstore.ForeignBookAuthorNameStartsWithX/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.ForeignBookAuthorNameStartsWithX'*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Bookstore.CommonMisspelling filter_Parameter)
+        {
+            Func<Common.DomRepository, Bookstore.CommonMisspelling/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.CommonMisspelling'*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.CommonMisspelling'*/);
+        }
+
+        public global::Bookstore.Book[] Filter(Bookstore.SystemRequiredCode filter_Parameter)
+        {
+            Func<Common.DomRepository, Bookstore.SystemRequiredCode/*FilterByInfo AdditionalParametersType Bookstore.Book.'Bookstore.SystemRequiredCode'*/, Bookstore.Book[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.Book.Filter(repository.Bookstore.Book.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.Book.'Bookstore.SystemRequiredCode'*/);
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.Book*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.BookBrowse*/
+    public class BookBrowse_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BookBrowse*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BookBrowse, Bookstore.BookBrowse> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BookBrowse, Bookstore.BookBrowse> // Common.ReadableRepositoryBase<Bookstore.BookBrowse> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Bookstore.BookBrowse*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BookBrowse*/
+
+        public BookBrowse_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Bookstore.BookBrowse*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.BookBrowse*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.BookBrowse[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_BookBrowse> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BookBrowse*/
+            return Query(_domRepository.Bookstore.Book.Query());
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_BookBrowse> Query(IQueryable<Common.Queryable.Bookstore_Book> source)
+        {
+            return source.Select(item => new Common.Queryable.Bookstore_BookBrowse
+                {
+                    ID = item.ID,
+                    Base = item,
+                    Title = item.Title,
+                    AuthorName = item.Author.Name,
+                    Extension_ChildBookAgeFrom = item.Extension_ChildBook.AgeFrom,
+                    /*BrowseDataStructureInfo BrowseProperties Bookstore.BookBrowse*/
+                });
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.BookBrowse*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.BooksThemes*/
+    public class BooksThemes_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BooksThemes*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BooksThemes, Bookstore.BooksThemes> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BooksThemes, Bookstore.BooksThemes> // Common.ReadableRepositoryBase<Bookstore.BooksThemes> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Bookstore.BooksThemes*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BooksThemes*/
+
+        public BooksThemes_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Bookstore.BooksThemes*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.BooksThemes*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.BooksThemes[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_BooksThemes> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BooksThemes*/
+            return _executionContext.EntityFrameworkContext.Bookstore_BooksThemes.AsNoTracking();
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.BooksThemes*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.Person*/
+    public class Person_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Person*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Person, Bookstore.Person> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Person, Bookstore.Person> // Common.ReadableRepositoryBase<Bookstore.Person> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.Person>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Person*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Person*/
+
+        public Person_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Person*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.Person*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.Person[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_Person> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Person*/
+            return _executionContext.EntityFrameworkContext.Bookstore_Person.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.Person> insertedNew, IEnumerable<Bookstore.Person> updatedNew, IEnumerable<Bookstore.Person> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.Person*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Name != null && newItem.Name.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Person.Name", "256" },
+                        "DataStructure:Bookstore.Person,ID:" + invalidItem.ID.ToString() + ",Property:Name",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Person*/
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.Person*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_Person> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Person>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_Person> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Person>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Person*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Person*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_Person.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.Book", @"AuthorID", @"FK_Book_Person_AuthorID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Book,Property:AuthorID,Referenced:Bookstore.Person";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.ForeignBook", @"TranslatorID", @"FK_ForeignBook_Person_TranslatorID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:TranslatorID,Referenced:Bookstore.Person";
+                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Person*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Person");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_Person> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Person*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Person*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Person");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.Person*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Person*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.Person*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.ChildBook*/
+    public class ChildBook_Repository : /*DataStructureInfo OverrideBaseType Bookstore.ChildBook*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_ChildBook, Bookstore.ChildBook> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_ChildBook, Bookstore.ChildBook> // Common.ReadableRepositoryBase<Bookstore.ChildBook> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.ChildBook>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.ChildBook*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.ChildBook*/
+
+        public ChildBook_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.ChildBook*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.ChildBook*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.ChildBook[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_ChildBook> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.ChildBook*/
+            return _executionContext.EntityFrameworkContext.Bookstore_ChildBook.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.ChildBook> insertedNew, IEnumerable<Bookstore.ChildBook> updatedNew, IEnumerable<Bookstore.ChildBook> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.ChildBook*/
+
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.ChildBook*/
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.ChildBook*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_ChildBook> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ChildBook>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_ChildBook> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ChildBook>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.ChildBook*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.ChildBook*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_ChildBook.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		/*DataStructureInfo WritableOrm OnDatabaseError Bookstore.ChildBook*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.ChildBook");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_ChildBook> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.ChildBook*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.ChildBook*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.ChildBook");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.ChildBook*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.ChildBook*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.ChildBook*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.ForeignBook*/
+    public class ForeignBook_Repository : /*DataStructureInfo OverrideBaseType Bookstore.ForeignBook*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_ForeignBook, Bookstore.ForeignBook> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_ForeignBook, Bookstore.ForeignBook> // Common.ReadableRepositoryBase<Bookstore.ForeignBook> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.ForeignBook>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.ForeignBook*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.ForeignBook*/
+
+        public ForeignBook_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.ForeignBook*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.ForeignBook*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.ForeignBook[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_ForeignBook> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.ForeignBook*/
+            return _executionContext.EntityFrameworkContext.Bookstore_ForeignBook.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.ForeignBook> insertedNew, IEnumerable<Bookstore.ForeignBook> updatedNew, IEnumerable<Bookstore.ForeignBook> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.ForeignBook*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.OriginalLanguage != null && newItem.OriginalLanguage.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "ForeignBook.OriginalLanguage", "256" },
+                        "DataStructure:Bookstore.ForeignBook,ID:" + invalidItem.ID.ToString() + ",Property:OriginalLanguage",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.ForeignBook*/
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.ForeignBook*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_ForeignBook> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ForeignBook>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_ForeignBook> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_ForeignBook>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.ForeignBook*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.ForeignBook*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_ForeignBook.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Person", @"ID", @"FK_ForeignBook_Person_TranslatorID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.ForeignBook,Property:TranslatorID,Referenced:Bookstore.Person";
+                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.ForeignBook*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.ForeignBook");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_ForeignBook> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.ForeignBook*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.ForeignBook*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.ForeignBook");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.ForeignBook*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.ForeignBook*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.ForeignBook*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.Theme*/
+    public class Theme_Repository : /*DataStructureInfo OverrideBaseType Bookstore.Theme*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_Theme, Bookstore.Theme> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_Theme, Bookstore.Theme> // Common.ReadableRepositoryBase<Bookstore.Theme> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.Theme>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.Theme*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.Theme*/
+
+        public Theme_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.Theme*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.Theme*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.Theme[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_Theme> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.Theme*/
+            return _executionContext.EntityFrameworkContext.Bookstore_Theme.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.Theme> insertedNew, IEnumerable<Bookstore.Theme> updatedNew, IEnumerable<Bookstore.Theme> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.Theme*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Name != null && newItem.Name.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Theme.Name", "256" },
+                        "DataStructure:Bookstore.Theme,ID:" + invalidItem.ID.ToString() + ",Property:Name",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.Theme*/
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.Theme*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_Theme> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Theme>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_Theme> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_Theme>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.Theme*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition Bookstore.Theme.Name*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Bookstore.Theme", "Name" },
+                        "DataStructure:Bookstore.Theme,ID:" + invalid.ID.ToString() + ",Property:Name", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.Theme*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_Theme.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Bookstore.BookTheme", @"ThemeID", @"FK_BookTheme_Theme_ThemeID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:ThemeID,Referenced:Bookstore.Theme";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.Theme", @"IX_Theme_Name"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.Theme,Property:Name";
+                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.Theme*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.Theme");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_Theme> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.Theme*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.Theme*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.Theme");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.Theme*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.Theme*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.Theme*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Bookstore.BookTheme*/
+    public class BookTheme_Repository : /*DataStructureInfo OverrideBaseType Bookstore.BookTheme*/ Common.OrmRepositoryBase<Common.Queryable.Bookstore_BookTheme, Bookstore.BookTheme> // Common.QueryableRepositoryBase<Common.Queryable.Bookstore_BookTheme, Bookstore.BookTheme> // Common.ReadableRepositoryBase<Bookstore.BookTheme> // global::Common.RepositoryBase
+        , IWritableRepository<Bookstore.BookTheme>, IValidateRepository/*DataStructureInfo RepositoryInterface Bookstore.BookTheme*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Bookstore.BookTheme*/
+
+        public BookTheme_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Bookstore.BookTheme*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Bookstore.BookTheme*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Bookstore.BookTheme[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Bookstore_BookTheme> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Bookstore.BookTheme*/
+            return _executionContext.EntityFrameworkContext.Bookstore_BookTheme.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Bookstore.BookTheme> insertedNew, IEnumerable<Bookstore.BookTheme> updatedNew, IEnumerable<Bookstore.BookTheme> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Bookstore.BookTheme*/
+
+            /*DataStructureInfo WritableOrm ArgumentValidation Bookstore.BookTheme*/
+
+            /*DataStructureInfo WritableOrm Initialization Bookstore.BookTheme*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Bookstore_BookTheme> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_BookTheme>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Bookstore_BookTheme> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Bookstore_BookTheme>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Bookstore.BookTheme*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.ThemeID == null /*RequiredPropertyInfo OrCondition Bookstore.BookTheme.Theme*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Bookstore.BookTheme", "Theme" },
+                        "DataStructure:Bookstore.BookTheme,ID:" + invalid.ID.ToString() + ",Property:ThemeID", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Bookstore.BookTheme*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Bookstore_BookTheme.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Book", @"ID", @"FK_BookTheme_Book_BookID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:BookID,Referenced:Bookstore.Book";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Bookstore.Theme", @"ID", @"FK_BookTheme_Theme_ThemeID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:ThemeID,Referenced:Bookstore.Theme";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Bookstore.BookTheme", @"IX_BookTheme_Book_Theme"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Bookstore.BookTheme,Property:Book Theme";
+                /*DataStructureInfo WritableOrm OnDatabaseError Bookstore.BookTheme*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Bookstore.BookTheme");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Bookstore_BookTheme> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Bookstore.BookTheme*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Bookstore.BookTheme*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Bookstore.BookTheme");
+
+                /*DataStructureInfo WritableOrm AfterSave Bookstore.BookTheme*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new SystemRequiredBook()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_SystemRequiredBook(errorIds))
+                        yield return error;
+            }
+            /*DataStructureInfo WritableOrm OnSaveValidate Bookstore.BookTheme*/
+            yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_SystemRequiredBook(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"System required property {0} is not set.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"SystemRequiredBook";
+            metadata[@"Property"] = @"Book";
+            /*InvalidDataInfo ErrorMetadata Bookstore.BookTheme.SystemRequiredBook*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Reference Bookstore.BookTheme.Book" },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages Bookstore.BookTheme.SystemRequiredBook*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.Bookstore_BookTheme> Filter(IQueryable<Common.Queryable.Bookstore_BookTheme> localSource, Bookstore.SystemRequiredBook localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Bookstore_BookTheme>, Common.DomRepository, Bookstore.SystemRequiredBook/*ComposableFilterByInfo AdditionalParametersType Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/, IQueryable<Common.Queryable.Bookstore_BookTheme>> filterFunction =
+            (source, repository, parameter) => source.Where(item => item.Book == null);
+
+            /*ComposableFilterByInfo BeforeFilter Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/);
+        }
+
+        public global::Bookstore.BookTheme[] Filter(Bookstore.SystemRequiredBook filter_Parameter)
+        {
+            Func<Common.DomRepository, Bookstore.SystemRequiredBook/*FilterByInfo AdditionalParametersType Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/, Bookstore.BookTheme[]> filter_Function =
+                (repository, parameter) => repository.Bookstore.BookTheme.Filter(repository.Bookstore.BookTheme.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Bookstore.BookTheme.'Bookstore.SystemRequiredBook'*/);
+        }
+
+        /*DataStructureInfo RepositoryMembers Bookstore.BookTheme*/
+    }
+
+    /*ModuleInfo HelperNamespaceMembers Bookstore*/
+}
+
+namespace Rezervacije._Helper
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Linq.Expressions;
+    using System.Runtime.Serialization;
+    using Rhetos.Dom.DefaultConcepts;
+    using Rhetos.Utilities;
+
+    /*ModuleInfo Using Rezervacije*/
+
+    public class _ModuleRepository
+    {
+        private readonly Rhetos.Extensibility.INamedPlugins<IRepository> _repositories;
+
+        public _ModuleRepository(Rhetos.Extensibility.INamedPlugins<IRepository> repositories)
+        {
+            _repositories = repositories;
+        }
+
+        private Soba_Repository _Soba_Repository;
+        public Soba_Repository Soba { get { return _Soba_Repository ?? (_Soba_Repository = (Soba_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Soba")); } }
+
+        private TipSobe_Repository _TipSobe_Repository;
+        public TipSobe_Repository TipSobe { get { return _TipSobe_Repository ?? (_TipSobe_Repository = (TipSobe_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.TipSobe")); } }
+
+        private Rezervacija_Repository _Rezervacija_Repository;
+        public Rezervacija_Repository Rezervacija { get { return _Rezervacija_Repository ?? (_Rezervacija_Repository = (Rezervacija_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Rezervacija")); } }
+
+        private BrojRezervacijaPoSobi_Repository _BrojRezervacijaPoSobi_Repository;
+        public BrojRezervacijaPoSobi_Repository BrojRezervacijaPoSobi { get { return _BrojRezervacijaPoSobi_Repository ?? (_BrojRezervacijaPoSobi_Repository = (BrojRezervacijaPoSobi_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.BrojRezervacijaPoSobi")); } }
+
+        private BrowseSoba_Repository _BrowseSoba_Repository;
+        public BrowseSoba_Repository BrowseSoba { get { return _BrowseSoba_Repository ?? (_BrowseSoba_Repository = (BrowseSoba_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.BrowseSoba")); } }
+
+        private Hotel_Repository _Hotel_Repository;
+        public Hotel_Repository Hotel { get { return _Hotel_Repository ?? (_Hotel_Repository = (Hotel_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Hotel")); } }
+
+        private Gost_Repository _Gost_Repository;
+        public Gost_Repository Gost { get { return _Gost_Repository ?? (_Gost_Repository = (Gost_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.Gost")); } }
+
+        private StraniGost_Repository _StraniGost_Repository;
+        public StraniGost_Repository StraniGost { get { return _StraniGost_Repository ?? (_StraniGost_Repository = (StraniGost_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"Rezervacije.StraniGost")); } }
+
+        /*ModuleInfo RepositoryMembers Rezervacije*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.Soba*/
+    public class Soba_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Soba*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Soba, Rezervacije.Soba> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Soba, Rezervacije.Soba> // Common.ReadableRepositoryBase<Rezervacije.Soba> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.Soba>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Soba*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Soba*/
+
+        public Soba_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Soba*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Soba*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.Soba[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_Soba> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Soba*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_Soba.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.Soba> insertedNew, IEnumerable<Rezervacije.Soba> updatedNew, IEnumerable<Rezervacije.Soba> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Soba*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Soba.Ime", "256" },
+                        "DataStructure:Rezervacije.Soba,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Soba*/
+
+            { // UkloniRazmakePriSpremanju
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Ime = room.Ime.Replace(" ", string.Empty);
+            }
+
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.Soba*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_Soba> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Soba>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_Soba> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Soba>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Soba*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.Soba.Ime*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.Soba", "Ime" },
+                        "DataStructure:Rezervacije.Soba,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Soba*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_Soba.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.TipSobe", @"ID", @"FK_Soba_TipSobe_TipSobeIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:TipSobeIDID,Referenced:Rezervacije.TipSobe";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Rezervacija", @"SobaIDID", @"FK_Rezervacija_Soba_SobaIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:SobaIDID,Referenced:Rezervacije.Soba";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Hotel", @"ID", @"FK_Soba_Hotel_HotelID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:HotelID,Referenced:Rezervacije.Hotel";
+                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Soba*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Soba");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_Soba> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Soba*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Soba*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Soba");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Soba*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new CommonMisspelling()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_CommonMisspelling(errorIds))
+                        yield return error;
+            }
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Soba*/
+            yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_CommonMisspelling(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Ne moĹľete unijeti krivo napisano ime sobe ""dvosbna"".";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"CommonMisspelling";
+            /*InvalidDataInfo ErrorMetadata Rezervacije.Soba.CommonMisspelling*/
+            /*InvalidDataInfo OverrideUserMessages Rezervacije.Soba.CommonMisspelling*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public global::Rezervacije.Soba[] Filter(PretrazivanjeSobe filter_Parameter)
+        {
+            Func<Common.DomRepository, PretrazivanjeSobe/*FilterByInfo AdditionalParametersType Rezervacije.Soba.PretrazivanjeSobe*/, Rezervacije.Soba[]> filter_Function =
+                (repository, parameter) =>
+        {
+            return repository.Rezervacije.Soba.Query().Where(s=>s.Ime.Contains("Pet")).ToSimple().ToArray();
+        };
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.PretrazivanjeSobe*/);
+        }
+
+        public IQueryable<Common.Queryable.Rezervacije_Soba> Filter(IQueryable<Common.Queryable.Rezervacije_Soba> localSource, Rezervacije.CommonMisspelling localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Rezervacije_Soba>, Common.DomRepository, Rezervacije.CommonMisspelling/*ComposableFilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, IQueryable<Common.Queryable.Rezervacije_Soba>> filterFunction =
+            (source, repository, parameter) => source.Where(soba => soba.Ime.Contains("dvosbna"));
+
+            /*ComposableFilterByInfo BeforeFilter Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
+        }
+
+        public global::Rezervacije.Soba[] Filter(Rezervacije.CommonMisspelling filter_Parameter)
+        {
+            Func<Common.DomRepository, Rezervacije.CommonMisspelling/*FilterByInfo AdditionalParametersType Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/, Rezervacije.Soba[]> filter_Function =
+                (repository, parameter) => repository.Rezervacije.Soba.Filter(repository.Rezervacije.Soba.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.Soba.'Rezervacije.CommonMisspelling'*/);
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.Soba*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.TipSobe*/
+    public class TipSobe_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.TipSobe*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_TipSobe, Rezervacije.TipSobe> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_TipSobe, Rezervacije.TipSobe> // Common.ReadableRepositoryBase<Rezervacije.TipSobe> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.TipSobe>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.TipSobe*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.TipSobe*/
+
+        public TipSobe_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.TipSobe*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.TipSobe*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.TipSobe[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_TipSobe> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.TipSobe*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_TipSobe.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.TipSobe> insertedNew, IEnumerable<Rezervacije.TipSobe> updatedNew, IEnumerable<Rezervacije.TipSobe> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.TipSobe*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "TipSobe.Ime", "256" },
+                        "DataStructure:Rezervacije.TipSobe,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.TipSobe*/
+
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.TipSobe*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_TipSobe> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_TipSobe>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_TipSobe> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_TipSobe>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.TipSobe*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.TipSobe.Ime*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.TipSobe", "Ime" },
+                        "DataStructure:Rezervacije.TipSobe,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
+            }
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Cijena == null /*RequiredPropertyInfo OrCondition Rezervacije.TipSobe.Cijena*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.TipSobe", "Cijena" },
+                        "DataStructure:Rezervacije.TipSobe,ID:" + invalid.ID.ToString() + ",Property:Cijena", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.TipSobe*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_TipSobe.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Soba", @"TipSobeIDID", @"FK_Soba_TipSobe_TipSobeIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:TipSobeIDID,Referenced:Rezervacije.TipSobe";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Rezervacije.TipSobe", @"IX_TipSobe_Ime"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.TipSobe,Property:Ime";
+                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.TipSobe*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.TipSobe");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_TipSobe> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.TipSobe*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.TipSobe*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.TipSobe");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.TipSobe*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Rezervacije.Cijena_MaxValueFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Cijena_MaxValueFilter(errorIds))
+                        yield return error;
+            }
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.TipSobe*/
+            yield break;
+        }
+
+        public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, PretrazivanjeTipSobe localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, PretrazivanjeTipSobe/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
+            (query, repository, parameter) => 
+        {
+            if(parameter.MinimalnaCijena != null)
+                return query.Where(tipSobe => tipSobe.Cijena >= parameter.MinimalnaCijena);
+            return query;
+        };
+
+            /*ComposableFilterByInfo BeforeFilter Rezervacije.TipSobe.PretrazivanjeTipSobe*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
+        }
+
+        public IQueryable<Common.Queryable.Rezervacije_TipSobe> Filter(IQueryable<Common.Queryable.Rezervacije_TipSobe> localSource, Rezervacije.Cijena_MaxValueFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.Rezervacije_TipSobe>, Common.DomRepository, Rezervacije.Cijena_MaxValueFilter/*ComposableFilterByInfo AdditionalParametersType Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/, IQueryable<Common.Queryable.Rezervacije_TipSobe>> filterFunction =
+            (items, repository, parameter) => { decimal limit = 9999M; return items.Where(item => item.Cijena != null && item.Cijena > limit); };
+
+            /*ComposableFilterByInfo BeforeFilter Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/);
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Cijena_MaxValueFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Maximum value of {0} is {1}.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Rezervacije.Cijena_MaxValueFilter";
+            metadata[@"Property"] = @"Cijena";
+            /*InvalidDataInfo ErrorMetadata Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Cijena", @"9999" },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public global::Rezervacije.TipSobe[] Filter(PretrazivanjeTipSobe filter_Parameter)
+        {
+            Func<Common.DomRepository, PretrazivanjeTipSobe/*FilterByInfo AdditionalParametersType Rezervacije.TipSobe.PretrazivanjeTipSobe*/, Rezervacije.TipSobe[]> filter_Function =
+                (repository, parameter) => repository.Rezervacije.TipSobe.Filter(repository.Rezervacije.TipSobe.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.PretrazivanjeTipSobe*/);
+        }
+
+        public global::Rezervacije.TipSobe[] Filter(Rezervacije.Cijena_MaxValueFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, Rezervacije.Cijena_MaxValueFilter/*FilterByInfo AdditionalParametersType Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/, Rezervacije.TipSobe[]> filter_Function =
+                (repository, parameter) => repository.Rezervacije.TipSobe.Filter(repository.Rezervacije.TipSobe.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument Rezervacije.TipSobe.'Rezervacije.Cijena_MaxValueFilter'*/);
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.TipSobe*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.Rezervacija*/
+    public class Rezervacija_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Rezervacija*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Rezervacija, Rezervacije.Rezervacija> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Rezervacija, Rezervacije.Rezervacija> // Common.ReadableRepositoryBase<Rezervacije.Rezervacija> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.Rezervacija>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Rezervacija*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Rezervacija*/
+
+        public Rezervacija_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Rezervacija*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Rezervacija*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.Rezervacija[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_Rezervacija> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Rezervacija*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_Rezervacija.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.Rezervacija> insertedNew, IEnumerable<Rezervacije.Rezervacija> updatedNew, IEnumerable<Rezervacije.Rezervacija> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Rezervacija*/
+
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Rezervacija*/
+
+            { 
+                var now = SqlUtility.GetDatabaseTime(_executionContext.SqlExecuter);
+
+                foreach (var newItem in insertedNew)
+                    if(newItem.Created == null)
+                        newItem.Created = now;
+            }
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.Rezervacija*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Rezervacija>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Rezervacija>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Rezervacija*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.CheckIn == null /*RequiredPropertyInfo OrCondition Rezervacije.Rezervacija.CheckIn*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.Rezervacija", "CheckIn" },
+                        "DataStructure:Rezervacije.Rezervacija,ID:" + invalid.ID.ToString() + ",Property:CheckIn", null);
+            }
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.CheckOut == null /*RequiredPropertyInfo OrCondition Rezervacije.Rezervacija.CheckOut*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.Rezervacija", "CheckOut" },
+                        "DataStructure:Rezervacije.Rezervacija,ID:" + invalid.ID.ToString() + ",Property:CheckOut", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Rezervacija*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_Rezervacija.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Soba", @"ID", @"FK_Rezervacija_Soba_SobaIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:SobaIDID,Referenced:Rezervacije.Soba";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"Rezervacije.Rezervacija", @"IX_Rezervacija_CheckIn_CheckOut_SobaID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:CheckIn CheckOut SobaID";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"Rezervacije.Gost", @"ID", @"FK_Rezervacija_Gost_GostIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:GostIDID,Referenced:Rezervacije.Gost";
+                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Rezervacija*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Rezervacija");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_Rezervacija> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Rezervacija*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Rezervacija*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Rezervacija");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Rezervacija*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Rezervacija*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.Rezervacija*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.BrojRezervacijaPoSobi*/
+    public class BrojRezervacijaPoSobi_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.BrojRezervacijaPoSobi*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi, Rezervacije.BrojRezervacijaPoSobi> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi, Rezervacije.BrojRezervacijaPoSobi> // Common.ReadableRepositoryBase<Rezervacije.BrojRezervacijaPoSobi> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Rezervacije.BrojRezervacijaPoSobi*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.BrojRezervacijaPoSobi*/
+
+        public BrojRezervacijaPoSobi_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Rezervacije.BrojRezervacijaPoSobi*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.BrojRezervacijaPoSobi*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.BrojRezervacijaPoSobi[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_BrojRezervacijaPoSobi> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.BrojRezervacijaPoSobi*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_BrojRezervacijaPoSobi.AsNoTracking();
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.BrojRezervacijaPoSobi*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.BrowseSoba*/
+    public class BrowseSoba_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.BrowseSoba*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_BrowseSoba, Rezervacije.BrowseSoba> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_BrowseSoba, Rezervacije.BrowseSoba> // Common.ReadableRepositoryBase<Rezervacije.BrowseSoba> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface Rezervacije.BrowseSoba*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.BrowseSoba*/
+
+        public BrowseSoba_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments Rezervacije.BrowseSoba*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.BrowseSoba*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.BrowseSoba[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_BrowseSoba> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.BrowseSoba*/
+            return Query(_domRepository.Rezervacije.Soba.Query());
+        }
+
+        public IQueryable<Common.Queryable.Rezervacije_BrowseSoba> Query(IQueryable<Common.Queryable.Rezervacije_Soba> source)
+        {
+            return source.Select(item => new Common.Queryable.Rezervacije_BrowseSoba
+                {
+                    ID = item.ID,
+                    Base = item,
+                    BrojSobe = item.Broj,
+                    HotelName = item.Hotel.Ime,
+                    BrojRezervacija = item.Extension_BrojRezervacijaPoSobi.BrojRezervacija,
+                    /*BrowseDataStructureInfo BrowseProperties Rezervacije.BrowseSoba*/
+                });
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.BrowseSoba*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.Hotel*/
+    public class Hotel_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Hotel*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Hotel, Rezervacije.Hotel> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Hotel, Rezervacije.Hotel> // Common.ReadableRepositoryBase<Rezervacije.Hotel> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.Hotel>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Hotel*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Hotel*/
+
+        public Hotel_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Hotel*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Hotel*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.Hotel[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_Hotel> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Hotel*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_Hotel.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.Hotel> insertedNew, IEnumerable<Rezervacije.Hotel> updatedNew, IEnumerable<Rezervacije.Hotel> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Hotel*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Hotel.Ime", "256" },
+                        "DataStructure:Rezervacije.Hotel,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
+                        null);
+            }
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Adresa != null && newItem.Adresa.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Hotel.Adresa", "256" },
+                        "DataStructure:Rezervacije.Hotel,ID:" + invalidItem.ID.ToString() + ",Property:Adresa",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Hotel*/
+
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.Hotel*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_Hotel> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Hotel>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_Hotel> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Hotel>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Hotel*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Hotel*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_Hotel.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Soba", @"HotelID", @"FK_Soba_Hotel_HotelID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Soba,Property:HotelID,Referenced:Rezervacije.Hotel";
+                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Hotel*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Hotel");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_Hotel> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Hotel*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Hotel*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Hotel");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Hotel*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Hotel*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.Hotel*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.Gost*/
+    public class Gost_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.Gost*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_Gost, Rezervacije.Gost> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_Gost, Rezervacije.Gost> // Common.ReadableRepositoryBase<Rezervacije.Gost> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.Gost>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.Gost*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.Gost*/
+
+        public Gost_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.Gost*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.Gost*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.Gost[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_Gost> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.Gost*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_Gost.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.Gost> insertedNew, IEnumerable<Rezervacije.Gost> updatedNew, IEnumerable<Rezervacije.Gost> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.Gost*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Ime != null && newItem.Ime.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Gost.Ime", "256" },
+                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Ime",
+                        null);
+            }
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Prezime != null && newItem.Prezime.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Gost.Prezime", "256" },
+                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Prezime",
+                        null);
+            }
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.Email != null && newItem.Email.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "Gost.Email", "256" },
+                        "DataStructure:Rezervacije.Gost,ID:" + invalidItem.ID.ToString() + ",Property:Email",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Gost*/
+
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.Gost*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_Gost> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Gost>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_Gost> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_Gost>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            if (deletedIds.Count() > 0)
+            {
+                List<Rezervacije.StraniGost> childItems = _executionContext.Repository.Rezervacije.StraniGost
+                    .Query(deletedIds.Select(parent => parent.ID))
+                    .Select(child => child.ID).ToList()
+                    .Select(childId => new Rezervacije.StraniGost { ID = childId }).ToList();
+
+                if (childItems.Count() > 0)
+                    _domRepository.Rezervacije.StraniGost.Delete(childItems);
+            }
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.Gost*/
+
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Ime == null || string.IsNullOrWhiteSpace(item.Ime) /*RequiredPropertyInfo OrCondition Rezervacije.Gost.Ime*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "Rezervacije.Gost", "Ime" },
+                        "DataStructure:Rezervacije.Gost,ID:" + invalid.ID.ToString() + ",Property:Ime", null);
+            }
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.Gost*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_Gost.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.Rezervacija", @"GostIDID", @"FK_Rezervacija_Gost_GostIDID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.Rezervacija,Property:GostIDID,Referenced:Rezervacije.Gost";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"Rezervacije.StraniGost", @"ID", @"FK_StraniGost_Gost_ID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:Rezervacije.StraniGost,Property:ID,Referenced:Rezervacije.Gost";
+                /*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.Gost*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.Gost");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_Gost> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.Gost*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.Gost*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.Gost");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.Gost*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.Gost*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.Gost*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes Rezervacije.StraniGost*/
+    public class StraniGost_Repository : /*DataStructureInfo OverrideBaseType Rezervacije.StraniGost*/ Common.OrmRepositoryBase<Common.Queryable.Rezervacije_StraniGost, Rezervacije.StraniGost> // Common.QueryableRepositoryBase<Common.Queryable.Rezervacije_StraniGost, Rezervacije.StraniGost> // Common.ReadableRepositoryBase<Rezervacije.StraniGost> // global::Common.RepositoryBase
+        , IWritableRepository<Rezervacije.StraniGost>, IValidateRepository/*DataStructureInfo RepositoryInterface Rezervacije.StraniGost*/
+    {
+        private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
+        /*DataStructureInfo RepositoryPrivateMembers Rezervacije.StraniGost*/
+
+        public StraniGost_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments Rezervacije.StraniGost*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            this._sqlUtility = _sqlUtility;
+            /*DataStructureInfo RepositoryConstructorCode Rezervacije.StraniGost*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::Rezervacije.StraniGost[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.Rezervacije_StraniGost> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery Rezervacije.StraniGost*/
+            return _executionContext.EntityFrameworkContext.Rezervacije_StraniGost.AsNoTracking();
+        }
+
+        public void Save(IEnumerable<Rezervacije.StraniGost> insertedNew, IEnumerable<Rezervacije.StraniGost> updatedNew, IEnumerable<Rezervacije.StraniGost> deletedIds, bool checkUserPermissions = false)
+        {
+            if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
+                return;
+
+            /*DataStructureInfo WritableOrm ClearContext Rezervacije.StraniGost*/
+
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.ImePrevoditelja != null && newItem.ImePrevoditelja.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "StraniGost.ImePrevoditelja", "256" },
+                        "DataStructure:Rezervacije.StraniGost,ID:" + invalidItem.ID.ToString() + ",Property:ImePrevoditelja",
+                        null);
+            }
+            {
+                var invalidItem = insertedNew.Concat(updatedNew).Where(newItem => newItem.PrezimePrevoditelja != null && newItem.PrezimePrevoditelja.Length > 256).FirstOrDefault();
+                if (invalidItem != null)
+                    throw new Rhetos.UserException(
+                        "Maximum length of property {0} is {1}.",
+                        new[] { "StraniGost.PrezimePrevoditelja", "256" },
+                        "DataStructure:Rezervacije.StraniGost,ID:" + invalidItem.ID.ToString() + ",Property:PrezimePrevoditelja",
+                        null);
+            }
+            /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.StraniGost*/
+
+            /*DataStructureInfo WritableOrm Initialization Rezervacije.StraniGost*/
+
+            // Using old data, including lazy loading of navigation properties:
+            IEnumerable<Common.Queryable.Rezervacije_StraniGost> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_StraniGost>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.Rezervacije_StraniGost> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.Rezervacije_StraniGost>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+
+            /*DataStructureInfo WritableOrm OldDataLoaded Rezervacije.StraniGost*/
+
+            /*DataStructureInfo WritableOrm ProcessedOldData Rezervacije.StraniGost*/
+
+            DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
+            try
+            {
+                if (deletedIds.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Delete;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in deletedIds.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (updatedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Update;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var item in updatedNew.Select(item => item.ToNavigation()))
+                        _executionContext.EntityFrameworkContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    _executionContext.EntityFrameworkContext.Configuration.AutoDetectChangesEnabled = true;
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                if (insertedNew.Count() > 0)
+                {
+                    saveOperation = DomHelper.SaveOperation.Insert;
+                    _executionContext.EntityFrameworkContext.Rezervacije_StraniGost.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.SaveChanges();
+                }
+
+                saveOperation = DomHelper.SaveOperation.None;
+                _executionContext.EntityFrameworkContext.ClearCache();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException saveException)
+            {
+                DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
+        		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
+        		/*DataStructureInfo WritableOrm OnDatabaseError Rezervacije.StraniGost*/
+                if (checkUserPermissions)
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "Rezervacije.StraniGost");
+
+                if (interpretedException != null)
+        			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
+                var sqlException = _sqlUtility.ExtractSqlException(saveException);
+                if (sqlException != null)
+                    Rhetos.Utilities.ExceptionsUtility.Rethrow(sqlException);
+                throw;
+            }
+
+            deleted = null;
+            updated = this.Query(updatedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.Rezervacije_StraniGost> inserted = this.Query(insertedNew.Select(item => item.ID));
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*DataStructureInfo WritableOrm OnSaveTag1 Rezervacije.StraniGost*/
+
+                /*DataStructureInfo WritableOrm OnSaveTag2 Rezervacije.StraniGost*/
+
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "Rezervacije.StraniGost");
+
+                /*DataStructureInfo WritableOrm AfterSave Rezervacije.StraniGost*/
+
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
+        {
+            /*DataStructureInfo WritableOrm OnSaveValidate Rezervacije.StraniGost*/
+            yield break;
+        }
+
+        /*DataStructureInfo RepositoryMembers Rezervacije.StraniGost*/
+    }
+
+    /*ModuleInfo HelperNamespaceMembers Rezervacije*/
 }
 
 /*RepositoryClasses*/

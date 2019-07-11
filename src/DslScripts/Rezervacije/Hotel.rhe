@@ -2,11 +2,20 @@ Module Rezervacije
 {
     Entity Soba 
     {
-        ShortString Ime;
+        ShortString Ime { Required; UkloniRazmakePriSpremanju; }
         Integer Broj;
         Reference TipSobeID Rezervacije.TipSobe;
         Reference Hotel Rezervacije.Hotel;
         
+        SaveMethod 
+        {
+            Initialization UkloniRazmakePriSpremanju 
+            '
+                foreach (var room in insertedNew.Concat(updatedNew))
+                    room.Ime = room.Ime.Replace(" ", string.Empty);
+            ';
+        }
+
         ItemFilter CommonMisspelling 'soba => soba.Ime.Contains("dvosbna")';
         InvalidData CommonMisspelling 'Ne možete unijeti krivo napisano ime sobe "dvosbna".';
 

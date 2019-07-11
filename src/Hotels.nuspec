@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Demo</id>
+    <version>1.0.0</version>
+    <authors>Omega software</authors>
+    <owners>Omega software</owners>
+    <licenseUrl>http://opensource.org/licenses/AGPL-3.0</licenseUrl>
+    <projectUrl>https://github.com/rhetos/rhetos</projectUrl>
+    <description>Demo aplikacija</description>
+    <copyright>Copyright Omega software 2015</copyright>
+    <tags>Rhetos plugin</tags>
+    <dependencies>
+      <dependency id="Rhetos" version="2.11.0" />
+      <dependency id="Rhetos.CommonConcepts" version="2.11.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="DslScripts\**\*" target="DslScripts" />
+    <file src="Hoteli.Concepts\bin\Debug\Hoteli.Concepts.dll" target="lib\net451" />
+    <file src="Hoteli.Concepts\bin\Debug\Hoteli.Concepts.pdb" target="lib\net451" />
+  </files>
+</package>

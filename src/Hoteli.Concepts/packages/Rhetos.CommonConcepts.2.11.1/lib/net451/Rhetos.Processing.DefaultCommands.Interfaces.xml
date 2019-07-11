@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Processing.DefaultCommands.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="F:Rhetos.Dom.DefaultConcepts.ApplyFilterWhere.Where">
+            <summary>
+            (Optional) Selection of command where the filter will be applied.
+            If not set (null), it is equivalent to "command => true".
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.ApplyFiltersOnClientRead">
+            <summary>
+            For a given data structure key, dictionary contains list of filters that will be
+            automatically applied when executing ReadCommand.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandResult.Records">
+            Returned only if ReadCommandInfo.ReadTotalCount is set, otherwise it will be null.
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandResult.TotalCount">
+            <summary>
+            The total number of records that would be returned without paging (ReadCommandInfo.Top or Skip).
+            The value is returned only if ReadCommandInfo.ReadTotalCount is set.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Processing.DefaultCommands.ReadCommandInfo">
+            <summary>
+            All members except DataSource are optional.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandInfo.DataSource">
+            <summary>
+            Name of the entity or other readable data structure.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandInfo.ReadRecords">
+            <summary>
+            If not set, the command will not return ReadCommandResult.Records.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandInfo.ReadTotalCount">
+            <summary>
+            If not set, the command will not return ReadCommandResult.TotalCount.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandInfo.Top">
+            <summary>
+            Limit the number of records in the result. Set to 0 (default) if not used.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ReadCommandInfo.Skip">
+            <summary>
+            Skip the number of records in the result. Set to 0 (default) if not used.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.ExecuteActionCommandInfo.Action">
+            <summary>
+            Instance of the action type.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.DownloadReportCommandInfo.Report">
+            <summary>
+            Instance of the report type.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.DownloadReportCommandInfo.ConvertFormat">
+            <summary>
+            Typically a file extension ("pdf", for example), or null if no conversion of report file type is needed.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.QueryDataSourceCommandInfo.Filter">
+            <summary>
+             Optional.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.QueryDataSourceCommandInfo.GenericFilter">
+            <summary>
+             Optional.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.QueryDataSourceCommandInfo.PageNumber">
+            <summary>
+            Optional. Set to 0 if no paging is used.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.QueryDataSourceCommandInfo.RecordsPerPage">
+            <summary>
+            Optional. Set to 0 if no paging is used.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Processing.DefaultCommands.QueryDataSourceCommandInfo.OrderByProperty">
+            <summary>
+             Optional.
+            </summary>
+        </member>
+    </members>
+</doc>

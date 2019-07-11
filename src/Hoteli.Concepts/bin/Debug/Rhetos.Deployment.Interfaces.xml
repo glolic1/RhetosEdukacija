@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Deployment.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="P:Rhetos.Deployment.IInstalledPackages.Packages">
+            <summary>
+            The packages are sorted by dependencies.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Deployment.InstalledPackage.Folder">
+            <summary>The local folder where the package files are extracted and used by Rhetos.</summary>
+        </member>
+        <member name="P:Rhetos.Deployment.InstalledPackage.Source">
+            <summary>URI or a folder where the package was downloaded from.</summary>
+        </member>
+        <member name="M:Rhetos.Deployment.InstalledPackage.SetAbsoluteFolderPath">
+            <summary>
+            Folder paths should be absolute in runtime to avoid ambiguity of current working folder when using the Rhetos server object model from other applications.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Deployment.InstalledPackage.SetRelativeFolderPath">
+            <summary>
+            Folder paths should be relative when saving the path to a cache file, to allow moving the Rhetos server folder to testing environment or production.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Deployment.PackageRequest.Id">
+            <summary>Package name.</summary>
+        </member>
+        <member name="P:Rhetos.Deployment.PackageRequest.VersionsRange">
+            <summary>(Optional) Supported versions, specified in NuGet format. If not provided, the last available version will be used.</summary>
+        </member>
+        <member name="P:Rhetos.Deployment.PackageRequest.Source">
+            <summary>(Optional) Source where the package can be found.
+            If provided, it will be used instead of DeploymentSources.
+            See DeploymentSources for supported source formats.</summary>
+        </member>
+        <member name="P:Rhetos.Deployment.PackageRequest.RequestedBy">
+            <summary>
+            The value should not be provided in configuration file or package metadata file.
+            It is automatically set by the system to track where the request originated.
+            </summary>
+        </member>
+    </members>
+</doc>
