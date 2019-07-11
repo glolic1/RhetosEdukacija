@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Dom.DefaultConcepts.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Rhetos.Dom.DefaultConcepts.DeactivateInsteadOfDelete">
+            <summary>
+            A Filter() function with this parameter on IDeactivatable entity's repository
+            must return the records that should be deactivated instead of deleted.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DomUtility.GetSubtypeImplementationHash(System.String)">
+            <summary>
+            Standard GetHashCode() function in not guaranteed to return same result in different environments.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DomUtility.GetSubtypeImplementationId(System.Guid,System.Int32)">
+            <summary>
+            This functionality is also implemented in supertype's SQL view, see IsSubtypeOfInfo.GetSpecificImplementationId().
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.FilterAll">
+            <summary>
+            A Load() function with this filter should return all records from the repository.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.Function.Create``1(System.Func{``0})">
+            <summary>
+            (Ab)using generics to automatically detect the function's result, so that the generated code
+            can use static typing without explicitly defining the result type.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.Function`1.Create``1(System.Func{`0,``0})">
+            <summary>
+            (Ab)using generics to automatically detect the function's result, so that the generated code
+            can use static typing without explicitly defining the result type.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions">
+            <summary>
+            This class contains a set of SQL-compatible functions that can be evaluated in both LINQ and SQL.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.EqualsCaseInsensitive(System.String,System.String)">
+            <summary>
+            If b is null, SQL query will use IS NULL instead of the equality operator.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.NotEqualsCaseInsensitive(System.String,System.String)">
+            <summary>
+            If b is null, SQL query will use IS NOT NULL instead of the inequality operator.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.FullTextSearch(System.Guid,System.String,System.String,System.String)">
+            <param name="tableName">Table that contains the full-text search indexed columns. It is usually the entity's table or a table that references the entity's table.</param>
+            <param name="searchColumns">Full-text search indexed columns. See the columns list parameter on CONTAINSTABLE function for Microsoft SQL server database.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.FullTextSearch(System.Guid,System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <param name="tableName">Table that contains the full-text search indexed columns. It is usually the entity's table or a table that references the entity's table.</param>
+            <param name="searchColumns">Full-text search indexed columns. See the columns list parameter on CONTAINSTABLE function for Microsoft SQL server database.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.FullTextSearch(System.Int32,System.String,System.String,System.String)">
+            <param name="tableName">Table that contains the full-text search indexed columns. It is usually the entity's table or a table that references the entity's table.</param>
+            <param name="searchColumns">Full-text search indexed columns. See the columns list parameter on CONTAINSTABLE function for Microsoft SQL server database.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DatabaseExtensionFunctions.FullTextSearch(System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <param name="tableName">Table that contains the full-text search indexed columns. It is usually the entity's table or a table that references the entity's table.</param>
+            <param name="searchColumns">Full-text search indexed columns. See the columns list parameter on CONTAINSTABLE function for Microsoft SQL server database.</param>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.FilterCriteria">
+            <summary>
+            FilterCriteria is a generic filter's element that defines a filter by property value or a predefined filter call.
+            
+            If a data structure's repository implements a Query, Load or Filter function with IEnumerable&lt;FilterCriteria&gt; argument,
+            it will be used when reading data by GenericRepository or a server command.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dom.DefaultConcepts.FilterCriteria.Property">
+            <summary>
+            Property name.
+            Either "Property" or "Filter" member should be set.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dom.DefaultConcepts.FilterCriteria.Filter">
+            <summary>
+            Predefined filter name (filter type).
+            Either "Property" or "Filter" member should be set.
+            May be a data structure name from DSL script (Common.Principal, e.g.), FullName of a standard type (from mscorlib),
+            or an AssemblyQualifiedName (optional Version, Culture and PublicKeyToken) for other types.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dom.DefaultConcepts.FilterCriteria.Operation">
+            <summary>
+            Optional when Filter is set.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dom.DefaultConcepts.FilterCriteria.Value">
+            <summary>
+            Filter parameter.
+            Optional when Filter is set.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.FilterCriteria.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Create a property filter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.FilterCriteria.#ctor(System.Type)">
+            <summary>
+            Create a predefined filter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.FilterCriteria.#ctor(System.Object)">
+            <summary>
+            Create a predefined filter.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.IDetachOverride">
+            <summary>
+            When saving an entity with lazy load enabled, the new records need to be detached in order to allow using
+            the old data in Save function before the new records are written to the database.
+            Detaching a record will clear all references from other records to the record to null. This interface will allow overriding that behavior.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.IReadableRepository`1">
+            <summary>
+            Naming convention:
+            Load() returns loaded (materialized) data in a List or an array.
+            Query() returns a LINQ query.
+            Read() returns loaded data or a linq query, depending on the available repository's functions and the preferQuery parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IReadableRepository`1.Load(System.Object,System.Type)">
+            <summary>
+            This function returns loaded data (a List or an array), using available repository's Load, Query and Filter functions.
+            </summary>
+            <param name="parameterType">
+            The parameterType is usually <code>parameter.GetType()</code>. Note that the parameter value may be null.
+            </param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IReadableRepository`1.Read(System.Object,System.Type,System.Boolean)">
+            <summary>
+            This function returns a LINQ query (IQueryable) or loaded data (a List or an array), using available repository's Load, Query and Filter functions.
+            If both Query and Load functions are available, the preferQuery argument will be used to determine which functions will be used and the result type.
+            </summary>
+            <param name="parameterType">
+            The parameterType is usually <code>parameter.GetType()</code>. Note that the parameter value may be null.
+            </param>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.RegisteredInterfaceImplementations">
+            <summary>
+            Key is the interface type, value is full name of the entity that implements the interface.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IReportRepository.GenerateReport(System.Object,System.String)">
+            <summary>
+            Returns generated binary file and suggested file name.
+            Set convertFormat to "pdf" to convert result to pdf.
+            Set convertFormat to null to get the original report template file format (docx or xls, for example).
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.IEntity">
+            <summary>
+            The term "entity" here represents any data structure that has identifiable items.
+            </summary>
+            <remarks>
+            Not to be confused with the "Entity" DSL concept, which generates a common
+            IEntity implementation (database table + class + ORM mapping).
+            Other concepts, such as Browse, SqlQueryable and Computed also generate
+            some kind of IEntity implementation.
+            </remarks>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.WritableRepositoryExtensions.Insert``1(Rhetos.Dom.DefaultConcepts.IWritableRepository{``0},``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.WritableRepositoryExtensions.Update``1(Rhetos.Dom.DefaultConcepts.IWritableRepository{``0},``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.WritableRepositoryExtensions.Delete``1(Rhetos.Dom.DefaultConcepts.IWritableRepository{``0},``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+    </members>
+</doc>

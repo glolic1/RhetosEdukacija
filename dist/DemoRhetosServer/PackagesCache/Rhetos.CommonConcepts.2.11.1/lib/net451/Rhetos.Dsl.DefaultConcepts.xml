@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Dsl.DefaultConcepts</name>
+    </assembly>
+    <members>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ApplyFilterOnClientReadAllInfo">
+            <summary>
+            The given filter will be automatically applied when executing ReadCommand server command
+            (the command is used in SOAP and REST API).
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ApplyFilterOnClientReadWhereInfo">
+            <summary>
+            The given filter will be automatically applied when executing ReadCommand server command
+            (the command is used in SOAP and REST API).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.ApplyFilterOnClientReadWhereInfo.Where">
+            <summary>
+            (Optional)
+            Selection of read commands where the filter will be applied.
+            If empty string, it is equivalent to "command => true".
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ChangesOnReferencedInfo">
+            <summary>
+            A helper for defining a computation dependency to the referenced entity.
+            * The ReferencePath can include the 'Base' reference from extended concepts.
+            * The ReferencePath can target a Polymorphic. This will generate a ChangesOnChangesItems for each Polymorphic implementation.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.EntityComputedFromDefaultLoadFilterInfo.LoadFilter">
+            <summary>A filter or a loader parameter that returns a subset of records that are computed.
+            Both Source and Target data structures must have a filter or a loader with the given parameter type.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.InvalidDataAllowSaveInfo">
+            <summary>
+            Modifies the InvalidData concept to suppress data validation on save.
+            Instead, the data validation can be excepted separately as a report.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.InvalidDataInfo">
+            <summary>
+            Simple data validation with a constant error message.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.InvalidDataInfo.ErrorMessage">
+            <summary>
+            Simple rule description. The error messages might be overridden by other more complex concepts.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageParametersConstantInfo">
+            <summary>
+            Optimized version of "MessageParameters" concept; no need to query database to retrieve error message parameters.
+            Example: InvalidData with error message 'Maximum value of property {0} is {1}.'
+            may contain MessageParametersConstant '"Age", 200'.
+            By separating the parameters from the error message, only one error message needs to be translated
+            for many different max-value constraints.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageParametersConstantInfo.MessageParameters">
+            <summary>
+            Comma-separated list for C# object[] initializer.
+            For example: MessageParameters ' "Age", 200 ';
+            will generate C# code 'new object[] { "Age", 200 }'
+            The resulting array will be used for MessageParameters member of InvalidDataMessage class.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageInfo">
+            <summary>
+            This base class for different implementations of error messages is used to
+            ensure only one implementation will be used on a single InvalidData concept.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageParametersItemInfo">
+            <summary>
+            Use this concept to separate message parameters from the error message, for easier translation to another language.
+            Example: InvalidData with error message 'Maximum value of property {0} is {1}. Current value ({2}) is {3} characters long.'
+            may contain MessageParameters 'item => new object[] { item.ID, P0 = "Age", P1 = 200, P2 = item.Age, P3 = item.Age.Length }'.
+            By separating the parameters from the error message, only one error message needs to be translated
+            for many different max-value constraints.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageParametersItemInfo.MessageParameters">
+            <summary>
+            Lambda expression: item => new { ID = item.ID, P0 = item..., P1 = item..., ... }
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.InvalidDataMessageFunctionInfo.MessageFunction">
+            <summary>
+            Lambda expression: IEnumerable&lt;Guid&gt; => IEnumerable&lt;Rhetos.Dom.DefaultConcepts.InvalidDataMessage&gt;
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.ItemFilterReferencedInfo.SubFilterExpression">
+            <summary>
+            Use it to additionally filter out some items or sort the items within a group with the same reference value.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.ComposableFilterByReferencedInfo.SubFilterExpression">
+            <summary>
+            Use it to additionally filter out some items or sort the items within a group with the same reference value.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ItemFilterApplyOnClientReadInfo">
+            <summary>
+            The given filter will be automatically applied when executing ReadCommand server command
+            (the command is used in SOAP and REST API).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.ComputeForNewItemsInfo.FilterSaveExpression">
+            <summary>May be empty.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ComposableFilterApplyOnClientReadInfo">
+            <summary>
+            The given filter will be automatically applied when executing ReadCommand server command
+            (the command is used in SOAP and REST API).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LockItemsExceptPropertiesInfo.ExceptProperties">
+            <summary>A list of properties that should not be locked.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SqlIndexMultipleFollowingPropertyInfo.PreviousIndexProperty">
+            <summary>
+            Used for property ordering when creating the index.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.SqlNotNullInfo">
+            <summary>
+            This concept is intended for internal use only, for other concepts' implementations.
+            Use "Required" or "SystemRequired" instead to implement business requirements.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.PolymorphicSubtypeDiscriminatorInfo">
+            <summary>
+            The "Subtype" property on a polymorphic supertype,
+            that contains the name of the subtype data structure for each records.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.PolymorphicSubtypeReferenceInfo">
+            <summary>
+            For each subtype, the polymorphic supertype has a reference to the subtype data structure.
+            Each record has only one of those references set (based on it's subtype), all the others are null.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.UniqueReferenceInfo">
+            <summary>
+            The extension data structure has the same ID as the base data structure.
+            Database:
+            The extension's table has a foreign key constraint on its ID column, referencing the base entity's ID column.
+            C# object model:
+            The extension's class has 'Base' navigation property that references the base class. The base class has Extension_* navigation property that references the extension.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.SamePropertyValue2Info">
+            <summary>
+            Used for internal optimizations when a property on one data structure returns the same value
+            as a property on referenced (base or parent) data structure.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SamePropertyValue2Info.BaseSelector">
+            <summary>Object model property name on the inherited data structure that references the base data structure class.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RepositoryUsesInfo">
+            <summary>
+            Adds the private C# property to the data structure's repository class. The property value will be resolved from IoC container.
+            It is typically a system component that is required in some function in the repository class (entity filter or action implementation, e.g.).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.RepositoryUsesInfo.PropertyName">
+            <summary>
+            Member property name.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.RepositoryUsesInfo.PropertyType">
+            <summary>
+            Assembly qualified name (loosely defined).
+            The type name does not need to contain Version, Culture or PublicKeyToken if you are referencing a local assembly in the application's folder.
+            The type will be resolved from IoC container.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RegisteredQueryableInterfaceImplementationHelperInfo">
+            <summary>
+            Registers the data structure (and it's repository) as the main implementation of the given interface.
+            This allows for type-safe code in external business layer class library to have simple access to
+            the generated data structure's class and the repository using predefined interfaces.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SpecificSubtypeSqlViewInfo.SqlQuery">
+            <summary>Existing property ViewSource is replaced with SqlQuery to force that the property IsSubtypeOf is first when parsed,
+            so that this concept can be embedded within IsSubtypeOfInfo in a DSL script.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ExtensibleSubtypeSqlViewInfo">
+            <summary>
+            This is one of the options for implementing a polymorphic in the subtype data structure,
+            i.e. defining a mapping between the polymorphic supertype and the subtype.
+            ExtensibleSubtypeSqlViewInfo allows an independent mapping definition implementation for each property,
+            also allowing for additional subtype properties (from a custom extension package, for example)
+            to be added to the subtype and mapped to the supertype.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.ExtensibleSubtypeSqlViewInfo.GetSubtypeImplementationIdSnippet">
+            <summary>
+            Same subtype may implement same supertype multiple time. Since ID of the supertype is usually same as subtype's ID,
+            that might result with multiple supertype records with the same ID. To avoid duplicate IDs and still keep the
+            deterministic ID values, the supertype's ID is XORed by a hash code taken from the ImplementationName.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.QueryWithParameterInfo.ParameterType">
+            <summary>FullName of the parameter type.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.OnSaveUpdateInfo.RuleName">
+            <summary>
+            Name of this business rule, unique among this entity's updates.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.OnSaveUpdateInfo.CsCodeSnippet">
+            <summary>
+            Available variables in this context:
+                _executionContext,
+                inserted (array of new items),
+                updated (array of new items).
+            If LoadOldItems concept is used, there are also available:
+                updatedOld (array of old items),
+                deletedOld (array of old items).
+                See WritableOrmDataStructureCodeGenerator.OnSaveTag1 for more info.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SaveMethodAfterSaveInfo.RuleName">
+            <summary>
+            Unique name of this business rule.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SaveMethodAfterSaveInfo.CsCodeSnippet">
+            <summary>
+            Available variables in this context:
+                _executionContext,
+                checkUserPermissions (whether the Save command is called directly by client through a web API)
+                inserted (array of new items),
+                updated (array of new items).
+            If LoadOldItems concept is used, there are also available:
+                updatedOld (array of old items),
+                deletedOld (array of old items).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SaveMethodInitializationInfo.RuleName">
+            <summary>
+            Name of this business rule, unique among this entity's initializations.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SaveMethodInitializationInfo.CsCodeSnippet">
+            <summary>
+            Available variables in this context:
+                _executionContext,
+                checkUserPermissions (whether the Save command is called directly by client through a web API)
+                insertedNew (array of new items),
+                updatedNew (array of new items - update),
+                deletedIds (array of items to be deleted).
+            In current state old items are not loaded. These are bare data provided to save method.
+            See WritableOrmDataStructureCodeGenerator.InitializationTag for more info.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.SaveMethodInfo">
+            <summary>
+            Represents the Save() method of the entity's repository in the generated business layer object model (ServerDom.*.dll).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.OnSaveValidateInfo.RuleName">
+            <summary>
+            Name of this business rule, unique among this entity's validations.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.OnSaveValidateInfo.CsCodeSnippet">
+            <summary>
+            Available variables in this context:
+                _executionContext,
+                checkUserPermissions (whether the Save command is called directly by client through a web API)
+                inserted (array of new items),
+                updated (array of new items).
+            If LoadOldItems concept is used, there are also available:
+                updatedOld (array of old items),
+                deletedOld (array of old items).
+            Throw Rhetos.UserException("message to the user") if the Save command should be canceled and all changes rolled back.
+            See WritableOrmDataStructureCodeGenerator.OnSaveTag2 for more info.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.AutoInheritRowPermissionsInfo">
+            <summary>
+            Each detail data structure in the module will inherit row permissions from it's mater data structure.
+            Each extension in the module will inherit row permissions from it's base data structure.
+            Row permissions can be inherited from other modules to this module.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.AutoInheritRowPermissionsInternallyInfo">
+            <summary>
+            Each detail data structure in the module will inherit row permissions from it's mater data structure.
+            Each extension in the module will inherit row permissions from it's base data structure.
+            Row permissions will not be inherited from other modules to this module.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.AutoInheritRowPermissionsMacro.CreateNewConcepts(Rhetos.Dsl.InitializationConcept,Rhetos.Dsl.IDslModel)">
+            <summary>
+            This macro implements InitializationConcept (singleton) instead of AutoInheritRowPermissionsInfo,
+            in order to allow creating the new concepts in a single iteration.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritExtensionReadInfo">
+            <summary>
+            This concept is used for optimization when inherited property can be used to avoid
+            referencing base data structure's property.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritReadSameMemberInfo">
+            <summary>
+            This concept is used for optimization when inherited property can be used to avoid
+            referencing base data structure's property.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritExtensionWriteInfo">
+            <summary>
+            This concept is used for optimization when inherited property can be used to avoid
+            referencing base data structure's property.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritWriteSameMemberInfo">
+            <summary>
+            This concept is used for optimization when inherited property can be used to avoid
+            referencing base data structure's property.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritFromInfo.Source">
+            <summary>Row permissions are inherited from this data structure.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.RowPermissionsInheritFromInfo.SourceSelector">
+            <summary>Object model property name that references the Source data structure class.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsPluginableFiltersInfo">
+            <summary>
+            The root concept for row permission rules.
+            It allows combining multiple rules and inheriting rules from one data structure to another.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RowPermissionsSingleFunctionRuleInfo">
+            <summary>
+            This class is a helper for implementing row permissions rules that are based on a single function that returns the rule's filter expression.
+            Other types if row permissions rules are possible, that do not inherit this class (see RowPermissionsRuleInfo).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.RowPermissionsSingleFunctionRuleInfo.FilterExpressionFunction">
+            <summary>
+            A lambda expression that returns the rule's filter.
+            Expected type: Func&lt;Common.ExecutionContext, Expression&lt;Func&lt;TEntity, bool&gt;&gt;&gt;.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.PersistedSubtypeImplementationIdInfo">
+            <summary>
+            Represents the persisted table column that captures the alternative ID for the subtype implementation.
+            The alternative ID is needed when a subtype implements the same supertype multiple times, in order to disambiguate implementations without performance loss.
+            
+            This concept is separated from IsSubtypeOfInfo, because there is no need to create a new computed column
+            for each Supertype: only Subtype and ImplementationName need to be unique.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.PersistedSubtypeImplementationIdInfo.GetSqlObjectPrototype">
+            <summary>The returned prototype can be used as a reference to the actual object in the IDslModel.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.PolymorphicPropertyInfo.Dependency_PolymorphicUnionView">
+            <summary>This concept injects code in the PolymorphicUnionView.</summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.PolymorphicPropertyInfo.IsImplementable">
+            <summary>
+            Each subtype must implement all properties from the polymorphic supertype, except:
+            1. the references to the subtypes (automatically generated for each subtype)
+            2. the "Subtype" discriminator property (automatically generated to describe the subtype of a record).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.IsSubtypeOfInfo.ImplementationName">
+            <summary>
+            The same Subtype data structure may implement the same Supertype, using a different ImplementationName.
+            If there is only one implementation, use empty ImplementationName for better performance.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.RegisteredInterfaceImplementationHelperInfo">
+            <summary>
+            Registers the data structure (and it's repository) as the main implementation of the given interface.
+            This allows for type-safe code in external business layer class library to have simple access to
+            the generated data structure's class and the repository using predefined interfaces.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.EntityComputedFromAllPropertiesCopyPropertiesMacro">
+            <summary>
+            EntityComputedFromAllPropertiesInfo's macro is split into two classes to allow macro optimization to evaluate
+            AllPropertiesWithCascadeDeleteFromInfo between the two. This will reduce the number of macro evaluation cycles.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.LockItemsMarkPropertyInfo">
+            <summary>
+            Same business logic as LockItemsInfo.
+            The given property is not used in locking, it is just reported to the user
+            (the client application should focus the property).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.DslUtility.NameOptionalModule(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,Rhetos.Dsl.DefaultConcepts.ModuleInfo)">
+            <summary>
+            Concatenates module name and data structure name. Omits module name if it is same as the context module.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.DslUtility.CreatePassiveClone(Rhetos.Dsl.DefaultConcepts.PropertyInfo,Rhetos.Dsl.DefaultConcepts.DataStructureInfo)">
+            <summary>
+            Creates a clone of the given source property and puts it in the given destination data structure.
+            The clone should not have active behavior (HierarchyInfo and SimpleReferencePropertyInfo becomes a simple ReferencePropertyInfo, for example).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.DslUtility.ValidateIdentifier(System.String,Rhetos.Dsl.IConceptInfo,System.String)">
+            <summary>
+            Throws a DslSyntaxException if the argument is not a valid identifier.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.DslUtility.GetPropertyByPath(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,System.String,Rhetos.Dsl.IDslModel,System.Boolean)">
+            <param name="allowSystemProperties">
+            Allows path to end with a C# property that does not have a representation in the DSL model:
+            1. The 'ID' property.
+            2. The GUID property used for a Reference.
+            3. The 'Base' reference property for the extension referencing the base data structure.
+            </param>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.DslUtility.GetBaseChangesOnDependency(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,Rhetos.Dsl.IDslModel)">
+            <summary>
+            Returns a writable data structure that can be used to monitor data changes (intercepting its Save function), in order to update a persisted data.
+            Returns empty array if a required data structure is not found.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ChangesOnLinkedItemsInfo">
+            <summary>
+            A helper for defining a computation dependency to the detail list, when computing an aggregate.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.FilterByReferencedInfo.SubFilterExpression">
+            <summary>
+            Use it to additionally filter out some items or sort the items within a group with the same reference value.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ParameterInfo">
+            <summary>
+            This concept is not necessary for defining a filter. Any data structure (or any data type) can be user as a filter parameter.
+            This concept can be used instead of the "DataStructure" concept simply to show an intention and produce a self-documenting code.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.KeepSynchronizedInfo.FilterSaveExpression">
+            <summary>May be empty.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.ComputeForNewBaseItemsInfo.FilterSaveExpression">
+            <summary>May be empty.</summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.SqlIndexMultipleInfo.SqlImplementation">
+            <summary>
+            Returns whether the data validation will be implemented in the database (using unique index) or in the application.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.HierarchyMacro.GetDependsOnWriteableDataStructure(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,Rhetos.Dsl.IDslModel,Rhetos.Dsl.IConceptInfo)">
+            <summary>
+            Returns all entities that a given data structure is constructed from.
+            If the given data structure depends is an entity, it will be the only item in the result.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.LegacyEntityWithAutoCreatedViewMacro.CreateNewConcepts(Rhetos.Dsl.DefaultConcepts.LegacyEntityWithAutoCreatedViewInfo,Rhetos.Dsl.IDslModel)">
+            <summary>
+            For each property that does not have it's LegacyProperty defined, this function creates a default LegacyProperty
+            assuming that corresponding legacy tables's column has the same name as the property.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.LogReaderAdditionalSourceInfo">
+            <summary>
+            A low-level concept that inserts the SQL code snippet to the log reader SqlQueryable at the place of the given tag (an SQL comment).
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LogReaderAdditionalSourceInfo.Name">
+            <summary>A description of the business rule or a purpose of the snippet.</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.UniqueReferenceCascadeDeletePolymorphicInfo">
+            <summary>
+            A reference to polymorphic supports cascade delete, but the polymorphic itself is not directly writable,
+            so the triggering event is redirected to the polymorphic's materialized entity.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.UniqueReferenceCascadeDeleteInfo">
+            <summary>
+            Automatically deletes the extension records when a master record is deleted.
+            </summary>
+            <remarks>
+            This feature does not create "on delete cascade" in database
+            (since Rhetos v2.11, unless CommonConcepts.Legacy.CascadeDeleteInDatabase is enabled).
+            It is implemented in the application layer, because a database implementation would not execute
+            any business logic that is implemented on the extension entity.
+            </remarks> 
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LoggingRelatedItemInfo.Table">
+            <summary>Related entity's table name with schema</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LoggingRelatedItemInfo.Column">
+            <summary>GUID column that references the related instance.</summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LoggingRelatedItemInfo.Relation">
+            <summary>Describes what is the logged entity (Logging.Entity) to the related instance (Table).</summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.UserRequiredPropertyInfo">
+            <summary>
+            The property value must be provided by the client application.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LegacyPropertyReferenceInfo.Columns">
+            <summary>
+            Comma-separated list.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.LegacyPropertyReferenceInfo.ReferencedColumns">
+            <summary>
+            Comma-separated list.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.DataStructureExtendsInfo">
+            <summary>
+            Inherits the 'UniqueReference' concept and additionally allows cascade delete and automatic inheritance of row permissions.
+            From a business perspective, the main difference between 'Extends' and 'UniqueReference' is that extension is considered a part of the base data structure.
+            In 1:1 relations, the 'Extends' concept is to 'UniqueReference' as 'Reference { Detail; }' is to 'Reference' in 1:N relations.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.PrerequisiteAllProperties">
+            <summary>
+            This concept is used as a placeholder when all properties of an entity are required as a prerequisite for another concept.
+            Dependent concept can reference this concept as a dependency.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.ReferenceCascadeDeleteInfo">
+            <summary>
+            Automatically deletes detail records when a master record is deleted.
+            </summary>
+            <remarks>
+            This feature does not create "on delete cascade" in database
+            (since Rhetos v2.11, unless CommonConcepts.Legacy.CascadeDeleteInDatabase is enabled).
+            It is implemented in the application layer, because a database implementation would not execute
+            any business logic that is implemented on the child entity.
+            </remarks> 
+        </member>
+        <member name="T:Rhetos.Dsl.DefaultConcepts.PropertyInfo">
+            <summary>
+            Property is an abstract concept: there is no ConceptKeyword.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dsl.DefaultConcepts.PropertyInfo.GetSimplePropertyName">
+            <summary>
+            Name of the property generated in the simple POCO C# class for the data structure.
+            This may be different from the database column or the navigation property name.
+            Returns null, if this concept does not generate the single property on the simple class.
+            </summary>
+        </member>
+        <member name="P:Rhetos.Dsl.DefaultConcepts.SqlObjectsIndex.ConceptsBySqlName">
+            <summary>
+            Contains concepts indexed by the name of the SQL object they generate.
+            Contains only SQL objects that are important in dependency analysis.
+            For example: stored procedures are ignored since their dependencies do not dictate order of their creation.
+            </summary>
+        </member>
+    </members>
+</doc>

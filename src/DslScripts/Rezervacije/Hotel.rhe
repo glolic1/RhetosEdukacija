@@ -1,0 +1,110 @@
+Module Rezervacije 
+{
+    Entity Soba 
+    {
+        ShortString Ime;
+        Integer Broj;
+        Reference TipSobeID Rezervacije.TipSobe;
+        Reference Hotel Rezervacije.Hotel;
+        
+        ItemFilter CommonMisspelling 'soba => soba.Ime.Contains("dvosbna")';
+        InvalidData CommonMisspelling 'Ne možete unijeti krivo napisano ime sobe "dvosbna".';
+
+        
+        FilterBy PretrazivanjeSobe '(repository, parameter) =>
+        {
+            return repository.Rezervacije.Soba.Query().Where(s=>s.Ime.Contains("Pet")).ToSimple().ToArray();
+        }';
+        Logging;
+    }
+
+    Entity TipSobe
+    {
+        ShortString Ime { Unique; Required; }
+        Decimal Cijena { Required; MaxValue 9999;}
+
+        ComposableFilterBy PretrazivanjeTipSobe '(query, repository, parameter) => 
+        {
+            if(parameter.MinimalnaCijena != null)
+                return query.Where(tipSobe => tipSobe.Cijena >= parameter.MinimalnaCijena);
+            return query;
+        }';
+
+        Logging;
+    }
+    Parameter PretrazivanjeTipSobe
+    {
+        Integer MinimalnaCijena;
+    }
+
+    Parameter PretrazivanjeSobe;
+
+    
+
+    Entity Rezervacija 
+    {
+        DateTime CheckIn { Required; }
+        DateTime CheckOut { Required; }
+        Reference GostID Rezervacije.Gost;
+        Reference SobaID Rezervacije.Soba;
+        DateTime Created { CreationTime; }
+
+        UniqueMultiple 'CheckIn CheckOut SobaID';
+
+        Logging;
+    }
+
+    SqlView VrijemeUHoteluIEmail 
+    'SELECT
+    r.CheckIn,
+    r.CheckOut,
+    g.Email
+    FROM Rezervacija r
+    INNER JOIN Gost g on r.ID=g.ID;'
+    {
+        AutoDetectSqlDependencies;
+    }
+
+    SqlQueryable BrojRezervacijaPoSobi  <..\SQL\BrojRezervacijaPoSobi.sql>
+    {
+        Extends Rezervacije.Soba;
+        Integer BrojRezervacija;
+        ShortString Ime;
+
+    }
+    Browse BrowseSoba Rezervacije.Soba {
+
+       Take BrojSobe 'Broj';
+       Take HotelName 'Hotel.Ime';
+       Take BrojRezervacija 'Extension_BrojRezervacijaPoSobi.BrojRezervacija';
+    }
+    Entity Hotel 
+    {
+        ShortString Ime;
+        ShortString Adresa;
+        Integer BrojZvjezdica;
+    }
+
+    
+    
+    Entity Gost 
+    {
+        ShortString Ime { Required; }
+        ShortString Prezime;
+        LongString BrojTelefona;
+        ShortString Email;
+        Logging;
+    }
+
+    
+
+    Entity StraniGost
+    {
+        Extends Rezervacije.Gost;
+
+        ShortString ImePrevoditelja;
+        ShortString PrezimePrevoditelja;
+
+        Logging;
+    }
+}

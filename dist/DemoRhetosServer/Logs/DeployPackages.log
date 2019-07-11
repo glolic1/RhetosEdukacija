@@ -1,27 +1,297 @@
-2019-07-08 14:10:16.4013|TRACE|DeployPackages|Moving old generated files to cache.
-2019-07-08 14:10:16.5533|TRACE|DeployPackages|Getting packages.
-2019-07-08 14:10:16.5814|ERROR|DeploymentConfiguration|No packages defined in 'RhetosPackages.config'. Edit the new file to set which Rhetos packages will be deployed. Note that removing a Rhetos package from the file will uninstall the package.
-2019-07-08 14:10:16.6173|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
-2019-07-08 14:10:16.9611|TRACE|DeployPackages|Loading plugins.
-2019-07-08 14:10:17.9844|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
-2019-07-08 14:10:18.1371|TRACE|DeployPackages|Preparing Rhetos database.
-2019-07-08 14:10:18.8459|TRACE|DeployPackages|Parsing DSL scripts.
-2019-07-08 14:10:19.0259|TRACE|DeployPackages|Application model has 1 statements.
-2019-07-08 14:10:19.0379|TRACE|DeployPackages|Compiling DOM assembly.
-2019-07-08 14:10:19.0699|ERROR|DeployPackages|WARNING: Empty assembly is generated.
-2019-07-08 14:10:19.0899|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
-2019-07-08 14:10:19.1099|TRACE|DeployPackages|Cleaning old migration data.
-2019-07-08 14:10:19.2019|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
-2019-07-08 14:10:19.2139|TRACE|DeployPackages|Executing data migration scripts.
-2019-07-08 14:10:19.2539|TRACE|DeployPackages|Executed 0 of 0 scripts.
-2019-07-08 14:10:19.2620|TRACE|DeployPackages|Upgrading database.
-2019-07-08 14:10:19.4233|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
-2019-07-08 14:10:19.4353|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
-2019-07-08 14:10:19.4473|TRACE|DeployPackages|Deleting redundant migration data.
-2019-07-08 14:10:19.4713|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 0 remaining.
-2019-07-08 14:10:19.4833|TRACE|DeployPackages|Uploading DSL scripts.
-2019-07-08 14:10:19.6317|TRACE|DeployPackages|Uploaded 0 DSL scripts to database.
-2019-07-08 14:10:19.6557|TRACE|DeployPackages|Loading generated plugins.
-2019-07-08 14:10:19.6797|TRACE|DeployPackages|No server initialization plugins.
-2019-07-08 14:10:19.7037|TRACE|DeployPackages|Updated Web.config modification date to restart server.
-2019-07-08 14:10:19.7117|TRACE|DeployPackages|Done.
+2019-07-10 13:54:53.8806|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 13:54:54.0994|TRACE|DeployPackages|Getting packages.
+2019-07-10 13:54:54.1391|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:54:57.0661|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 13:54:58.3206|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 13:54:58.3896|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:54:58.8406|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 13:54:58.9253|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 13:54:58.9253|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 13:54:58.9409|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 13:54:59.0638|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 13:54:59.0794|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 13:54:59.0794|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 13:54:59.0951|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 13:54:59.1420|TRACE|DeployPackages|Loading plugins.
+2019-07-10 13:55:00.4504|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 13:55:00.5220|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 13:55:00.6986|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 13:55:01.3167|TRACE|DeployPackages|Application model has 700 statements.
+2019-07-10 13:55:01.3295|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-10 13:55:01.6186|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-07-10 13:55:02.1134|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-07-10 13:55:02.2403|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-07-10 13:55:02.8372|ERROR|DeployPackages|Rhetos.FrameworkException: 2 errors while compiling 'ServerDom.Repositories.cs':
+
+The name 'paremeter' does not exist in the current context
+At line 666, column 16, file 'C:\Projects\Demo\dist\DemoRhetosServer\bin\Generated\ServerDom.Repositories.cs',
+after: "...kstore_Book>> filterFunction = (query, repository, parameter) => { if(",
+before: "paremeter.MinBrojStranica != null) return query.Where(knjiga => knj...".
+
+The name 'paremeter' does not exist in the current context
+At line 667, column 70, file 'C:\Projects\Demo\dist\DemoRhetosServer\bin\Generated\ServerDom.Repositories.cs',
+after: "...Stranica != null) return query.Where(knjiga => knjiga.NumberOfPages >=",
+before: "paremeter.MinBrojStranica); return query; }; /*ComposableFilterByIn...".
+   at Rhetos.Compiler.AssemblyGenerator.FailOnCompilerErrors(CompilerResults compilerResults, String sourceCode, String sourcePath) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 140
+   at Rhetos.Compiler.AssemblyGenerator.Generate(IAssemblySource assemblySource, CompilerParameters compilerParameters) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 98
+   at Rhetos.Dom.DomGenerator.GenerateObjectModel() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 91
+   at Rhetos.Dom.DomGenerator.get_Assemblies() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 70
+   at Rhetos.Dom.DomainObjectModelExtensions.GetTypes(IDomainObjectModel dom) in C:\My Projects\Rhetos\Source\Rhetos.Dom.Interfaces\IDomainObjectModel.cs:line 51
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 87
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-07-10 13:55:18.4282|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 13:55:18.6124|TRACE|DeployPackages|Getting packages.
+2019-07-10 13:55:18.6572|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:55:21.3558|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 13:55:22.5613|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 13:55:22.6253|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:55:22.9453|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 13:55:23.0373|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 13:55:23.0532|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 13:55:23.0693|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 13:55:23.2188|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 13:55:23.2348|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 13:55:23.2468|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 13:55:23.2628|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 13:55:23.3188|TRACE|DeployPackages|Loading plugins.
+2019-07-10 13:55:24.6114|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 13:55:24.6975|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 13:55:24.9175|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 13:55:25.5672|TRACE|DeployPackages|Application model has 700 statements.
+2019-07-10 13:55:25.5844|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-10 13:55:25.8956|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-07-10 13:55:26.0316|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-07-10 13:55:26.2651|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-07-10 13:55:26.9514|ERROR|DeployPackages|Rhetos.FrameworkException: 1 errors while compiling 'ServerDom.Repositories.cs':
+
+The name 'paremeter' does not exist in the current context
+At line 666, column 16, file 'C:\Projects\Demo\dist\DemoRhetosServer\bin\Generated\ServerDom.Repositories.cs',
+after: "...kstore_Book>> filterFunction = (query, repository, parameter) => { if(",
+before: "paremeter.MinBrojStranica != null) return query.Where(knjiga => knj...".
+   at Rhetos.Compiler.AssemblyGenerator.FailOnCompilerErrors(CompilerResults compilerResults, String sourceCode, String sourcePath) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 140
+   at Rhetos.Compiler.AssemblyGenerator.Generate(IAssemblySource assemblySource, CompilerParameters compilerParameters) in C:\My Projects\Rhetos\Source\Rhetos.Compiler\AssemblyGenerator.cs:line 98
+   at Rhetos.Dom.DomGenerator.GenerateObjectModel() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 91
+   at Rhetos.Dom.DomGenerator.get_Assemblies() in C:\My Projects\Rhetos\Source\Rhetos.Dom\DomGenerator.cs:line 70
+   at Rhetos.Dom.DomainObjectModelExtensions.GetTypes(IDomainObjectModel dom) in C:\My Projects\Rhetos\Source\Rhetos.Dom.Interfaces\IDomainObjectModel.cs:line 51
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 87
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-07-10 13:55:44.1823|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 13:55:44.3833|TRACE|DeployPackages|Getting packages.
+2019-07-10 13:55:44.4394|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:55:47.1026|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 13:55:48.3177|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 13:55:48.3897|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 13:55:48.8128|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 13:55:48.9008|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 13:55:48.9340|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 13:55:48.9500|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 13:55:49.1028|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 13:55:49.1268|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 13:55:49.1473|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 13:55:49.1653|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 13:55:49.2784|TRACE|DeployPackages|Loading plugins.
+2019-07-10 13:55:50.7464|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 13:55:50.8223|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 13:55:50.9183|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 13:55:51.5018|TRACE|DeployPackages|Application model has 700 statements.
+2019-07-10 13:55:51.5178|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-10 13:55:51.8032|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-07-10 13:55:51.9872|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-07-10 13:55:52.3525|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-07-10 13:55:53.2009|TRACE|DeployPackages|Generated 202 types.
+2019-07-10 13:55:53.2210|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-07-10 13:55:53.2555|TRACE|DeployPackages|Executing RestGenerator.
+2019-07-10 13:55:53.4426|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-07-10 13:55:53.5142|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-07-10 13:55:55.8640|TRACE|DeployPackages|Cleaning old migration data.
+2019-07-10 13:55:55.9615|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-10 13:55:55.9814|TRACE|DeployPackages|Executing data migration scripts.
+2019-07-10 13:55:56.0494|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-07-10 13:55:56.0654|TRACE|DeployPackages|Upgrading database.
+2019-07-10 13:55:56.4028|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-07-10 13:55:56.4314|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-07-10 13:55:56.4644|TRACE|DeployPackages|Deleting redundant migration data.
+2019-07-10 13:55:56.5004|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-10 13:55:56.5164|TRACE|DeployPackages|Uploading DSL scripts.
+2019-07-10 13:55:56.5605|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-07-10 13:55:56.5844|TRACE|DeployPackages|Loading generated plugins.
+2019-07-10 13:55:56.8512|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-07-10 13:55:59.7270|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-07-10 13:56:00.1089|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-07-10 13:56:00.1245|TRACE|DeployPackages|Done.
+2019-07-10 14:07:00.7562|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 14:07:00.9901|TRACE|DeployPackages|Getting packages.
+2019-07-10 14:07:01.0341|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:07:03.7767|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 14:07:04.9965|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 14:07:05.0746|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:07:05.4785|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 14:07:05.5774|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 14:07:05.5996|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 14:07:05.6271|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 14:07:05.7544|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 14:07:05.7701|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 14:07:05.7857|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 14:07:05.8033|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 14:07:05.8502|TRACE|DeployPackages|Loading plugins.
+2019-07-10 14:07:07.1979|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 14:07:07.2866|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 14:07:07.4790|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 14:07:07.6487|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 29, column 9, file 'C:\Projects\Demo\src\DslScripts\Bookstore\Book.rhe',
+after: "...ore.Book.Query().Where(k=>k.Contains("test")).ToSimple().ToArray(); }'",
+before: "Logging; } Parameter Pretrazivanje { Integer MinBrojStranica; } Par...".
+Previous concept: FilterBy Bookstore.Book.Pretrazivanje2
+Property Source (DataStructureInfo) = Bookstore.Book
+Property Parameter (String) = Pretrazivanje2
+Property Expression (String) = (repository, parameter) =>
+        {
+            return repository.Bookstore.Book.Query().Where(k=>k.Contains("test")).ToSimple().ToArray();
+        }
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-07-10 14:07:55.8751|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 14:07:56.0301|TRACE|DeployPackages|Getting packages.
+2019-07-10 14:07:56.0741|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:07:58.9796|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 14:08:00.3905|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 14:08:00.4921|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:08:00.9202|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 14:08:01.0442|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 14:08:01.0601|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 14:08:01.0842|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 14:08:01.2173|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 14:08:01.2329|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 14:08:01.2561|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 14:08:01.2718|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 14:08:01.3385|TRACE|DeployPackages|Loading plugins.
+2019-07-10 14:08:02.6418|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 14:08:02.7378|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 14:08:02.9141|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 14:08:03.0867|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 29, column 9, file 'C:\Projects\Demo\src\DslScripts\Bookstore\Book.rhe',
+after: "...ok.Query().Where(k=>k.Title.Contains("test")).ToSimple().ToArray(); }'",
+before: "Logging; } Parameter Pretrazivanje { Integer MinBrojStranica; } Par...".
+Previous concept: FilterBy Bookstore.Book.Pretrazivanje2
+Property Source (DataStructureInfo) = Bookstore.Book
+Property Parameter (String) = Pretrazivanje2
+Property Expression (String) = (repository, parameter) =>
+        {
+            return repository.Bookstore.Book.Query().Where(k=>k.Title.Contains("test")).ToSimple().ToArray();
+        }
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-07-10 14:08:38.0932|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-10 14:08:38.2274|TRACE|DeployPackages|Getting packages.
+2019-07-10 14:08:38.2882|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:08:41.3579|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-10 14:08:42.5172|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-10 14:08:42.6065|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-10 14:08:43.2801|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-10 14:08:43.3649|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-10 14:08:43.3871|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-10 14:08:43.4181|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-10 14:08:43.5580|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-10 14:08:43.5799|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-10 14:08:43.5905|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-10 14:08:43.6062|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-10 14:08:43.6687|TRACE|DeployPackages|Loading plugins.
+2019-07-10 14:08:44.9361|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-10 14:08:45.0296|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-10 14:08:45.2342|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-10 14:08:45.8217|TRACE|DeployPackages|Application model has 702 statements.
+2019-07-10 14:08:45.8217|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-10 14:08:46.1724|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-07-10 14:08:46.6793|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-07-10 14:08:46.9133|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-07-10 14:08:47.6842|TRACE|DeployPackages|Generated 203 types.
+2019-07-10 14:08:47.6998|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-07-10 14:08:47.7556|TRACE|DeployPackages|Executing RestGenerator.
+2019-07-10 14:08:47.9405|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-07-10 14:08:48.7050|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-07-10 14:08:48.7207|INFO|AssemblyGenerator|108 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 293, column 34, file 'c:\Projects\Demo\dist\DemoRhetosServer\bin\Generated\RestService.cs'.
+2019-07-10 14:08:48.7474|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-07-10 14:08:51.0067|TRACE|DeployPackages|Cleaning old migration data.
+2019-07-10 14:08:51.1106|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-10 14:08:51.1345|TRACE|DeployPackages|Executing data migration scripts.
+2019-07-10 14:08:51.1981|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-07-10 14:08:51.2181|TRACE|DeployPackages|Upgrading database.
+2019-07-10 14:08:51.5552|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-07-10 14:08:51.5732|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-07-10 14:08:51.6269|TRACE|DeployPackages|Deleting redundant migration data.
+2019-07-10 14:08:51.6643|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-10 14:08:51.6883|TRACE|DeployPackages|Uploading DSL scripts.
+2019-07-10 14:08:51.7323|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-07-10 14:08:51.7603|TRACE|DeployPackages|Loading generated plugins.
+2019-07-10 14:08:52.0214|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-07-10 14:08:54.9149|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-07-10 14:08:55.2877|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-07-10 14:08:55.2877|TRACE|DeployPackages|Done.
+2019-07-11 13:08:03.0843|TRACE|DeployPackages|Moving old generated files to cache.
+2019-07-11 13:08:03.4209|TRACE|DeployPackages|Getting packages.
+2019-07-11 13:08:03.5005|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-11 13:08:06.7966|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.1 from https://www.nuget.org/api/v2/.
+2019-07-11 13:08:08.5024|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.1' already installed.
+2019-07-11 13:08:08.5721|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-07-11 13:08:09.0191|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-07-11 13:08:09.1574|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-07-11 13:08:09.1886|TRACE|PackageDownloader|Reading package Demo from unpacked source folder without metadata file.
+2019-07-11 13:08:09.2145|TRACE|DeployPackages|Reading Demo from source without metadata.
+2019-07-11 13:08:09.8741|TRACE|Packages|Demo 0.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\src.
+2019-07-11 13:08:09.8897|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in C:\Projects\Demo\dist\DemoRhetosServer.
+2019-07-11 13:08:09.9063|TRACE|Packages|Rhetos.CommonConcepts 2.11.1 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.1.
+2019-07-11 13:08:09.9275|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in C:\Projects\Demo\dist\DemoRhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-07-11 13:08:10.1432|TRACE|DeployPackages|Loading plugins.
+2019-07-11 13:08:12.4479|TRACE|DeployPackages|SQL connection: DataSource=DESKTOP-H72R7TJ, InitialCatalog=DemoBazaEdukacija
+2019-07-11 13:08:12.5450|TRACE|DeployPackages|Preparing Rhetos database.
+2019-07-11 13:08:12.7969|TRACE|DeployPackages|Parsing DSL scripts.
+2019-07-11 13:08:13.5764|TRACE|DeployPackages|Application model has 716 statements.
+2019-07-11 13:08:13.5935|TRACE|DeployPackages|Compiling DOM assembly.
+2019-07-11 13:08:13.9434|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-07-11 13:08:14.6653|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-07-11 13:08:14.8066|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-07-11 13:08:15.7860|TRACE|DeployPackages|Generated 208 types.
+2019-07-11 13:08:15.8173|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-07-11 13:08:15.9118|TRACE|DeployPackages|Executing RestGenerator.
+2019-07-11 13:08:16.1824|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-07-11 13:08:16.9546|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-07-11 13:08:16.9703|INFO|AssemblyGenerator|108 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 293, column 34, file 'c:\Projects\Demo\dist\DemoRhetosServer\bin\Generated\RestService.cs'.
+2019-07-11 13:08:16.9924|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-07-11 13:08:19.6525|TRACE|DeployPackages|Cleaning old migration data.
+2019-07-11 13:08:19.7685|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-11 13:08:19.8007|TRACE|DeployPackages|Executing data migration scripts.
+2019-07-11 13:08:19.9150|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-07-11 13:08:19.9352|TRACE|DeployPackages|Upgrading database.
+2019-07-11 13:08:20.5965|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-07-11 13:08:20.6344|TRACE|DatabaseGenerator Concepts|Creating SqlProcedureInfo Bookstore.TestnaProcedura/Rhetos.DatabaseGenerator.DefaultConcepts.SqlProcedureDatabaseDefinition, ID=17FE6E96-177E-461D-88F3-E11CF599B9D4.
+2019-07-11 13:08:20.6730|TRACE|DatabaseGenerator Concepts|Creating SqlViewInfo Rezervacije.VrijemeUHoteluIEmail/Rhetos.DatabaseGenerator.DefaultConcepts.SqlViewDatabaseDefinition, ID=C677496F-B993-4BD2-94E9-D8994A8EF28F.
+2019-07-11 13:08:20.6970|INFO|DeployPackages|DatabaseGenerator creating 2 concept applications.
+2019-07-11 13:08:20.7610|TRACE|DeployPackages|Deleting redundant migration data.
+2019-07-11 13:08:20.7970|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 10 remaining.
+2019-07-11 13:08:20.8182|TRACE|DeployPackages|Uploading DSL scripts.
+2019-07-11 13:08:20.8653|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-07-11 13:08:20.8973|TRACE|DeployPackages|Loading generated plugins.
+2019-07-11 13:08:21.2097|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-07-11 13:08:24.2092|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-07-11 13:08:24.6653|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-07-11 13:08:24.6828|TRACE|DeployPackages|Done.

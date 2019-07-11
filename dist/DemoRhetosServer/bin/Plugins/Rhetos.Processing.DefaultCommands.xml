@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Processing.DefaultCommands</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.Processing.DefaultCommands.ServerCommandsUtility.CheckAllItemsWithinFilter(System.Object[],System.String,Rhetos.Dom.DefaultConcepts.GenericRepository{Rhetos.Dom.DefaultConcepts.IEntity})">
+            <summary>
+            Checks if all items are within filter 'filterName'. Works with materialized items.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Extensibility</name>
+    </assembly>
+    <members>
+        <member name="F:Rhetos.Extensibility.MefPluginScanner._pluginsByExport">
+            <summary>
+            The key is FullName of the plugin's export type (it is usually the interface it implements).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.MefPluginScanner.FindPlugins(Autofac.ContainerBuilder,System.Type)">
+            <summary>
+            Returns plugins that are registered for the given interface, sorted by dependencies (MefPovider.DependsOn).
+            </summary>
+        </member>
+        <member name="T:Rhetos.Extensibility.NamedPlugins`1">
+            <summary>
+            This is a simple wrapper around IIndex, allowing plugin projects to compile without referencing Autofac.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.PluginsContainer`1.GetMetadata(`0,System.String)">
+            <param name="metadataKey">Use one of the constants from the Rhetos.Extensibility.MefProvider class.</param>
+        </member>
+        <member name="M:Rhetos.Extensibility.PluginsContainer`1.GetMetadata(System.Type,System.String)">
+            <param name="metadataKey">Use one of the constants from the Rhetos.Extensibility.MefProvider class.</param>
+        </member>
+        <member name="T:Rhetos.Extensibility.PluginsMetadataCache`1">
+            <summary>
+            This class must not cache TPlugin instances, because it is registered as SingleInstance (singleton).
+            New TPlugin instances must be created separately for each client request, so they can use current
+            contextual information such as IUserInfo or IPersistenceTransaction.
+            </summary>
+            <typeparam name="TPlugin"></typeparam>
+        </member>
+        <member name="T:Rhetos.Extensibility.Plugins">
+            <summary>
+            Helper functions for plugins.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.SetInitializationLogging(Rhetos.Logging.ILogProvider)">
+            <summary>Plugins class is usually used before IoC container is built, so we use this
+            improvised way of handling the logging, instead of using IoC registered components.</summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.FindAndRegisterModules(Autofac.ContainerBuilder)">
+            <summary>Find and registers Autofac modules that are implemented as plugins.</summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.ClearCache">
+            <summary>Deletes the plugins cache to allow scanning of the new generated dlls.</summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.FindAndRegisterPlugins``1(Autofac.ContainerBuilder)">
+            <summary>
+            Scans for plugins that implement the given export type (it is usually the plugin's interface), and registers them.
+            The function should be called from a plugin module initialization (from Autofac.Module implementation).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.FindAndRegisterPlugins``1(Autofac.ContainerBuilder,System.Type)">
+            <summary>
+            Scans for plugins that implement the given export type (it is usually the plugin's interface), and registers them.
+            The function should be called from a plugin module initialization (from Autofac.Module implementation).
+            </summary>
+            <param name="genericImplementationBase">
+            The genericImplementationBase is a generic interface or a generic abstract class that the plugin implements.
+            The concept type that the plugin handles will be automatically extracted from the generic argument of the genericImplementationBase.
+            This is an alternative to using MefProvider.Implements in the plugin's ExportMetadata attribute.
+            </param>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.CheckOverride``2(Autofac.ContainerBuilder,System.Type[])">
+            <summary>
+            Since the last registration is considered the active one, when overriding previous registrations
+            use this function to verify if the previous plugins are already registered and will be overridden.
+            
+            To force the specific registration order between modules (derivations of Autofac.Module)
+            use [ExportMetadata(MefProvider.DependsOn, typeof(the other Autofac.Module derivation))] attribute
+            on the module that registers the components that override registrations from the other module.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.ExtractGenericPluginImplementsMetadata(Rhetos.Extensibility.PluginInfo,System.Type)">
+            <summary>
+            Updates the plugin's metadata (MefProvider.Implements) to match concept type that is given as the generic argument of the given interface or abstract class.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Extensibility.Plugins.SuppressPlugin``2(Autofac.ContainerBuilder)">
+            <summary>
+            Suppresses the plugin when reading the plugins from IPluginsContainer and INamedPlugins.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Extensibility.SuppressPlugin">
+            <summary>
+            Using a wrapper around 'Type' to allow registration of this instances to the IoC container.
+            </summary>
+        </member>
+    </members>
+</doc>

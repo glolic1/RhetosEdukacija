@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Dom.DefaultConcepts</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.ClearCachePrincipals(System.Collections.Generic.IEnumerable{Rhetos.Dom.DefaultConcepts.IPrincipal})">
+            <summary>
+            Clears the principals' authorization data from the cache: Principal, PrincipalRoles and PrincipalPermissions.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.ClearCacheRoles(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Clears the roles' authorization data from the cache: RoleRoles, RolePermissions and Role (full list).
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.GetPrincipalPermissions(Rhetos.Dom.DefaultConcepts.IPrincipal,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.GetRolePermissions(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.GetRoles(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return more roles than required.
+            Note that the result will not include roles that do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataCache.GetClaims(System.Collections.Generic.IEnumerable{Rhetos.Security.Claim})">
+            <summary>
+            The function may return more claims than required.
+            Note that the result will not include claims that are inactive or do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.AuthorizationDataLoader._sqlFilterItemsLimit">
+            <summary>
+            Avoiding performance issue with large query parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataLoader.GetPrincipalPermissions(Rhetos.Dom.DefaultConcepts.IPrincipal,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataLoader.GetRolePermissions(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataLoader.GetRoles(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Note that the result will not include roles that do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AuthorizationDataLoader.GetClaims(System.Collections.Generic.IEnumerable{Rhetos.Security.Claim})">
+            <summary>
+            The function may return more claims than required.
+            Note that the result will not include claims that are inactive or do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.GetUsersRoles(Rhetos.Dom.DefaultConcepts.IPrincipal)">
+            <summary>Return direct and indirect user's roles.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.GetClaims(System.Collections.Generic.IEnumerable{Rhetos.Security.Claim})">
+            <summary>Inactive or nonexistent claims will have ID set to null.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.ReportRoles(Rhetos.Utilities.IUserInfo,System.Collections.Generic.IEnumerable{System.Guid},System.Lazy{System.Collections.Generic.IDictionary{System.Guid,System.String}})">
+            <summary>
+            Reporting is done in a function that returns a string, to avoid any performance impact when the trace log is not enabled.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.ReportPermissions(Rhetos.Utilities.IUserInfo,Rhetos.Dom.DefaultConcepts.PrincipalInfo,System.Lazy{System.Collections.Generic.IDictionary{System.Guid,System.String}},System.Collections.Generic.IEnumerable{Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.Permission},System.Collections.Generic.IEnumerable{Rhetos.Dom.DefaultConcepts.ClaimInfo},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <summary>
+            Reporting is done in a function that returns a string, to avoid any performance impact when the trace log is not enabled.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.CommonAuthorizationProvider.GetRoleNameSafe(System.Guid,System.Lazy{System.Collections.Generic.IDictionary{System.Guid,System.String}})">
+            <summary>Returns role ID instead of the role name, if the role does not exist in the index.</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.ClaimGenerator._claimsLogger">
+            <summary>Special logger for keeping track of inserted/updated/deleted claims.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IAuthorizationData.GetPrincipalPermissions(Rhetos.Dom.DefaultConcepts.IPrincipal,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IAuthorizationData.GetRoles(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return more items than required.
+            Note that the result will not include roles that do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IAuthorizationData.GetRolePermissions(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            The function may return permissions for more claims than required.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.IAuthorizationData.GetClaims(System.Collections.Generic.IEnumerable{Rhetos.Security.Claim})">
+            <summary>
+            The function may return more items than required.
+            Note that the result will not include claims that are inactive or do not exist, and that the order of returned items might not match the parameter.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.KeepSynchronizedRecomputeOnDeployCodeGenerator.GetRecomputeContext(Rhetos.Dsl.DefaultConcepts.DataStructureInfo)">
+            <summary>
+            The 'Common.KeepSynchronizedMetadata.Context' property serves as cache-invalidation mechanism.
+            If the context is changed in the new version of the application,
+            then the old persisted data should be recomputed on deployment.
+            This does not cover all situations when the persisted data should be recomputed
+            on deployment, but at least handles some obvious ones.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DataStructureQueryableCodeGenerator.PropertyAttributeTag(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,System.String)">
+            <param name="csPropertyName">The csPropertyName argument refers to a C# class property, not the PropertyInfo concept.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DataStructureQueryableCodeGenerator.GetterBodyTag(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,System.String)">
+            <param name="csPropertyName">The csPropertyName argument refers to a C# class property, not the PropertyInfo concept.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DataStructureQueryableCodeGenerator.SetterBodyTag(Rhetos.Dsl.DefaultConcepts.DataStructureInfo,System.String)">
+            <param name="csPropertyName">The csPropertyName argument refers to a C# class property, not the PropertyInfo concept.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DataStructureQueryableCodeGenerator.AddNavigationPropertyWithBackingField(Rhetos.Compiler.ICodeBuilder,Rhetos.Dsl.DefaultConcepts.DataStructureInfo,System.String,System.String,System.String)">
+            <param name="csPropertyName">Name of the navigation property in a C# class. A PropertyInfo with that name might not exist in the DSL model.</param>
+            <param name="additionalSetterCode">Optional.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.EntityHistoryAllPropertiesCodeGenerator.FilterImplementationSnippet(Rhetos.Dsl.DefaultConcepts.EntityHistoryAllPropertiesInfo)">
+            <summary>
+            Creates a DateTime filter that returns the entity records that were active at the time.
+            History concept creates a similar filter on the "Entity"_Changes repository, but this filter on the base entity class
+            can only be created of all properties are selected for history tracking, therefore it is implemented in EntityHistoryAllPropertiesInfo.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.EntityHistoryCodeGenerator.FilterImplementationSnippet(Rhetos.Dsl.DefaultConcepts.EntityHistoryInfo)">
+            <summary>
+            Creates a DateTime filter that returns the "Entity"_Changes records that were active at the time (including the current records in the base entity).
+            AllProperties concept (EntityHistoryAllPropertiesInfo) creates a similar filter on the base Entity class.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.DomHelper">
+            <summary>
+            These methods are called from the generated ServerDom.*.cs.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.DomHelper.CleanUpSaveMethodArguments``1(System.Collections.Generic.IEnumerable{``0}@,System.Collections.Generic.IEnumerable{``0}@,System.Collections.Generic.IEnumerable{``0}@)">
+            <summary>
+            Returns true if there are any records to save.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.KeepSynchronizedHelper">
+            <summary>
+            The 'OptimizeFiltersUnion' functions returns the union of the given filters, if able to optimize them to a single filter.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.Persistence.EntityFrameworkGenerateMetadataFiles">
+            <summary>
+            The generated EntityFrameworkContext will work with or without these metadata files,
+            but context initialization is faster when loading metadata from the pregenerated files.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.Persistence.FullTextSearchInterceptor">
+            <summary>
+            Based on http://www.entityframework.info/Home/FullTextSearch.
+            This interceptor modifies SQL query generated by FullTextSearchId function mapping in DatabaseExtensionFunctionsMapping.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.FilterExpression`1">
+            <summary>
+            Helper class for joining multiple filter expressions to a single filter expression (Expression&lt;Func&lt;T, bool&gt;&gt;).
+            The class is used for joining row permission rules to a single row permission filter.
+            Use of expression that includes or excludes all items ("item => true") will be optimized when generating the final expression.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.FilterExpression`1.MatchExpressionParameter(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}}@)">
+            <summary>
+            Modifies expression b to have the same parameter instance as expression a.
+            </summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.GenericRepository`1">
+            <summary>
+            GenericRepository is a helper for a type-safe reflection-based use of the repositories in the ServerDom.*.dll,
+            without a need to directly reference ServerDom.*.dll.
+            For the type-safe use of an entity with a GenericRepository, set the generic parameter to an interface that an entity implements (ImplementInterface concept).
+            For the pure reflection-based use of an entity with a GenericRepository, provide the full entity name when creating the GenericRepository; the IEntity interface will be used for all methods.
+            </summary>
+            <remarks>
+            The term "entity" in the contest of this class represents any identifiable
+            data structure (implementation of IEntity). Not to be confused with Entity
+            DSL concept, which generates only one kind of IEntity (common entity).
+            Other IEntity implementations can also be handled by this class.
+            </remarks>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.CreateList(System.Int32)">
+            <returns>Result is a List&lt;&gt; of the data structure type.
+            The list is returned as IEnumerable&lt;&gt; of the interface type,
+            to allow strongly-typed use of the list through TEntityInterface interface.
+            Neither List&lt;&gt; or IList&lt;&gt; are covariant, so IEnumerable&lt;&gt; is used.</returns>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.CreateList``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,`0})">
+            <returns>Result is a List&lt;&gt; of the data structure type.
+            The list is returned as IEnumerable&lt;&gt; of the interface type,
+            to allow strongly-typed use of the list through TEntityInterface interface.
+            Neither List&lt;&gt; or IList&lt;&gt; are covariant, so IEnumerable&lt;&gt; is used.</returns>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.FilterOrQuery``1(System.Collections.Generic.IEnumerable{`0},``0)">
+            <summary>
+            A more flexible filtering method than Filter(). Filter() will always return materialized items.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.FilterOrQuery(System.Collections.Generic.IEnumerable{`0},System.Object,System.Type)">
+            <summary>
+            A more flexible filtering method than Filter(). Filter() will always return materialized items.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.Save(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0},System.Boolean)">
+            <summary>
+            Type casting helper. The type casting of performance-efficient; it will not generate a new list or array or instance.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.Diff(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Func{`0,`0,System.Boolean},System.Action{`0,`0},System.Collections.Generic.IEnumerable{`0}@,System.Collections.Generic.IEnumerable{`0}@,System.Collections.Generic.IEnumerable{`0}@)">
+            <param name="sameRecord">Compare key properties, determining the records that should be inserted or deleted.
+            If set to null, the items will be compared by the ID property.
+            Typical implementation:
+            <code>
+                class CompareName : IComparer&lt;ISomeEntity&gt;
+                {
+                    public int Compare(ISomeEntity x, ISomeEntity y) { return string.Compare(x.Name, y.Name, StringComparison.InvariantCultureIgnoreCase); }
+                }
+            </code></param>
+            <param name="sameValue">Compare other properties, determining the records that should be updated.
+            Comparison may also include key properties with stricter constraints (such as case sensitivity).
+            Typical implementation:
+            <code>(x, y) =&gt; x.Name == y.Name &amp;&amp; x.SomeValue == y.SomeValue;</code></param>
+            <param name="assign">Typical implementation:
+            <code>(destination, source) =&gt; {
+                destination.Property1 = source.Property1;
+                destination.Property2 = source.Property2; }</code></param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.InsertOrUpdateOrDelete(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Func{`0,`0,System.Boolean},System.Object,System.Action{`0,`0},Rhetos.Dom.DefaultConcepts.GenericRepository{`0}.BeforeSave)">
+            <param name="sameRecord">Compare key properties, determining the records that should be inserted or deleted.
+            If set to null, the items will be compared by the ID property.
+            Typical implementation:
+            <code>
+                class CompareName : IComparer&lt;ISomeEntity&gt;
+                {
+                    public int Compare(ISomeEntity x, ISomeEntity y) { return string.Compare(x.Name, y.Name, StringComparison.InvariantCultureIgnoreCase); }
+                }
+            </code></param>
+            <param name="sameValue">Compare other properties, determining the records that should be updated.
+            Comparison may also include key properties with stricter constraints (such as case sensitivity).
+            Typical implementation:
+            <code>(x, y) =&gt; x.Name == y.Name &amp;&amp; x.SomeValue == y.SomeValue;</code></param>
+            <param name="filterLoad">For supported filters types see <see cref="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.Load(System.Object,System.Type)"/> function.</param>
+            <param name="assign">Typical implementation:
+            <code>(destination, source) =&gt; {
+                destination.Property1 = source.Property1;
+                destination.Property2 = source.Property2; }</code></param>
+            <param name="beforeSave"><code>(toInsert, toUpdate, toDelete) => { some code; } </code></param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.InsertOrUpdateOrDeleteOrDeactivate(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0},System.Func{`0,`0,System.Boolean},System.Object,System.Action{`0,`0},System.Object,Rhetos.Dom.DefaultConcepts.GenericRepository{`0}.BeforeSave)">
+            <param name="sameRecord">Compare key properties, determining the records that should be inserted or deleted.
+            If set to null, the items will be compared by the ID property.
+            Typical implementation:
+            <code>
+                class CompareName : IComparer&lt;ISomeEntity&gt;
+                {
+                    public int Compare(ISomeEntity x, ISomeEntity y) { return string.Compare(x.Name, y.Name, StringComparison.InvariantCultureIgnoreCase); }
+                }
+            </code></param>
+            <param name="sameValue">Compare other properties, determining the records that should be updated.
+            Comparison may also include key properties with stricter constraints (such as case sensitivity).
+            Typical implementation:
+            <code>(x, y) =&gt; x.Name == y.Name &amp;&amp; x.SomeValue == y.SomeValue;</code></param>
+            <param name="filterLoad">For supported filters types see <see cref="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.Load(System.Object,System.Type)"/> function.</param>
+            <param name="assign">Typical implementation:
+            <code>(destination, source) =&gt; {
+                destination.Property1 == source.Property1;
+                destination.Property2 == source.Property2; }</code></param>
+            <param name="filterDeactivateDeleted">A filter that selects items that should be deactivated instead of deleted.
+            Typical implementation:
+            <code>(Func&lt;IEntity, bool&gt;)(item =&gt; ItemsInUseHashSet.Contains(item.ID))</code>
+            <br/>For supported filters types see <see cref="M:Rhetos.Dom.DefaultConcepts.GenericRepository`1.Filter(System.Collections.Generic.IEnumerable{`0},System.Object,System.Type)"/> function.
+            </param>
+            <param name="beforeSave"><code>(toInsert, toUpdate, toDelete) => { some code; } </code></param>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.GenericRepositories">
+            <remarks>
+            The term "entity" in the contest of this class represents any identifiable
+            data structure (implementation of IEntity). Not to be confused with Entity
+            DSL concept, which generates only one kind of IEntity (common entity).
+            Other IEntity implementations can also be handled by this class.
+            </remarks>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepositories.Insert``1(``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepositories.Update``1(``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericRepositories.Delete``1(``0[])">
+            <summary>checkUserPermissions is set to false.</summary>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.PropertySelectorExpression`2">
+            <summary>
+            A helper class for lambda expression handling.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.Where(System.Linq.IQueryable{`0},System.Linq.Expressions.Expression)">
+            <param name="predicateExpression">
+            Expression&lt;Func&lt;parameter, result&gt;&gt; does not support contravariant parameter type,
+            so the object is used for predicateExpression.</param>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.AsQueryable(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Casts items to the entity type before calling AsQueryable.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.ToListOfEntity(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Casts items to the entity type before calling ToList.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.ToArrayOfEntity(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Casts items to the entity type before calling ToArray.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.MaterializeEntityList(System.Collections.Generic.IEnumerable{`0}@)">
+            <summary>
+            If <paramref name="items"/> is not a list or an array, converts it to a list of entity type.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReflectionHelper`1.RepositoryQueryableFilterMethod(System.Type)">
+            <summary>
+            Retrieves MethodInfo for Queryable Filter on the Entity with the specified parameterType, returns null if none exists
+            </summary>
+            <param name="parameterType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.ReplaceWithReference`2">
+            <summary>
+            This class traverses expression tree and 
+            a) changes expression type from TFrom to TTo
+            b) replaces all reference to parameter in original expression to 'parameter.referenceName'
+            Will work ONLY for properties!
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.ReplaceWithReference`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String,System.String,System.Collections.Generic.IEnumerable{System.Tuple{System.String,System.String}},System.String)">
+            <param name="copiedProperties">
+            Tuple: inherited property, base property.
+            Property on the inherited data structure has same value as on base data structure.
+            Inherited row permissions will be optimized to use the property directly
+            instead of referencing the base data structure.
+            </param>
+        </member>
+        <member name="T:Rhetos.Dom.DefaultConcepts.AutoCodeItem">
+            <summary>A helper for automatic detection of TEntity and TProperty parameters.</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.AutoCodeHelper.Lock(Rhetos.Utilities.ISqlExecuter,System.String,System.String,System.String)">
+            <summary>
+            The manual database locking is used here in order to:
+            1. allow other users to read the existing records(no exclusive locks), and
+            2. avoid deadlocks(no shared locks that will be upgraded to exclusive locks).
+            </summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.DefaultValueCodeGenerator.DefaultValueValidationTag">
+            <summary>Inserted code can use enumerables "insertedNew", "updatedNew" and "deletedIds" but without navigation properties, because they are not binded to ORM.
+            Set bool variable setDefaultValue to false if you don't want default value to be assigned to a property
+            </summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.ClearContextTag">
+            <summary>Clear objects and context from any state other than new values to be saved.</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.ArgumentValidationTag">
+            <summary>Inserted code can use enumerables "insertedNew", "updatedNew" and "deletedIds".</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.InitializationTag">
+            <summary>Inserted code can use enumerables "insertedNew", "updatedNew" and "deletedIds".</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.OldDataLoadedTag">
+            <summary>Lists "updated" and "deleted" contain OLD data.
+            Enumerables "insertedNew", "updatedNew" and "deletedIds" contain NEW data.
+            Sample usage: 1. Verify that locked items are not going to be updated or deleted, 2. Cascade delete.</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.OnSaveTag1">
+            <summary>Insert code here to recompute (insert/update/delete) other entities that depend on the changes items.
+            Queries "inserted" and "updated" will return NEW data.
+            Data is already saved to the database (but the SQL transaction has not yet been committed).</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.OnSaveTag2">
+            <summary>Insert code here to verify that invalid items are not going to be inserted or updated.
+            Queries "inserted" and "updated" will return NEW data.
+            Data is already saved to the database (but the SQL transaction has not yet been committed).</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.OnSaveValidateTag">
+            <summary>Insert code here to returns a list at errors for the given items (IList&lt;Guid&gt; ids).
+            Data is already saved to the database (but the SQL transaction has not yet been committed).</summary>
+        </member>
+        <member name="F:Rhetos.Dom.DefaultConcepts.WritableOrmDataStructureCodeGenerator.AfterSaveTag">
+            <summary>The inserted code will be execute after recomputing and validations.
+            Queries "inserted" and "updated" will return NEW data.
+            Data is already saved to the database (but the SQL transaction has not yet been committed).</summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.GenericFilterHelper.EqualsSimpleFilter(Rhetos.Dom.DefaultConcepts.FilterCriteria,System.String)">
+            <summary>
+            Compares only filters without parameters.
+            </summary>
+        </member>
+        <member name="M:Rhetos.Dom.DefaultConcepts.HierarchyInfo.Compute(Rhetos.Dom.DefaultConcepts.HierarchyItem[],System.String)">
+            <summary>
+            If pathSeparator argument is null, the Path property will not be computed.
+            </summary>
+        </member>
+    </members>
+</doc>

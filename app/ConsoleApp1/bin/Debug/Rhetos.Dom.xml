@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rhetos.Dom</name>
+    </assembly>
+    <members>
+        <member name="M:Rhetos.Dom.DomGenerator.#ctor(Rhetos.Extensibility.IPluginsContainer{Rhetos.Compiler.IConceptCodeGenerator},Rhetos.Compiler.ICodeGenerator,Rhetos.Logging.ILogProvider,Rhetos.Compiler.IAssemblyGenerator,Rhetos.Dom.DomGeneratorOptions)">
+            <summary>
+            If assemblyName is not null, the assembly will be saved on disk.
+            If assemblyName is null, the assembly will be generated in memory.
+            </summary>
+        </member>
+    </members>
+</doc>

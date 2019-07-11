@@ -1,0 +1,94 @@
+Module Bookstore
+{
+    Entity Book
+    {
+
+        ShortString Code { AutoCode; DefaultValue 'item => "K+++"'; DenyUserEdit; }
+        ShortString Title;  
+        Integer NumberOfPages { MinValue 5;}
+        Reference Author Bookstore.Person;
+        DateTime Created { CreationTime; }
+
+        ItemFilter ForeignBookAuthorNameStartsWithX 'item => item.Author.Name.StartsWith("X") && item.Extension_ForeignBook!= null';
+
+        ItemFilter CommonMisspelling 'book => book.Title.Contains("curiousity")';
+        InvalidData CommonMisspelling 'It is not allowed to enter misspelled word "curiousity".';
+
+        ComposableFilterBy Pretrazivanje '(query, repository, parameter) => 
+        {
+            if(parameter.MinBrojStranica != null)
+                return query.Where(knjiga => knjiga.NumberOfPages >= parameter.MinBrojStranica);
+            return query;
+        }';
+
+        FilterBy Pretrazivanje2 '(repository, parameter) =>
+        {
+            return repository.Bookstore.Book.Query().Where(k=>k.Title.Contains("test")).ToSimple().ToArray();
+        }';
+
+        Logging;
+    }
+
+    Parameter Pretrazivanje
+    {
+        Integer MinBrojStranica;
+    }
+
+    Parameter Pretrazivanje2;
+
+    Browse BookBrowse Bookstore.Book
+    {
+        Take Title;
+        Take 'Author.Name';
+        Take 'Extension_ChildBook.AgeFrom';
+        //Take 'Base.Type';
+    }
+
+    SqlQueryable BooksThemes <..\SQL\TemeKnjige.sql>
+    
+    {
+        Extends Bookstore.Book;
+
+        ShortString Title;
+        Integer NumberOfThemes;
+    }
+
+    SqlProcedure TestnaProcedura "@Datum Date" <..\SQL\TemeKnjige.sql>
+    {
+        
+    }
+
+    Entity Person 
+    {
+        ShortString Name;
+    }
+
+    Entity ChildBook
+    {
+        Extends Bookstore.Book;
+
+        Integer AgeFrom;
+        Integer AgeTo;
+
+    }
+
+    Entity ForeignBook
+    {
+        Extends Bookstore.Book;
+
+        ShortString OriginalLanguage;
+        Reference Translator Bookstore.Person;
+    }
+
+    Entity Theme 
+    {
+        ShortString Name { Unique; Required; }
+    }
+
+    Entity BookTheme {
+        Reference Book { Detail;} 
+        Reference Theme { Required; } 
+
+        UniqueMultiple 'Book Theme';
+    }
+}
