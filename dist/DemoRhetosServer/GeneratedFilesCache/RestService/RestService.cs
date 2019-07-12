@@ -86,22 +86,6 @@ namespace Rhetos.Rest
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<ServiceUtility>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreBook>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreBookBrowse>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreBooksThemes>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstorePerson>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreChildBook>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreForeignBook>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreTheme>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceBookstoreBookTheme>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeSoba>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeTipSobe>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeRezervacija>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeBrojRezervacijaPoSobi>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeBrowseSoba>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeHotel>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeGost>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceRezervacijeStraniGost>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonAutoCodeCache>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonFilterId>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonKeepSynchronizedMetadata>().InstancePerLifetimeScope();
@@ -122,6 +106,22 @@ namespace Rhetos.Rest
             builder.RegisterType<RestServiceCommonRoleInheritsRole>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonPrincipalPermission>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonRolePermission>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreBook>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreBookBrowse>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreBooksThemes>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstorePerson>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreChildBook>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreForeignBook>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreTheme>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceBookstoreBookTheme>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeSoba>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeTipSobe>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeRezervacija>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeBrojRezervacijaPoSobi>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeBrowseSoba>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeHotel>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeGost>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceRezervacijeStraniGost>().InstancePerLifetimeScope();
             /*InitialCodeGenerator.ServiceRegistrationTag*/
             base.Load(builder);
         }
@@ -132,38 +132,6 @@ namespace Rhetos.Rest
     {
         public void Initialize()
         {
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Book", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreBook)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BookBrowse", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreBookBrowse)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BooksThemes", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreBooksThemes)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Person", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstorePerson)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/ChildBook", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreChildBook)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/ForeignBook", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreForeignBook)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Theme", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreTheme)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BookTheme", 
-                new RestServiceHostFactory(), typeof(RestServiceBookstoreBookTheme)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Soba", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeSoba)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/TipSobe", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeTipSobe)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Rezervacija", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeRezervacija)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/BrojRezervacijaPoSobi", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeBrojRezervacijaPoSobi)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/BrowseSoba", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeBrowseSoba)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Hotel", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeHotel)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Gost", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeGost)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/StraniGost", 
-                new RestServiceHostFactory(), typeof(RestServiceRezervacijeStraniGost)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/AutoCodeCache", 
                 new RestServiceHostFactory(), typeof(RestServiceCommonAutoCodeCache)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/FilterId", 
@@ -204,6 +172,38 @@ namespace Rhetos.Rest
                 new RestServiceHostFactory(), typeof(RestServiceCommonPrincipalPermission)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/RolePermission", 
                 new RestServiceHostFactory(), typeof(RestServiceCommonRolePermission)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Book", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreBook)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BookBrowse", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreBookBrowse)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BooksThemes", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreBooksThemes)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Person", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstorePerson)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/ChildBook", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreChildBook)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/ForeignBook", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreForeignBook)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/Theme", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreTheme)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Bookstore/BookTheme", 
+                new RestServiceHostFactory(), typeof(RestServiceBookstoreBookTheme)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Soba", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeSoba)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/TipSobe", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeTipSobe)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Rezervacija", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeRezervacija)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/BrojRezervacijaPoSobi", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeBrojRezervacijaPoSobi)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/BrowseSoba", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeBrowseSoba)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Hotel", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeHotel)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/Gost", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeGost)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Rezervacije/StraniGost", 
+                new RestServiceHostFactory(), typeof(RestServiceRezervacijeStraniGost)));
             /*InitialCodeGenerator.ServiceInitializationTag*/
         }
 
@@ -213,1648 +213,6 @@ namespace Rhetos.Rest
     }
 
 
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreBook
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Book*/
-
-        public RestServiceBookstoreBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Book*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Book*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                Tuple.Create("Bookstore.Pretrazivanje2", typeof(Bookstore.Pretrazivanje2)),
-                Tuple.Create("Pretrazivanje2", typeof(Bookstore.Pretrazivanje2)),
-                Tuple.Create("Bookstore.Pretrazivanje", typeof(Bookstore.Pretrazivanje)),
-                Tuple.Create("Pretrazivanje", typeof(Bookstore.Pretrazivanje)),
-                Tuple.Create("Bookstore.NumberOfPages_MinValueFilter", typeof(Bookstore.NumberOfPages_MinValueFilter)),
-                Tuple.Create("NumberOfPages_MinValueFilter", typeof(Bookstore.NumberOfPages_MinValueFilter)),
-                Tuple.Create("Bookstore.ForeignBookAuthorNameStartsWithX", typeof(Bookstore.ForeignBookAuthorNameStartsWithX)),
-                Tuple.Create("ForeignBookAuthorNameStartsWithX", typeof(Bookstore.ForeignBookAuthorNameStartsWithX)),
-                Tuple.Create("Bookstore.CommonMisspelling", typeof(Bookstore.CommonMisspelling)),
-                Tuple.Create("CommonMisspelling", typeof(Bookstore.CommonMisspelling)),
-                Tuple.Create("Bookstore.SystemRequiredCode", typeof(Bookstore.SystemRequiredCode)),
-                Tuple.Create("SystemRequiredCode", typeof(Bookstore.SystemRequiredCode)),
-                /*DataStructureInfo FilterTypes Bookstore.Book*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.Book> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.Book> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.Book> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.Book GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.Book>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstoreBook(Bookstore.Book entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstoreBook(string id, Bookstore.Book entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstoreBook(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.Book { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.Book*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreBookBrowse
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BookBrowse*/
-
-        public RestServiceBookstoreBookBrowse(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BookBrowse*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BookBrowse*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.BookBrowse*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.BookBrowse> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.BookBrowse> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.BookBrowse> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.BookBrowse GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.BookBrowse>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        /*DataStructureInfo AdditionalOperations Bookstore.BookBrowse*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreBooksThemes
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BooksThemes*/
-
-        public RestServiceBookstoreBooksThemes(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BooksThemes*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BooksThemes*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.BooksThemes*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.BooksThemes> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.BooksThemes> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.BooksThemes> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.BooksThemes GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.BooksThemes>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        /*DataStructureInfo AdditionalOperations Bookstore.BooksThemes*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstorePerson
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Person*/
-
-        public RestServiceBookstorePerson(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Person*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Person*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.Person*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.Person> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.Person> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.Person> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.Person GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.Person>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstorePerson(Bookstore.Person entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstorePerson(string id, Bookstore.Person entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstorePerson(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.Person { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.Person*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreChildBook
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.ChildBook*/
-
-        public RestServiceBookstoreChildBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.ChildBook*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.ChildBook*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.ChildBook*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.ChildBook> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.ChildBook> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.ChildBook> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.ChildBook GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.ChildBook>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstoreChildBook(Bookstore.ChildBook entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstoreChildBook(string id, Bookstore.ChildBook entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstoreChildBook(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.ChildBook { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.ChildBook*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreForeignBook
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.ForeignBook*/
-
-        public RestServiceBookstoreForeignBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.ForeignBook*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.ForeignBook*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.ForeignBook*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.ForeignBook> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.ForeignBook> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.ForeignBook> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.ForeignBook GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.ForeignBook>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstoreForeignBook(Bookstore.ForeignBook entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstoreForeignBook(string id, Bookstore.ForeignBook entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstoreForeignBook(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.ForeignBook { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.ForeignBook*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreTheme
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Theme*/
-
-        public RestServiceBookstoreTheme(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Theme*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Theme*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Bookstore.Theme*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.Theme> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.Theme> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.Theme> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.Theme GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.Theme>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstoreTheme(Bookstore.Theme entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstoreTheme(string id, Bookstore.Theme entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstoreTheme(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.Theme { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.Theme*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceBookstoreBookTheme
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BookTheme*/
-
-        public RestServiceBookstoreBookTheme(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BookTheme*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BookTheme*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                Tuple.Create("Bookstore.SystemRequiredBook", typeof(Bookstore.SystemRequiredBook)),
-                Tuple.Create("SystemRequiredBook", typeof(Bookstore.SystemRequiredBook)),
-                /*DataStructureInfo FilterTypes Bookstore.BookTheme*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Bookstore.BookTheme> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Bookstore.BookTheme> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Bookstore.BookTheme> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Bookstore.BookTheme GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Bookstore.BookTheme>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertBookstoreBookTheme(Bookstore.BookTheme entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateBookstoreBookTheme(string id, Bookstore.BookTheme entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteBookstoreBookTheme(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Bookstore.BookTheme { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Bookstore.BookTheme*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeSoba
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Soba*/
-
-        public RestServiceRezervacijeSoba(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Soba*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Soba*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                Tuple.Create("Rezervacije.PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
-                Tuple.Create("PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
-                Tuple.Create("Rezervacije.CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
-                Tuple.Create("CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
-                /*DataStructureInfo FilterTypes Rezervacije.Soba*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.Soba> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.Soba> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.Soba> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.Soba GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.Soba>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeSoba(Rezervacije.Soba entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeSoba(string id, Rezervacije.Soba entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeSoba(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.Soba { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.Soba*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeTipSobe
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.TipSobe*/
-
-        public RestServiceRezervacijeTipSobe(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.TipSobe*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.TipSobe*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                Tuple.Create("Rezervacije.PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
-                Tuple.Create("PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
-                Tuple.Create("Rezervacije.Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
-                Tuple.Create("Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
-                /*DataStructureInfo FilterTypes Rezervacije.TipSobe*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.TipSobe> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.TipSobe> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.TipSobe> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.TipSobe GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.TipSobe>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeTipSobe(Rezervacije.TipSobe entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeTipSobe(string id, Rezervacije.TipSobe entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeTipSobe(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.TipSobe { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.TipSobe*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeRezervacija
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Rezervacija*/
-
-        public RestServiceRezervacijeRezervacija(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Rezervacija*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Rezervacija*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.Rezervacija*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.Rezervacija> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.Rezervacija> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.Rezervacija> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.Rezervacija GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.Rezervacija>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeRezervacija(Rezervacije.Rezervacija entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeRezervacija(string id, Rezervacije.Rezervacija entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeRezervacija(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.Rezervacija { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.Rezervacija*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeBrojRezervacijaPoSobi
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.BrojRezervacijaPoSobi*/
-
-        public RestServiceRezervacijeBrojRezervacijaPoSobi(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.BrojRezervacijaPoSobi*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.BrojRezervacijaPoSobi*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.BrojRezervacijaPoSobi*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.BrojRezervacijaPoSobi> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.BrojRezervacijaPoSobi> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.BrojRezervacijaPoSobi> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.BrojRezervacijaPoSobi GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.BrojRezervacijaPoSobi>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        /*DataStructureInfo AdditionalOperations Rezervacije.BrojRezervacijaPoSobi*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeBrowseSoba
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.BrowseSoba*/
-
-        public RestServiceRezervacijeBrowseSoba(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.BrowseSoba*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.BrowseSoba*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.BrowseSoba*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.BrowseSoba> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.BrowseSoba> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.BrowseSoba> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.BrowseSoba GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.BrowseSoba>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        /*DataStructureInfo AdditionalOperations Rezervacije.BrowseSoba*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeHotel
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Hotel*/
-
-        public RestServiceRezervacijeHotel(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Hotel*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Hotel*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.Hotel*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.Hotel> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.Hotel> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.Hotel> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.Hotel GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.Hotel>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeHotel(Rezervacije.Hotel entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeHotel(string id, Rezervacije.Hotel entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeHotel(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.Hotel { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.Hotel*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeGost
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Gost*/
-
-        public RestServiceRezervacijeGost(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Gost*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Gost*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.Gost*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.Gost> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.Gost> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.Gost> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.Gost GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.Gost>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeGost(Rezervacije.Gost entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeGost(string id, Rezervacije.Gost entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeGost(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.Gost { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.Gost*/
-    }
-    
-    [System.ServiceModel.ServiceContract]
-    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceRezervacijeStraniGost
-    {
-        private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.StraniGost*/
-
-        public RestServiceRezervacijeStraniGost(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.StraniGost*/)
-        {
-            _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.StraniGost*/
-        }
-    
-        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
-            {
-                /*DataStructureInfo FilterTypes Rezervacije.StraniGost*/
-            }
-            .GroupBy(typeName => typeName.Item1)
-            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<Rezervacije.StraniGost> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: false);
-            return new RecordsResult<Rezervacije.StraniGost> { Records = data.Records };
-        }
-
-        [Obsolete]
-        [OperationContract]
-        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new CountResult { TotalRecords = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
-        [OperationContract]
-        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
-        {
-            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
-                readRecords: false, readTotalCount: true);
-            return new TotalCountResult { TotalCount = data.TotalCount };
-        }
-
-        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
-        [OperationContract]
-        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<Rezervacije.StraniGost> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
-        {
-            return _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
-                readRecords: true, readTotalCount: true);
-        }
-
-        [OperationContract]
-        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public Rezervacije.StraniGost GetById(string id)
-        {
-            var result = _serviceUtility.GetDataById<Rezervacije.StraniGost>(id);
-            if (result == null)
-                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
-            return result;
-        }
-
-        
-        [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertRezervacijeStraniGost(Rezervacije.StraniGost entity)
-        {
-            if (Guid.Empty == entity.ID)
-                entity.ID = Guid.NewGuid();
-
-            var result = _serviceUtility.InsertData(entity);
-            return new InsertDataResult { ID = entity.ID };
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateRezervacijeStraniGost(string id, Rezervacije.StraniGost entity)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            if (Guid.Empty == entity.ID)
-                entity.ID = guid;
-            if (guid != entity.ID)
-                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
-
-            _serviceUtility.UpdateData(entity);
-        }
-
-        [OperationContract]
-        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteRezervacijeStraniGost(string id)
-        {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new Rezervacije.StraniGost { ID = guid };
-
-            _serviceUtility.DeleteData(entity);
-        }
-
-/*DataStructureInfo AdditionalOperations Rezervacije.StraniGost*/
-    }
-    
     [System.ServiceModel.ServiceContract]
     [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
     public class RestServiceCommonAutoCodeCache
@@ -3665,6 +2023,1648 @@ namespace Rhetos.Rest
         }
 
 /*DataStructureInfo AdditionalOperations Common.RolePermission*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreBook
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Book*/
+
+        public RestServiceBookstoreBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Book*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Book*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                Tuple.Create("Bookstore.Pretrazivanje2", typeof(Bookstore.Pretrazivanje2)),
+                Tuple.Create("Pretrazivanje2", typeof(Bookstore.Pretrazivanje2)),
+                Tuple.Create("Bookstore.Pretrazivanje", typeof(Bookstore.Pretrazivanje)),
+                Tuple.Create("Pretrazivanje", typeof(Bookstore.Pretrazivanje)),
+                Tuple.Create("Bookstore.NumberOfPages_MinValueFilter", typeof(Bookstore.NumberOfPages_MinValueFilter)),
+                Tuple.Create("NumberOfPages_MinValueFilter", typeof(Bookstore.NumberOfPages_MinValueFilter)),
+                Tuple.Create("Bookstore.ForeignBookAuthorNameStartsWithX", typeof(Bookstore.ForeignBookAuthorNameStartsWithX)),
+                Tuple.Create("ForeignBookAuthorNameStartsWithX", typeof(Bookstore.ForeignBookAuthorNameStartsWithX)),
+                Tuple.Create("Bookstore.CommonMisspelling", typeof(Bookstore.CommonMisspelling)),
+                Tuple.Create("CommonMisspelling", typeof(Bookstore.CommonMisspelling)),
+                Tuple.Create("Bookstore.SystemRequiredCode", typeof(Bookstore.SystemRequiredCode)),
+                Tuple.Create("SystemRequiredCode", typeof(Bookstore.SystemRequiredCode)),
+                /*DataStructureInfo FilterTypes Bookstore.Book*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.Book> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.Book> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.Book> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.Book>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.Book GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.Book>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstoreBook(Bookstore.Book entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstoreBook(string id, Bookstore.Book entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstoreBook(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.Book { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.Book*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreBookBrowse
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BookBrowse*/
+
+        public RestServiceBookstoreBookBrowse(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BookBrowse*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BookBrowse*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.BookBrowse*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.BookBrowse> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.BookBrowse> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.BookBrowse> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.BookBrowse>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.BookBrowse GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.BookBrowse>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations Bookstore.BookBrowse*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreBooksThemes
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BooksThemes*/
+
+        public RestServiceBookstoreBooksThemes(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BooksThemes*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BooksThemes*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.BooksThemes*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.BooksThemes> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.BooksThemes> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.BooksThemes> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.BooksThemes>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.BooksThemes GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.BooksThemes>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations Bookstore.BooksThemes*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstorePerson
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Person*/
+
+        public RestServiceBookstorePerson(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Person*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Person*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.Person*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.Person> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.Person> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.Person> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.Person>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.Person GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.Person>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstorePerson(Bookstore.Person entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstorePerson(string id, Bookstore.Person entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstorePerson(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.Person { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.Person*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreChildBook
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.ChildBook*/
+
+        public RestServiceBookstoreChildBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.ChildBook*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.ChildBook*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.ChildBook*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.ChildBook> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.ChildBook> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.ChildBook> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.ChildBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.ChildBook GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.ChildBook>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstoreChildBook(Bookstore.ChildBook entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstoreChildBook(string id, Bookstore.ChildBook entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstoreChildBook(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.ChildBook { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.ChildBook*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreForeignBook
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.ForeignBook*/
+
+        public RestServiceBookstoreForeignBook(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.ForeignBook*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.ForeignBook*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.ForeignBook*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.ForeignBook> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.ForeignBook> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.ForeignBook> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.ForeignBook>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.ForeignBook GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.ForeignBook>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstoreForeignBook(Bookstore.ForeignBook entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstoreForeignBook(string id, Bookstore.ForeignBook entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstoreForeignBook(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.ForeignBook { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.ForeignBook*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreTheme
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.Theme*/
+
+        public RestServiceBookstoreTheme(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.Theme*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.Theme*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Bookstore.Theme*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.Theme> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.Theme> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.Theme> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.Theme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.Theme GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.Theme>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstoreTheme(Bookstore.Theme entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstoreTheme(string id, Bookstore.Theme entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstoreTheme(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.Theme { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.Theme*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceBookstoreBookTheme
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Bookstore.BookTheme*/
+
+        public RestServiceBookstoreBookTheme(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Bookstore.BookTheme*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Bookstore.BookTheme*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                Tuple.Create("Bookstore.SystemRequiredBook", typeof(Bookstore.SystemRequiredBook)),
+                Tuple.Create("SystemRequiredBook", typeof(Bookstore.SystemRequiredBook)),
+                /*DataStructureInfo FilterTypes Bookstore.BookTheme*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Bookstore.BookTheme> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Bookstore.BookTheme> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Bookstore.BookTheme> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Bookstore.BookTheme>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Bookstore.BookTheme GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Bookstore.BookTheme>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertBookstoreBookTheme(Bookstore.BookTheme entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateBookstoreBookTheme(string id, Bookstore.BookTheme entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteBookstoreBookTheme(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Bookstore.BookTheme { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Bookstore.BookTheme*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeSoba
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Soba*/
+
+        public RestServiceRezervacijeSoba(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Soba*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Soba*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                Tuple.Create("Rezervacije.PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
+                Tuple.Create("PretrazivanjeSobe", typeof(Rezervacije.PretrazivanjeSobe)),
+                Tuple.Create("Rezervacije.CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
+                Tuple.Create("CommonMisspelling", typeof(Rezervacije.CommonMisspelling)),
+                /*DataStructureInfo FilterTypes Rezervacije.Soba*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.Soba> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.Soba> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.Soba> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.Soba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.Soba GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.Soba>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeSoba(Rezervacije.Soba entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeSoba(string id, Rezervacije.Soba entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeSoba(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.Soba { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.Soba*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeTipSobe
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.TipSobe*/
+
+        public RestServiceRezervacijeTipSobe(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.TipSobe*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.TipSobe*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                Tuple.Create("Rezervacije.PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
+                Tuple.Create("PretrazivanjeTipSobe", typeof(Rezervacije.PretrazivanjeTipSobe)),
+                Tuple.Create("Rezervacije.Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
+                Tuple.Create("Cijena_MaxValueFilter", typeof(Rezervacije.Cijena_MaxValueFilter)),
+                /*DataStructureInfo FilterTypes Rezervacije.TipSobe*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.TipSobe> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.TipSobe> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.TipSobe> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.TipSobe>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.TipSobe GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.TipSobe>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeTipSobe(Rezervacije.TipSobe entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeTipSobe(string id, Rezervacije.TipSobe entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeTipSobe(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.TipSobe { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.TipSobe*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeRezervacija
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Rezervacija*/
+
+        public RestServiceRezervacijeRezervacija(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Rezervacija*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Rezervacija*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.Rezervacija*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.Rezervacija> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.Rezervacija> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.Rezervacija> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.Rezervacija>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.Rezervacija GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.Rezervacija>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeRezervacija(Rezervacije.Rezervacija entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeRezervacija(string id, Rezervacije.Rezervacija entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeRezervacija(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.Rezervacija { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.Rezervacija*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeBrojRezervacijaPoSobi
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.BrojRezervacijaPoSobi*/
+
+        public RestServiceRezervacijeBrojRezervacijaPoSobi(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.BrojRezervacijaPoSobi*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.BrojRezervacijaPoSobi*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.BrojRezervacijaPoSobi*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.BrojRezervacijaPoSobi> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.BrojRezervacijaPoSobi> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.BrojRezervacijaPoSobi> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.BrojRezervacijaPoSobi>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.BrojRezervacijaPoSobi GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.BrojRezervacijaPoSobi>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations Rezervacije.BrojRezervacijaPoSobi*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeBrowseSoba
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.BrowseSoba*/
+
+        public RestServiceRezervacijeBrowseSoba(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.BrowseSoba*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.BrowseSoba*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.BrowseSoba*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.BrowseSoba> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.BrowseSoba> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.BrowseSoba> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.BrowseSoba>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.BrowseSoba GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.BrowseSoba>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations Rezervacije.BrowseSoba*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeHotel
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Hotel*/
+
+        public RestServiceRezervacijeHotel(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Hotel*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Hotel*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.Hotel*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.Hotel> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.Hotel> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.Hotel> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.Hotel>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.Hotel GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.Hotel>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeHotel(Rezervacije.Hotel entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeHotel(string id, Rezervacije.Hotel entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeHotel(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.Hotel { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.Hotel*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeGost
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.Gost*/
+
+        public RestServiceRezervacijeGost(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.Gost*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.Gost*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.Gost*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.Gost> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.Gost> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.Gost> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.Gost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.Gost GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.Gost>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeGost(Rezervacije.Gost entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeGost(string id, Rezervacije.Gost entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeGost(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.Gost { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.Gost*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceRezervacijeStraniGost
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization Rezervacije.StraniGost*/
+
+        public RestServiceRezervacijeStraniGost(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter Rezervacije.StraniGost*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties Rezervacije.StraniGost*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes Rezervacije.StraniGost*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<Rezervacije.StraniGost> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<Rezervacije.StraniGost> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<Rezervacije.StraniGost> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<Rezervacije.StraniGost>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public Rezervacije.StraniGost GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<Rezervacije.StraniGost>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public InsertDataResult InsertRezervacijeStraniGost(Rezervacije.StraniGost entity)
+        {
+            if (Guid.Empty == entity.ID)
+                entity.ID = Guid.NewGuid();
+
+            var result = _serviceUtility.InsertData(entity);
+            return new InsertDataResult { ID = entity.ID };
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void UpdateRezervacijeStraniGost(string id, Rezervacije.StraniGost entity)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            if (Guid.Empty == entity.ID)
+                entity.ID = guid;
+            if (guid != entity.ID)
+                throw new Rhetos.LegacyClientException("Given entity ID is not equal to resource ID from URI.");
+
+            _serviceUtility.UpdateData(entity);
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void DeleteRezervacijeStraniGost(string id)
+        {
+            Guid guid;
+            if (!Guid.TryParse(id, out guid))
+                throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
+            var entity = new Rezervacije.StraniGost { ID = guid };
+
+            _serviceUtility.DeleteData(entity);
+        }
+
+/*DataStructureInfo AdditionalOperations Rezervacije.StraniGost*/
     }
     /*InitialCodeGenerator.RhetosRestClassesTag*/
 

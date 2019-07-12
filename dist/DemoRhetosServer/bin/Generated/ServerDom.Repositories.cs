@@ -4899,6 +4899,9 @@ namespace Rezervacije._Helper
             }
             /*DataStructureInfo WritableOrm ArgumentValidation Rezervacije.Soba*/
 
+            foreach (var item in insertedNew.Concat(updatedNew))
+                    item.Ime = item.Ime
+                                                        .Replace(" ", string.Empty);
             { // UkloniRazmakePriSpremanju
                 foreach (var room in insertedNew.Concat(updatedNew))
                     room.Ime = room.Ime.Replace(" ", string.Empty);

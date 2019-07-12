@@ -130,9 +130,9 @@
           <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="Created" Type="datetime" Nullable="true" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_LogRelatedItem">
           <Key>
@@ -151,8 +151,8 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Relation" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="LogID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_LogID, Order: 0 }" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_Principal">
           <Key>
@@ -199,9 +199,9 @@
           <Property Name="ContextInfo" Type="nvarchar(max)" Nullable="true" />
           <Property Name="Action" Type="nvarchar(max)" Nullable="true" />
           <Property Name="TableName" Type="nvarchar(max)" Nullable="true" />
-          <Property Name="Created" Type="datetime" Nullable="true" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
           <Property Name="ItemId" Type="uniqueidentifier" Nullable="true" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+          <Property Name="Created" Type="datetime" Nullable="true" />
         </EntityType>
         <EntityType Name="Common_RoleInheritsRole">
           <Key>

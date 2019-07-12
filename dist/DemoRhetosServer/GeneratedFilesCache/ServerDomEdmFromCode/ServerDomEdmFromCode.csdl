@@ -140,9 +140,9 @@
           <Property Name="ContextInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ItemId" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" />
         </EntityType>
         <EntityType Name="Common_LogRelatedItem" customannotation:ClrType="Common.Queryable.Common_LogRelatedItem, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <Key>
@@ -162,8 +162,8 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Relation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LogID" Type="Guid" />
           <Property Name="ItemId" Type="Guid" />
+          <Property Name="LogID" Type="Guid" />
           <NavigationProperty Name="Log" Relationship="Self.Common_LogRelatedItemReader_Log" FromRole="Common_LogRelatedItemReader_Log_Source" ToRole="Common_LogRelatedItemReader_Log_Target" />
         </EntityType>
         <EntityType Name="Common_Principal" customannotation:ClrType="Common.Queryable.Common_Principal, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -215,9 +215,9 @@
           <Property Name="ContextInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ItemId" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" />
           <NavigationProperty Name="Log" Relationship="Self.Common_RelatedEventsSource_Log" FromRole="Common_RelatedEventsSource_Log_Source" ToRole="Common_RelatedEventsSource_Log_Target" />
         </EntityType>
         <EntityType Name="Common_RoleInheritsRole" customannotation:ClrType="Common.Queryable.Common_RoleInheritsRole, ServerDom.Model, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
